@@ -432,6 +432,62 @@
     if (lastFocused && lastFocused.focus) { try { lastFocused.focus(); } catch (e) {} }
     lastFocused = null;
   }
+  // ---------- Histoire du club (filons + légendes) ----------
+  function openStory(o) {
+    var m = document.getElementById('articleModal');
+    var img = o.image
+      ? '<div class="am-hero"><img src="' + o.image + '" alt="' + esc(o.title) + '"' + (o.imgPos ? ' style="object-position:' + o.imgPos + '"' : '') + '></div>'
+      : '';
+    m.querySelector('.am-inner').innerHTML =
+      '<button class="am-close" aria-label="Fermer">×</button>' + img +
+      '<article class="am-body">' +
+        (o.meta ? '<span class="am-meta">' + esc(o.meta) + '</span>' : '') +
+        '<h2>' + esc(o.title) + '</h2>' +
+        (o.paras || []).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') +
+      '</article>';
+    m.classList.add('open');
+    m.setAttribute('aria-hidden', 'false');
+    m.scrollTop = 0;
+    document.body.classList.add('locked');
+    lastFocused = document.activeElement;
+    var cb = m.querySelector('.am-close'); if (cb) cb.focus();
+  }
+
+  function renderHistoire() {
+    var el = document.getElementById('histoireSlot');
+    if (!el || !window.HISTOIRE) return;
+    var H = window.HISTOIRE;
+    var filons = (H.filons || []).map(function (f) {
+      return '<button class="filon"><span class="filon-an">' + f.year + '</span>' +
+             '<span class="filon-ti">' + esc(f.titre) + '</span></button>';
+    }).join('');
+    var legs = (H.legendes || []).map(function (l) {
+      return '<button class="legende"><span class="leg-nom">' + esc(l.name) + '</span>' +
+             '<span class="leg-role">' + esc(l.role || '') + '</span>' +
+             '<span class="leg-era">' + esc(l.era || '') + '</span></button>';
+    }).join('');
+    el.innerHTML =
+      '<div class="hist-head"><span class="sec-kicker">120 ans au fond</span>' +
+        '<h3>La veine du temps</h3>' +
+        '<p class="hist-sub">De la surface d’aujourd’hui jusqu’à la fondation, en 1906, dans le charbon — creusez l’histoire du Racing.</p></div>' +
+      '<div class="filons">' + filons + '</div>' +
+      '<div class="hist-head hist-head2"><span class="sec-kicker">Le panthéon du fond</span>' +
+        '<h3>Les légendes sang &amp; or</h3></div>' +
+      '<div class="legendes">' + legs + '</div>';
+    el.querySelectorAll('.filon').forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        var f = H.filons[i];
+        openStory({ title: f.year + ' — ' + f.titre, meta: 'Histoire du club', paras: f.recit, image: f.image, imgPos: f.imgPos });
+      });
+    });
+    el.querySelectorAll('.legende').forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        var l = H.legendes[i];
+        openStory({ title: l.name, meta: (l.role || '') + ' · ' + (l.era || ''), paras: l.texte, image: l.image, imgPos: l.imgPos });
+      });
+    });
+  }
+
   function renderSpotlight() {
     var el = document.getElementById('squadSpotlight');
     if (!el) return;
@@ -476,6 +532,7 @@
     mineEls.lamp   = document.getElementById('mineLamp');
     mineEls.lampOverlay = document.getElementById('lampOverlay');
     mineEls.gaugeN = document.querySelector('#depthGauge .d');
+    mineEls.gaugeYr = document.querySelector('#depthGauge .yr');
     mineEls.gaugeF = document.querySelector('#depthGauge .rail i');
     mineEls.gauge  = document.getElementById('depthGauge');
     // génère les paliers de galerie avec leur profondeur
@@ -524,6 +581,7 @@
     if (mineEls.haze) mineEls.haze.style.opacity = (0.15 + p * 0.85).toFixed(3);
     // jauge de profondeur
     if (mineEls.gaugeN) mineEls.gaugeN.textContent = '−' + Math.round(p * MAX_DEPTH) + ' m';
+    if (mineEls.gaugeYr) mineEls.gaugeYr.textContent = Math.round(2026 - p * 120); // 0 m -> 2026, -1906 m -> 1906
     if (mineEls.gaugeF) mineEls.gaugeF.style.height = (p * 100) + '%';
     if (mineEls.gauge) mineEls.gauge.classList.toggle('deep', p > 0.15);
     // lampe torche : le voile sombre s'installe et se resserre avec la profondeur
@@ -792,6 +850,7 @@
     renderPlayers();
     renderMatch();
     renderStandings();
+    renderHistoire();
     buildEmbers();
     cacheMine();
     buildDust();
