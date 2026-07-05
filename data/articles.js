@@ -9,6 +9,28 @@
 
 window.ARTICLES = [
   {
+    id: 'atom-piste-sarr',
+    date: '2026-07-03',
+    time: '11:30',
+    category: 'mercato',
+    title: 'Un successeur à Malang Sarr dans le viseur : Lens s’intéresse à Noël Atom',
+    excerpt: 'Libre depuis son départ de Brighton, le défenseur central allemand Noël Atom est suivi de près par le RC Lens pour combler le vide laissé par Malang Sarr.',
+    image: '',
+    featured: null,
+    pinned: false,
+    body: [
+      'Après le départ de Malang Sarr, arrivé en fin de contrat le 1er juillet, le RC Lens s’active pour lui trouver un successeur dans l’axe de la défense. Le nom qui revient avec insistance ces derniers jours est celui de Noël Atom, défenseur central allemand de 21 ans.',
+      'Formé au centre de formation du RB Leipzig, Atom a ensuite tenté sa chance en Premier League du côté de Brighton, sans parvenir à s’y imposer durablement. Devenu libre de tout contrat, il représente une opportunité de marché intéressante pour un club comme Lens, qui aborde son mercato avec prudence après une saison marquée par plusieurs ventes majeures.',
+      'Son profil physique impressionne : avec son 1,97 m, Atom est présenté comme un défenseur athlétique et solide dans le jeu aérien, deux qualités recherchées par le staff lensois pour compenser le départ de Sarr et sécuriser l’arrière-garde avant une saison de Ligue des champions.',
+      'Le dossier n’est toutefois pas simple : le Stade Brestois serait également positionné sur le joueur et aurait entamé des discussions avec son entourage. Lens pourrait toutefois faire valoir un argument de poids, sa qualification européenne, pour convaincre le joueur de rejoindre Bollaert.',
+      'Rien n’est acté à ce stade, et le club artésien explore en parallèle d’autres pistes défensives pour étoffer un secteur qui doit encore se réorganiser après les départs de l’été. L’issue de ce dossier devrait se préciser dans les prochains jours.'
+    ],
+    sources: [
+      { name: 'Média Sportif', url: 'https://www.mediasportif.fr/2026/07/03/rc-lens-mercato-le-successeur-de-malang-sarr-trouve-et-ca-ne-va-rien-couter/' },
+      { name: 'AllezLens', url: 'https://allezlens.fr/le-rc-lens-aurait-il-trouve-le-remplacant-de-malang-sarr/' }
+    ]
+  },
+  {
     id: 'abdulhamid-officiel',
     date: '2026-06-04',
     time: '14:15',
