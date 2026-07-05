@@ -1,30 +1,32 @@
 @echo off
 REM ============================================================
-REM  Charbonneurs - maj articles (a lancer par double-clic, ~1x/jour)
-REM  Utilise Claude Code en mode economique (modele Sonnet).
+REM  Charbonneurs - maj articles (double-clic, ~1 a 2x/jour)
 REM ============================================================
 setlocal
 set "PROJ=C:\Users\gras\Desktop\Outils\lens"
 set "CLAUDE=C:\Users\gras\AppData\Local\Microsoft\WinGet\Packages\Anthropic.ClaudeCode_Microsoft.Winget.Source_8wekyb3d8bbwe\claude.exe"
-set "LOG=%PROJ%\maj.log"
+
+REM ==== MODELE : change la valeur ci-dessous selon ton envie ====
+REM    claude-sonnet-5             equilibre qualite/vitesse  (recommande)
+REM    claude-opus-4-8            meilleure qualite d'ecriture (un peu plus lent)
+REM    claude-haiku-4-5-20251001  le plus rapide / plus leger
+set "MODEL=claude-sonnet-5"
+
 cd /d "%PROJ%"
-
-echo ================================================== >> "%LOG%"
-echo [%date% %time%] Demarrage maj-articles >> "%LOG%"
-echo.
-echo   Mise a jour des articles du RC Lens en cours...
-echo   (le detail s'ecrit dans maj.log)
+echo ==================================================
+echo   Charbonneurs - maj articles  (%date% %time%)
+echo   Modele : %MODEL%
+echo ==================================================
 echo.
 
-REM Modele economique + plafond d'iterations + mode autonome (sans invite)
-"%CLAUDE%" --model claude-sonnet-5 --max-turns 40 --dangerously-skip-permissions -p "/maj-articles" >> "%LOG%" 2>&1
+REM Sortie affichee EN DIRECT dans cette fenetre (--verbose = on voit l'activite)
+"%CLAUDE%" --model %MODEL% --max-turns 40 --verbose --dangerously-skip-permissions -p "/maj-articles"
 
-REM Envoi sur GitHub (Netlify redeploie si le site est relie au depot)
-git push origin main >> "%LOG%" 2>&1
+echo.
+echo ---- envoi sur GitHub ----
+git push origin main
 
-echo [%date% %time%] Termine >> "%LOG%"
 echo.
-echo   Termine ! Verifie le rendu, details dans maj.log
-echo.
+echo   Termine ! (la fenetre reste ouverte)
 pause
 endlocal
