@@ -23,6 +23,7 @@ de chaque fichier de ce dossier, puis fais un résumé global.
 
 ### Règles communes
 - N'édite que les fichiers `data/` concernés + `images/players/` pour les photos libres.
+- **Frugalité tokens** (quitte à être un peu plus lent) : 1-2 recherches web max par section, lectures/greps ciblés (pas de fichiers entiers), **aucun sous-agent**, résumés courts.
 - Garde toujours un **JavaScript valide** ; ne supprime jamais l'historique des articles.
 - **Aucun contenu protégé** : faits reformulés, photos **libres (Wikimedia CC)**, vidéos en
   **intégration/lien YouTube** (jamais bloquées en France, jamais de fichier vidéo protégé).

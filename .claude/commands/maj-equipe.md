@@ -4,6 +4,8 @@ description: Met à jour l'effectif (joueurs, stats, photos) du site Charbonneur
 
 Tu mets à jour **uniquement** `data/players.js` (effectif de la saison en cours).
 
+⚙️ **Frugalité tokens** (quitte à être un peu plus lent) : recherches web limitées (1-2), greps/lectures ciblés (jamais de fichiers entiers), petits remplacements, **aucun sous-agent**, résumé court.
+
 1. **Vérifie l'effectif ACTUEL** (WebSearch + WebFetch), en **croisant plusieurs sources** :
    - **En priorité la page officielle du club `rclens.fr`** (effectif / équipe première) pour
      confirmer les joueurs présents et les numéros,

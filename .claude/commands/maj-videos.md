@@ -4,6 +4,8 @@ description: Met à jour les vidéos (Lens Foot TV) du site Charbonneurs
 
 Tu mets à jour **uniquement** `data/videos.js`.
 
+⚙️ **Frugalité tokens** (quitte à être un peu plus lent) : recherches web limitées (1-2), vérifs ciblées (oEmbed/`playableInEmbed`), petits remplacements, **aucun sous-agent**, résumé court.
+
 1. **Lis** `data/videos.js` (les `id` déjà présents).
 2. **Recherche** (WebSearch) des vidéos YouTube RC Lens récentes : résumés, buts,
    interviews, coulisses, conférences de presse, documentaires, **et compilations

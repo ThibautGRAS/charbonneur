@@ -5,6 +5,13 @@ description: Met à jour le fil d'articles du site Charbonneurs (actu RC Lens)
 Tu mets à jour le fil d'actualité (`data/articles.js`), avec pour chaque article une
 **photo libre en lien avec le sujet**, sans jamais casser le site ni supprimer d'anciens articles.
 
+## ⚙️ Frugalité en tokens (prioritaire — quitte à être un peu plus lent)
+- **1 seule recherche web** au départ (2 max) ; pas de recherches en cascade.
+- **1 à 2 articles** par run, pas 3.
+- **Ne lis pas les fichiers en entier** : récupère les `id` existants par un **grep ciblé**, édite par **petits remplacements** (pas de réécriture de fichier).
+- **N'ouvre pas** les grands contenus web en entier, et **ne charge une image que si nécessaire** (le recadrage visage se fait par script cv2, pas besoin de « voir » chaque photo).
+- **Aucun sous-agent** : fais tout en direct. Résumé final **court** (2-3 lignes).
+
 1. **Lis** `data/articles.js` (les `id` déjà présents).
 2. **Recherche** (WebSearch) l'actu RC Lens des dernières 24-48 h :
    « RC Lens actualité <mois année> », « RC Lens mercato », « RC Lens match résultat ».
