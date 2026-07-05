@@ -462,7 +462,12 @@
              '<span class="filon-ti">' + esc(f.titre) + '</span></button>';
     }).join('');
     var legs = (H.legendes || []).map(function (l) {
-      return '<button class="legende"><span class="leg-nom">' + esc(l.name) + '</span>' +
+      var ini = l.name.split(/\s+/).map(function (w) { return w.charAt(0); }).join('').slice(0, 2).toUpperCase();
+      var ph = l.photo
+        ? '<span class="leg-ph"><img src="' + l.photo + '" alt="' + esc(l.name) + '" loading="lazy"></span>'
+        : '<span class="leg-ph leg-mono">' + esc(ini) + '</span>';
+      return '<button class="legende">' + ph +
+             '<span class="leg-nom">' + esc(l.name) + '</span>' +
              '<span class="leg-role">' + esc(l.role || '') + '</span>' +
              '<span class="leg-era">' + esc(l.era || '') + '</span></button>';
     }).join('');
@@ -483,7 +488,7 @@
     el.querySelectorAll('.legende').forEach(function (b, i) {
       b.addEventListener('click', function () {
         var l = H.legendes[i];
-        openStory({ title: l.name, meta: (l.role || '') + ' · ' + (l.era || ''), paras: l.texte, image: l.image, imgPos: l.imgPos });
+        openStory({ title: l.name, meta: (l.role || '') + ' · ' + (l.era || ''), paras: l.texte, image: l.photo, imgPos: l.imgPos });
       });
     });
   }
@@ -532,7 +537,6 @@
     mineEls.lamp   = document.getElementById('mineLamp');
     mineEls.lampOverlay = document.getElementById('lampOverlay');
     mineEls.gaugeN = document.querySelector('#depthGauge .d');
-    mineEls.gaugeYr = document.querySelector('#depthGauge .yr');
     mineEls.gaugeF = document.querySelector('#depthGauge .rail i');
     mineEls.gauge  = document.getElementById('depthGauge');
     // génère les paliers de galerie avec leur profondeur
@@ -581,7 +585,6 @@
     if (mineEls.haze) mineEls.haze.style.opacity = (0.15 + p * 0.85).toFixed(3);
     // jauge de profondeur
     if (mineEls.gaugeN) mineEls.gaugeN.textContent = '−' + Math.round(p * MAX_DEPTH) + ' m';
-    if (mineEls.gaugeYr) mineEls.gaugeYr.textContent = Math.round(2026 - p * 120); // 0 m -> 2026, -1906 m -> 1906
     if (mineEls.gaugeF) mineEls.gaugeF.style.height = (p * 100) + '%';
     if (mineEls.gauge) mineEls.gauge.classList.toggle('deep', p > 0.15);
     // lampe torche : le voile sombre s'installe et se resserre avec la profondeur
