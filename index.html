@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charbonneurs — L'actualité du RC Lens, de la mine à Bollaert</title>
+<meta name="description" content="Charbonneurs : média immersif 100% RC Lens — actu, mercato, vidéos, effectif et stats. Descendez dans l'antre des Sang & Or.">
+<link rel="icon" href="images/logo/Logo_RC_Lens_-_1955.svg.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ DÉCOR DE MINE (on y descend au scroll) ============ -->
+<div id="mine" aria-hidden="true">
+  <div class="wall l"></div>
+  <div class="wall r"></div>
+  <div class="beams" id="mineBeams"></div>
+  <div class="levels" id="mineLevels"></div>
+  <div class="dust" id="mineDust"></div>
+  <div class="lamp" id="mineLamp"></div>
+  <div class="haze" id="mineHaze"></div>
+  <div class="cage"></div>
+</div>
+<div class="depth-gauge" id="depthGauge" aria-hidden="true">
+  <span class="rail"><i></i></span>
+  <span class="d">−0 m</span>
+</div>
+
+<!-- Lampe torche : voile sombre au-dessus du contenu, troué au centre (suit le curseur) -->
+<div id="lampOverlay" aria-hidden="true"></div>
+
+<!-- ============ INTRO CINÉMATIQUE ============ -->
+<div class="intro" id="intro">
+  <video class="intro-video" id="introVideo" autoplay muted loop playsinline poster="images/defaut/stade.jpg">
+    <source src="video/fond.mp4" type="video/mp4">
+  </video>
+  <div class="glow"></div>
+  <div class="embers" id="embers"></div>
+  <svg class="headframe" viewBox="0 0 300 220" aria-hidden="true">
+    <g fill="#000">
+      <rect x="140" y="40" width="10" height="180"/><rect x="150" y="40" width="10" height="180"/>
+      <polygon points="120,220 145,60 155,60 180,220 168,220 150,90 132,220"/>
+      <polygon points="150,45 250,190 236,198 150,70 64,198 50,190"/>
+      <circle cx="150" cy="42" r="18" fill="none" stroke="#000" stroke-width="7"/>
+      <rect x="60" y="196" width="180" height="24"/>
+    </g>
+  </svg>
+  <div class="intro-inner">
+    <div class="kicker">Charbonneurs · 100% RC Lens</div>
+    <h1>Bienvenue dans <em>l’antre</em></h1>
+    <div class="sub">De la mine à Bollaert — l’actu Sang &amp; Or comme vous ne l’avez jamais vécue</div>
+    <button class="enter" id="enterBtn">▶ Entrer</button>
+    <div class="hint">🔊 Cliquez pour lancer l’ambiance sonore</div>
+  </div>
+</div>
+
+<button class="audio-toggle" id="audioToggle" aria-label="Couper le son">
+  <span class="eq"><span></span><span></span><span></span></span>
+</button>
+
+<!-- ============ HEADER MINIMAL ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap nav-wrap">
+    <a class="logo" href="#top" aria-label="Charbonneurs accueil">
+      <img class="logo-img" src="images/logo/Logo_RC_Lens_-_1955.svg.webp" alt="" width="38" height="42">
+      <span class="name">Charbonneurs</span>
+    </a>
+    <nav>
+      <ul class="menu" id="menu">
+        <li><a href="#top">Accueil</a></li>
+        <li><a href="#recit">La mine</a></li>
+        <li><a href="#tv">Vidéos</a></li>
+        <li><a href="#palmares">Palmarès</a></li>
+        <li><a href="#effectif">Effectif</a></li>
+        <li><a href="#actu">Actu</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HÉROS plein écran (rempli par le moteur) -->
+  <div id="hero-slot"></div>
+
+  <!-- RÉCIT : statement typographique spacieux -->
+  <section class="statement" id="recit">
+    <div class="statement-inner reveal">
+      <span class="sec-kicker">De la mine à Bollaert</span>
+      <h2>Ici, le football se joue <em>au charbon.</em></h2>
+      <p>Descendez dans l’antre des Sang &amp; Or — là où la ferveur des corons remonte à la surface, saison après saison. Plus vous descendez, plus vous vous rapprochez du cœur du Racing.</p>
+    </div>
+  </section>
+
+  <!-- PALMARÈS / STATS -->
+  <section class="section" id="palmares">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-kicker">Bilan sportif</span>
+        <h2 class="sec-title">Une saison en chiffres</h2>
+      </div>
+      <section class="stats-band reveal" aria-label="Statistiques de la saison 2025-2026">
+        <div class="stat"><span class="num" data-to="2" data-suffix="ᵉ">0</span><span class="lbl">de Ligue 1</span></div>
+        <div class="stat"><span class="num" data-to="1">0</span><span class="lbl">Coupe de France</span></div>
+        <div class="stat"><span class="num" data-to="70">0</span><span class="lbl">points en L1</span></div>
+        <div class="stat"><span class="num" data-to="38" data-suffix=" k">0</span><span class="lbl">spectateurs / match</span></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- EFFECTIF -->
+  <section class="section" id="effectif">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-kicker">L’équipe première</span>
+        <h2 class="sec-title">L’effectif Sang &amp; Or</h2>
+      </div>
+      <div id="squadSpotlight" class="reveal"></div>
+      <div class="squad-filters" id="squadFilters"></div>
+      <div class="squad" id="squad"></div>
+    </div>
+  </section>
+
+  <!-- LENS FOOT TV -->
+  <section class="section" id="tv">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-kicker">Vidéos officielles</span>
+        <h2 class="sec-title">Lens Foot TV</h2>
+      </div>
+      <div id="tv-feature" class="reveal"></div>
+      <div class="tv-grid" id="tv-grid"></div>
+    </div>
+  </section>
+
+  <!-- ACTUALITÉ -->
+  <section class="section" id="actu">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-kicker">L’actualité Sang &amp; Or</span>
+        <h2 class="sec-title">Toute l’actu du RC Lens</h2>
+      </div>
+
+      <div class="subfeat" id="subfeat-slot"></div>
+
+      <div class="layout">
+        <div class="news-main">
+          <div class="articles" id="articles"></div>
+          <button class="btn btn-ghost loadmore" id="loadmore">Charger plus d’articles</button>
+        </div>
+
+        <aside class="sidebar">
+          <section class="widget reveal">
+            <div class="widget-title">Le fil d’infos</div>
+            <div class="widget-body">
+              <ul class="fil" id="filList"></ul>
+            </div>
+          </section>
+
+          <section class="widget reveal">
+            <div class="widget-title">Dernier match</div>
+            <div class="widget-body match" id="lastMatch"></div>
+          </section>
+
+          <section class="widget reveal">
+            <div class="widget-title">Sondage</div>
+            <div class="widget-body poll">
+              <p class="q">Que peut viser le RC Lens avec Dino Toppmöller ?</p>
+              <div class="opt"><div class="bar"><div class="fill" data-w="61%"></div><div class="lbl"><span>Le podium et l’Europe</span><span>61%</span></div></div></div>
+              <div class="opt"><div class="bar"><div class="fill" data-w="29%"></div><div class="lbl"><span>Une place européenne</span><span>29%</span></div></div></div>
+              <div class="opt"><div class="bar"><div class="fill" data-w="10%"></div><div class="lbl"><span>Une saison de transition</span><span>10%</span></div></div></div>
+            </div>
+          </section>
+
+          <section class="widget reveal">
+            <div class="widget-title" id="standingsTitle">Classement</div>
+            <div class="widget-body" style="padding:.5rem" id="standingsBox"></div>
+          </section>
+
+          <section class="widget newsletter reveal">
+            <div class="widget-title">Newsletter</div>
+            <div class="widget-body">
+              <p>Recevez toute l’actu Sang &amp; Or directement dans votre boîte mail.</p>
+              <form onsubmit="alert('Merci ! (démo)');return false">
+                <input type="email" placeholder="Votre adresse e-mail" required aria-label="E-mail">
+                <button type="submit">Je m’abonne</button>
+              </form>
+            </div>
+          </section>
+
+          <section class="widget reveal">
+            <div class="widget-title">Suivez Charbonneurs</div>
+            <div class="widget-body">
+              <div class="follow-grid">
+                <a class="fb" href="#">Facebook</a>
+                <a class="tw" href="#">X / Twitter</a>
+                <a class="ig" href="#">Instagram</a>
+                <a class="yt" href="#">YouTube</a>
+              </div>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="about">
+      <span class="name">Charbonneurs</span>
+      <p>Média immersif 100% foot consacré au Racing Club de Lens : actu, mercato, vidéos, classement et stats. Une mine d’informations pour les supporters Sang &amp; Or.</p>
+    </div>
+    <div>
+      <h4>Explorer</h4>
+      <ul><li><a href="#recit">La mine</a></li><li><a href="#tv">Lens Foot TV</a></li><li><a href="#palmares">Palmarès</a></li><li><a href="#actu">Actu</a></li></ul>
+    </div>
+    <div>
+      <h4>Infos</h4>
+      <ul><li><a href="#">Nous contacter</a></li><li><a href="#">Publicité</a></li><li><a href="#">Mentions légales</a></li><li><a href="#">CGU</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap disclaimer">
+    <p><strong>Charbonneurs</strong> est un site de démonstration <strong>non officiel</strong>, réalisé par passion et
+    <strong>sans aucun lien</strong> avec le Racing Club de Lens, la LFP ou leurs partenaires. « RC Lens », le nom, le blason
+    et les couleurs du club sont des <strong>marques et éléments protégés appartenant à leurs détenteurs respectifs</strong> ;
+    ils sont utilisés à titre purement illustratif et informatif, sans but commercial.</p>
+    <p>Les <strong>photographies du stade et des supporters</strong> proviennent de
+    <a href="https://commons.wikimedia.org/wiki/Category:Stade_Bollaert-Delelis" target="_blank" rel="noopener">Wikimedia Commons</a>
+    (licences Creative Commons, créditées à leurs auteurs). Les <strong>portraits de joueurs</strong> issus de Wikimedia sont
+    sous licence libre ; toute autre image, vidéo ou son demeure la <strong>propriété de ses auteurs et ayants droit</strong>.
+    La vidéo d’ambiance provient de <strong>Pexels</strong> ; les vidéos RC Lens sont <strong>diffusées via YouTube</strong> et
+    restent hébergées par leurs titulaires.</p>
+    <p>Ce site ne poursuit aucun but lucratif. Pour toute demande de <strong>retrait</strong> d’un contenu vous appartenant,
+    une simple demande via la rubrique « Nous contacter » suffit et sera traitée sans délai.</p>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Charbonneurs — démonstration non officielle, non affiliée au RC Lens ni à la LFP.</span>
+    <span>Photos : Wikimedia Commons (CC BY-SA) · Ambiance : Pexels · Vidéos : YouTube.</span>
+  </div>
+</footer>
+
+<!-- Audio réel : corons (surface) + ascenseur (descente) -->
+<audio id="audioCorons" loop preload="auto" src="audio/coron-sdf.mp3"></audio>
+<audio id="audioElevDown" loop preload="auto" src="audio/ascenceur_descend.mp3"></audio>
+<audio id="audioElevUp" loop preload="auto" src="audio/ascenceur_monte.mp3"></audio>
+<audio id="audioPioche" loop preload="auto" src="audio/pioche.mp3"></audio>
+
+<!-- Fiche joueur -->
+<div class="player-modal" id="playerModal" role="dialog" aria-modal="true" aria-label="Fiche joueur" aria-hidden="true"><div class="pm-inner"></div></div>
+
+<!-- Lecture d'article -->
+<div class="article-modal" id="articleModal" role="dialog" aria-modal="true" aria-label="Article" aria-hidden="true"><div class="am-inner"></div></div>
+
+<script src="data/articles.js"></script>
+<script src="data/videos.js"></script>
+<script src="data/players.js"></script>
+<script src="data/club.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

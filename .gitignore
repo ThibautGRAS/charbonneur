@@ -1,0 +1,14 @@
+# OS / éditeurs
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
+*~
+*.tmp
+*.log
+
+# enregistrements / fichiers temporaires
+video/vlc-record-*
+
+# dépendances éventuelles
+node_modules/
