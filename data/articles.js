@@ -9,6 +9,49 @@
 
 window.ARTICLES = [
   {
+    id: 'risser-aston-villa',
+    date: '2026-07-05',
+    time: '11:30',
+    category: 'mercato',
+    title: 'Aston Villa suivrait de près le jeune gardien Robin Risser',
+    excerpt: 'Le portier lensois de 21 ans figurerait parmi les pistes d’Aston Villa, qui prépare l’avenir de ses cages.',
+    image: 'images/articles/risser.jpg',
+    featured: null,
+    pinned: false,
+    body: [
+      'Le nom de Robin Risser circule outre-Manche. Le jeune gardien du RC Lens, âgé de 21 ans, serait suivi par Aston Villa, qui chercherait à préparer la succession, à terme, d’Emiliano Martínez.',
+      'Produit du centre de formation, Risser incarne la politique du club : faire éclore ses talents et leur offrir une chance au plus haut niveau. Son profil moderne, à l’aise au pied, séduit au-delà des frontières.',
+      'Pour Lens, cet intérêt est à double tranchant : il valorise le travail de formation, mais pose la question de la hiérarchie des gardiens, alors qu’Hervé Koffi est de retour et vise la place de numéro un.',
+      'À ce stade, rien n’indique un départ imminent : il s’agit surtout d’une marque d’intérêt, et le club n’a aucune raison de brader un jeune prometteur encore sous contrat.',
+      'Un dossier à suivre, révélateur de l’attractivité retrouvée des jeunes Sang et Or sur le marché européen.'
+    ],
+    sources: [
+      { name: 'MadeInLens', url: 'https://www.madeinlens.com/tableau-mercato/ete-2026.html' },
+      { name: 'Foot Mercato', url: 'https://www.footmercato.net/club/racing-club-de-lens/' }
+    ]
+  },
+  {
+    id: 'sangare-grosse-vente',
+    date: '2026-07-05',
+    time: '10:00',
+    category: 'mercato',
+    title: 'Mamadou Sangaré, valorisé à plus de 40 M€, attise les convoitises anglaises',
+    excerpt: 'Le milieu lensois pourrait être la grosse vente de l’été : plusieurs clubs, notamment anglais, se positionnent.',
+    featured: null,
+    pinned: false,
+    body: [
+      'Le RC Lens tient peut-être la vente qui financera son mercato. Mamadou Sangaré, milieu de terrain valorisé à plus de 40 millions d’euros, suscite l’intérêt de plusieurs clubs, en particulier en Angleterre.',
+      'Athlétique et déjà précieux dans l’entrejeu, le joueur s’est imposé comme l’un des actifs majeurs du club. Une offre importante serait difficile à refuser dans la logique économique lensoise.',
+      'Après les départs de cadres et la nécessité d’équilibrer les comptes, une cession de cette ampleur donnerait des moyens pour se renforcer intelligemment.',
+      'Sportivement, elle obligerait toutefois à anticiper : perdre un milieu de ce calibre suppose d’avoir déjà ciblé, voire sécurisé, sa succession.',
+      'Le dossier illustre le nouveau statut du club : formateur et vendeur, capable de générer de grosses plus-values tout en visant le haut du tableau.'
+    ],
+    sources: [
+      { name: 'RCLensois.fr', url: 'https://www.rclensois.fr/transferts-mercato-rclens.html' },
+      { name: 'Mercato Live', url: 'https://www.mercatolive.fr/france/rc-lens.php' }
+    ]
+  },
+  {
     id: 'hazard-signe',
     date: '2026-07-04',
     time: '17:15',
