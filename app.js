@@ -697,7 +697,7 @@
   // En http(s):// (serveur local), on active le vrai filtre passe-bas.
   var audioCtx, master, audioNodes = {}, coronsEl, elevDownEl, elevUpEl, piocheEl, audioMode = 'plain';
   var ambienceReady = false, muted = false, mineDepth = 0, isScrolling = false, idleTimer = null, scrollDir = 1;
-  var volTarget = { corons: 0, down: 0, up: 0, pioche: 0 }, piocheRand = 0.6;
+  var volTarget = { corons: 0, down: 0, up: 0, pioche: 0 }, piocheRand = 0.6, coronsVol = 0;
   var videoDuck = false, playingCard = null, ignoreScrollStop = false;
 
   function startAmbience() {
@@ -736,9 +736,9 @@
       audioMode = 'plain';
       coronsEl.volume = 0; elevDownEl.volume = 0; elevUpEl.volume = 0;
       if (piocheEl) piocheEl.volume = 0;
-      requestAnimationFrame(audioLerp);
     }
 
+    requestAnimationFrame(audioLerp);
     startPiocheJitter();
     playAudioEls();
     ambienceReady = true;
@@ -768,13 +768,30 @@
     var v = cur + (target - cur) * (target > cur ? up : down);
     return v < 0 ? 0 : (v > 1 ? 1 : v);
   }
+  // enveloppe de boucle des corons : petit fondu au raccord (fin <-> reprise)
+  function coronsSeamFactor() {
+    if (!coronsEl) return 1;
+    var d = coronsEl.duration, ct = coronsEl.currentTime, F = 0.7;
+    if (!d || d < 2 * F) return 1;
+    var f = 1;
+    if (ct > d - F) f = (d - ct) / F;      // fondu de sortie en fin de boucle
+    else if (ct < F) f = ct / F;           // fondu d'entrée à la reprise
+    f = f < 0 ? 0 : (f > 1 ? 1 : f);
+    return 0.3 + 0.7 * f;                  // descend à ~30% au raccord, jamais coupé net
+  }
   function audioLerp() {
-    if (ambienceReady && audioMode === 'plain') {
-      var m = (muted || videoDuck) ? 0 : 1;
-      coronsEl.volume = approach(coronsEl.volume, volTarget.corons * m, 0.12, 0.10);
-      elevDownEl.volume = approach(elevDownEl.volume, volTarget.down * m, 0.16, 0.045);
-      elevUpEl.volume = approach(elevUpEl.volume, volTarget.up * m, 0.16, 0.045);
-      if (piocheEl) piocheEl.volume = approach(piocheEl.volume, volTarget.pioche * piocheRand * m, 0.10, 0.06);
+    if (ambienceReady) {
+      var seam = coronsSeamFactor();
+      if (audioMode === 'plain') {
+        var m = (muted || videoDuck) ? 0 : 1;
+        coronsVol = approach(coronsVol, volTarget.corons * m, 0.12, 0.10);
+        coronsEl.volume = coronsVol * seam;
+        elevDownEl.volume = approach(elevDownEl.volume, volTarget.down * m, 0.16, 0.045);
+        elevUpEl.volume = approach(elevUpEl.volume, volTarget.up * m, 0.16, 0.045);
+        if (piocheEl) piocheEl.volume = approach(piocheEl.volume, volTarget.pioche * piocheRand * m, 0.10, 0.06);
+      } else if (coronsEl) {
+        coronsEl.volume = seam;              // mix corons via coronsGain ; enveloppe de boucle via le volume élément
+      }
     }
     requestAnimationFrame(audioLerp);
   }
