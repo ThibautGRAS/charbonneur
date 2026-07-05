@@ -3,7 +3,7 @@
    Édité par la procédure /maj-articles. Nouvel article EN TÊTE.
    Champs : id, date, category (news|mercato|interview|mag|saison),
    title, excerpt (chapô), body (paragraphes étoffés), sources (liens),
-   image, imageCredit ({text,url} — optionnel, défaut = Wikimedia CC),
+   image, imgPos (object-position optionnel pour cadrer le visage, ex. 'center 45%'),
    featured, pinned.
    ===================================================================== */
 
@@ -16,7 +16,6 @@ window.ARTICLES = [
     title: 'Officiel : Thorgan Hazard signe au RC Lens, un retour aux sources',
     excerpt: 'Libre après son passage à Anderlecht, l’international belge s’engage deux saisons dans l’Artois — là même où il avait lancé sa carrière avant Chelsea.',
     image: 'images/articles/hazard.jpg',
-    imageCredit: { text: 'Photo : Кирилл Венедиктов, Wikimedia Commons — CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Januzaj_and_Hazard_(cropped)_2_(cropped).jpg' },
     featured: 'feat',
     pinned: false,
     body: [
@@ -207,7 +206,8 @@ window.ARTICLES = [
     category: 'mercato',
     title: 'Gift Links : Lens pousse pour le défenseur, mais le dossier avec l’AGF Aarhus se complique',
     excerpt: 'Les Sang et Or auraient transmis une offre avoisinant les 5 M€ bonus compris. L’étalement du paiement proposé freine encore les négociations.',
-    image: 'images/defaut/supporters.jpg',
+    image: 'images/articles/giftlinks.jpg',
+    imgPos: 'center 42%',
     featured: null,
     pinned: false,
     body: [

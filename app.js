@@ -397,9 +397,8 @@
     var paras = (a.body && a.body.length ? a.body : [a.excerpt]);
     m.querySelector('.am-inner').innerHTML =
       '<button class="am-close" aria-label="Fermer">×</button>' +
-      '<div class="am-hero"><img src="' + artImg(a) + '" alt="' + esc(a.title) + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a.category) + '\'">' +
+      '<div class="am-hero"><img src="' + artImg(a) + '" alt="' + esc(a.title) + '"' + (a.imgPos ? ' style="object-position:' + a.imgPos + '"' : '') + ' loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a.category) + '\'">' +
         '<span class="tag ' + c.cls + '">' + c.label + '</span>' +
-        (a.imageCredit ? '<a class="am-credit" href="' + a.imageCredit.url + '" target="_blank" rel="noopener">' + esc(a.imageCredit.text) + '</a>' : '') +
       '</div>' +
       '<article class="am-body">' +
         '<span class="am-meta">' + c.label + ' · ' + fmtDate(a.date) + '</span>' +
@@ -777,6 +776,7 @@
     startAmbience();
     document.getElementById('intro').classList.add('hidden');
     document.body.classList.remove('locked');
+    var lt = document.getElementById('lampToggle'); if (lt) lt.classList.add('show');
     // libère la vidéo d'intro (elle n'est plus visible)
     setTimeout(function () {
       var iv = document.getElementById('introVideo');
@@ -816,6 +816,13 @@
       window.addEventListener(ev, function () { cancelAutoDescend(); }, { passive: true });
     });
     document.getElementById('audioToggle').addEventListener('click', toggleAudio);
+    var lampToggle = document.getElementById('lampToggle');
+    if (lampToggle) lampToggle.addEventListener('click', function () {
+      var on = document.body.classList.toggle('lamp-disabled');
+      lampToggle.classList.toggle('on', on);
+      lampToggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+      lampToggle.setAttribute('aria-label', on ? 'Rétablir l’ambiance sombre' : 'Éclairer la page (désactiver l’effet sombre)');
+    });
     document.getElementById('loadmore').addEventListener('click', renderMore);
     document.getElementById('burger').addEventListener('click', function () {
       document.getElementById('menu').classList.toggle('open');

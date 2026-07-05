@@ -15,35 +15,35 @@ Tu mets à jour le fil d'actualité (`data/articles.js`), avec pour chaque artic
    - `category` (news|mercato|interview|mag|saison), `title`, `excerpt` (1-2 phrases),
    - `body` : **4 à 6 paragraphes étoffés** (contexte, profil/enjeux, ce que ça change, la suite),
    - `sources` : **tableau `{ name, url }`** — les **sites d'où vient l'info** (obligatoire),
-   - `image` + `imageCredit` (voir point 5),
+   - `image` (+ `imgPos` optionnel pour bien cadrer le visage — voir point 5),
    - `featured` ('hero'|'feat'|null), `pinned`.
-5. **PHOTO de l'article — pipeline automatique (images LIBRES uniquement).**
-   Applique cet **arbre de décision**, dans l'ordre :
-   - **a) Réutiliser une image LOCALE existante (à privilégier)** — identifie le **sujet central**
-     de l'article (joueur, entraîneur, ou tout autre sujet). **Liste les fichiers** de
-     `images/articles/` **et** `images/players/`, puis cherche une **correspondance de nom** en
-     normalisant (minuscules, sans accents ni séparateurs) : le sujet « Loïs Openda » doit matcher
-     `openda.jpg`, `loisopenda.jpg`, `loisopenda2.jpg`, `lois-openda.jpg`… (sous-chaîne du nom
-     et/ou prénom). Si un fichier correspond, **réutilise-le** (`image` = ce chemin) — pratique
-     pour les images déjà déposées, y compris un joueur **d'une autre équipe** ajouté à la main.
-     Terminé (pas besoin de télécharger).
-   - **b) Chercher une photo libre** de la personne :
-     1. **Wikidata** (propriété `P18`), en vérifiant l'identité **prénom + nom + nationalité**
-        (le plus fiable, évite les homonymes) ;
-     2. sinon **Wikimedia Commons** (`action=query&list=search&srnamespace=6&srlimit=12&formatversion=2`),
-        en ne retenant un fichier **que si son nom correspond au sujet**.
-     - **Vérifie le CADRAGE** : visage visible, pas de tête coupée ni de plan trop large/de dos.
-       En cas de doute, **analyse la vignette** avant de la retenir.
-     - Télécharge la miniature (`prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=640`) dans
-       **`images/articles/<slug>.jpg`**, mets `image` = ce chemin, et renseigne
-       **`imageCredit: { text, url }`** (auteur + licence CC + lien Commons).
-   - **c) Aucune photo libre fiable ?** → **laisse `image` absent/vide** (et **pas** d'`imageCredit`).
-     Le site choisit alors **tout seul** une image de `images/defaut/` **selon la catégorie**
-     (news→stade, mercato→stade2, interview→tribune, mag→bollaert-nuit, saison→kop) et gère
-     aussi le repli si une image casse. Tu n'as donc **rien à inventer**.
-   - ⚠️ **JAMAIS** de photo de presse/agence protégée (un crédit ne remplace pas une licence),
-     jamais de photo bloquée. Évite de réutiliser la **même** photo pour deux articles consécutifs.
-   - Rappel dossiers : `images/defaut/` = images par défaut · `images/articles/` = photos d'articles.
+5. **PHOTO de l'article — pipeline automatique.** Applique cet **arbre de décision**, dans l'ordre :
+   - **a) Réutiliser une image LOCALE existante (à privilégier, pour TOUT type de sujet).**
+     Identifie le **sujet central** (joueur, entraîneur, dirigeant, adversaire, jeune…). **Liste
+     les fichiers** de `images/articles/` **et** `images/players/`. **Normalise des DEUX côtés**
+     (minuscules, sans accents, sans espaces ni séparateurs, sans chiffre final) le nom du sujet ET
+     le nom de fichier (sans extension), puis retiens une image si l'un **contient** l'autre — pour
+     le **nom**, le **prénom**, ou le **nom complet collé** :
+       • « Loïs Openda » → `openda.jpg`, `loisopenda.jpg`, `lois-openda.jpg`
+       • « Gift Links » → `giftlinks.jpg`  ·  « Facundo Medina » → `medina.jpg`
+     Si un fichier correspond, **réutilise-le** (`image` = ce chemin). Terminé.
+     ⚠️ **Refais ce balayage aussi pour les articles récents DÉJÀ présents** : si une image a été
+     déposée à la main dans `images/articles/` après coup, **adopte-la** (remplace l'image par défaut).
+   - **b) Sinon, chercher une photo libre** : **Wikidata** `P18` (identité prénom + nom + nationalité,
+     anti-homonyme), sinon **Wikimedia Commons** (nom de fichier = sujet). Télécharge la miniature
+     (`iiurlwidth=640`) dans **`images/articles/<slug>.jpg`** et mets `image` = ce chemin.
+   - **c) Aucune image fiable ?** → **laisse `image` vide** : le site choisit une image de
+     `images/defaut/` selon la catégorie (news→stade, mercato→stade2, interview→tribune,
+     mag→bollaert-nuit, saison→kop). Rien à inventer.
+   - **CADRAGE — on doit BIEN VOIR LE VISAGE.** Analyse la vignette : visage entier, pas de tête
+     coupée. Le héros d'article recadre en `object-position: center 32%` par défaut ; si le visage
+     n'est pas bien centré (gros plan, montage, visage haut/bas), **règle le champ `imgPos`** de
+     l'article (ex. `'center 45%'`, `'center top'`) pour révéler le visage.
+   - **PAS de crédit photo dans l'article** : n'ajoute **pas** de champ `imageCredit` ni de mention
+     de source photo. L'attribution Creative Commons figure **globalement** dans le disclaimer en
+     pied de page — c'est suffisant.
+   - ⚠️ **JAMAIS** de photo de presse/agence protégée. Évite de réutiliser la **même** photo pour
+     deux articles consécutifs. Dossiers : `images/defaut/` = défauts · `images/articles/` = articles.
 6. **Insère EN TÊTE** du tableau, conserve TOUS les anciens. Garde 1 `hero` + 2 `feat` max.
 7. **Vérifie** que le JS reste valide. **Commit** (voir ci-dessous). **Résume** : articles
    ajoutés + sources.
