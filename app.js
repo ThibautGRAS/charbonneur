@@ -457,8 +457,11 @@
     var el = document.getElementById('histoireSlot');
     if (!el || !window.HISTOIRE) return;
     var H = window.HISTOIRE;
-    var filons = (H.filons || []).map(function (f) {
-      return '<button class="filon"><span class="filon-an">' + f.year + '</span>' +
+    var FL = H.filons || [];
+    var filons = FL.map(function (f, i) {
+      var t = FL.length > 1 ? i / (FL.length - 1) : 0;              // 0 (haut/jaune) -> 1 (bas/rouge)
+      var col = 'rgb(' + Math.round(255 - 31 * t) + ',' + Math.round(210 - 180 * t) + ',30)';
+      return '<button class="filon" style="--node:' + col + '"><span class="filon-an">' + f.year + '</span>' +
              '<span class="filon-ti">' + esc(f.titre) + '</span></button>';
     }).join('');
     var legs = (H.legendes || []).map(function (l) {
