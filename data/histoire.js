@@ -1,34 +1,45 @@
 /* =====================================================================
-   HISTOIRE DU CLUB — filons (frise) + légendes (panthéon)
-   Affiché dans la section « La mine ». Data-driven, facile à enrichir.
-   (Premier jet : sans images. On pourra ajouter des photos LIBRES ensuite.)
+   HISTOIRE DU CLUB — filons (frise "veine du temps") + légendes (panthéon)
+   Affiché dans la section « La mine ». Data-driven.
+   Événements synthétisés et REFORMULÉS d'après la chronologie officielle
+   (rclens.fr/club/histoire) — aucune reprise texte. Faits vérifiés.
    ===================================================================== */
 window.HISTOIRE = {
   filons: [
-    { year: 1906, titre: 'Naissance dans le charbon', image: 'images/histoire/mine.jpg',
+    { year: 1906, titre: 'La création du club', image: 'images/histoire/creation.jpg',
       recit: [
-        'Le Racing Club de Lens voit le jour en 1906, au cœur du bassin minier du Pas-de-Calais, intimement lié à la communauté des mineurs — les fameuses « gueules noires ».',
-        'De cet héritage naît toute l’identité des « Charbonneurs » : un football populaire et ouvrier, taillé dans l’effort et la fierté du fond.'
+        'Le Racing Club de Lens naît en 1906, dans le quartier de la Place Verte, au cœur du bassin minier du Pas-de-Calais.',
+        'Porté par la communauté des mineurs, le club forge très tôt son identité populaire et ouvrière — celle des « Charbonneurs », les gueules noires du fond.'
       ] },
-    { year: 1934, titre: 'Le Racing passe professionnel', image: 'images/histoire/bollaert.jpg',
+    { year: 1933, titre: 'L’arrivée à Bollaert', image: 'images/histoire/bollaert.jpg',
       recit: [
-        'Dans les années 1930, Lens embrasse le football professionnel et s’installe durablement au stade Félix-Bollaert, inauguré en 1933.',
-        'Bollaert deviendra l’un des chaudrons les plus réputés de France, réputé pour l’un des publics les plus fervents du pays.'
+        'Au début des années 1930, le club s’installe dans son écrin : le stade Félix-Bollaert, inauguré en 1933, avant d’embrasser le football professionnel.',
+        'L’enceinte deviendra l’un des chaudrons les plus réputés de France, connue pour une ferveur hors norme dans une ville pourtant modeste.'
       ] },
     { year: 1998, titre: 'Champion de France', image: 'images/histoire/kop.jpg',
       recit: [
-        'Sous la houlette de Daniel Leclercq, « le Druide », le RC Lens décroche en 1998 le seul titre de Champion de France de son histoire.',
-        'Porté par une génération dorée (Warmuz, Šmicer, Sikora…), le club s’installe dans l’élite et goûte à la Coupe d’Europe.'
+        'En 1998, à Auxerre, le RC Lens est sacré Champion de France pour la première — et à ce jour unique — fois de son histoire.',
+        'Sous la houlette de Daniel Leclercq, « le Druide », une génération dorée (Warmuz, Šmicer, Vairelles, Sikora…) écrit la plus belle page du club.'
+      ] },
+    { year: 1999, titre: 'Coupe de la Ligue & nuits d’Europe', image: 'images/defaut/stade2.jpg',
+      recit: [
+        'Dans la foulée du titre, Lens remporte la Coupe de la Ligue en 1999 et s’installe sur la scène continentale.',
+        'En 2000, le club réalise un parcours retentissant en Coupe de l’UEFA jusqu’en demi-finale : Bollaert vibre au rythme des grandes soirées européennes.'
+      ] },
+    { year: 2014, titre: 'Les années yo-yo', image: 'images/histoire/mine.jpg',
+      recit: [
+        'Les années 2000-2010 sont plus contrastées : le Racing alterne le meilleur et le pire, entre maintiens accrochés et allers-retours avec la Ligue 2.',
+        'Une traversée du désert éprouvante — mais le club ne perd jamais le soutien indéfectible de son public, l’un des plus fidèles de France.'
       ] },
     { year: 2020, titre: 'Le retour dans l’élite', image: 'images/defaut/tribune.jpg',
       recit: [
-        'Après plusieurs saisons d’ascenseur entre Ligue 1 et Ligue 2, Lens retrouve l’élite en 2020 en s’adjugeant le championnat de deuxième division.',
-        'Le retour à Bollaert s’accompagne d’une ferveur intacte et lance une nouvelle ère, plus ambitieuse.'
+        'En 2020, après cinq saisons en Ligue 2, Lens retrouve l’élite en terminant en tête du championnat de deuxième division.',
+        'Le retour à Bollaert s’accompagne d’une ferveur intacte et relance un projet sportif ambitieux.'
       ] },
-    { year: 2023, titre: 'Bollaert en Ligue des Champions', image: 'images/defaut/bollaert-nuit.jpg',
+    { year: 2023, titre: 'Le retour en Ligue des Champions', image: 'images/defaut/bollaert-nuit.jpg',
       recit: [
-        'Vice-champion de France en 2023, le RC Lens se qualifie pour la Ligue des Champions, un quart de siècle après ses premières campagnes européennes.',
-        'Bollaert-Delelis vit alors des nuits européennes incandescentes, confirmant le retour du club parmi les places fortes du football français.'
+        'Vice-champion de France en 2023, le RC Lens décroche son billet pour la Ligue des Champions, une vingtaine d’années après sa dernière apparition.',
+        'Bollaert-Delelis renoue avec les nuits européennes et confirme le retour du club parmi l’élite continentale.'
       ] },
     { year: 2026, titre: 'Dauphin & Coupe de France', image: 'images/defaut/supporters.jpg',
       recit: [
