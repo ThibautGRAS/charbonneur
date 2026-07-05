@@ -22,14 +22,15 @@ Tu mets à jour **uniquement** `data/players.js` (effectif de la saison en cours
      `images/players/<slug>.jpg`, puis `photo: 'images/players/<slug>.jpg'`.
    - ⚠️ **Jamais** de photo de presse / d'agence protégée. Sans photo libre → pas de `photo`
      (le site affiche une tuile « maillot »).
-4. **Vidéo « skills »** : cherche sur YouTube une **compilation de highlights** du joueur.
-   Accepte les titres contenant **« skills », « talent », « buts »/« goals », « best of »,
-   « highlights »** (élargis bien à « talent » : beaucoup de compils s'intitulent ainsi).
-   Si elle existe, renseigne le champ `video` (URL ou identifiant) → bouton **« Skills ↗ »**.
-   ⚠️ **Vérifie que la vidéo existe toujours** : `https://www.youtube.com/oembed?url=https://
+4. **Vidéo « skills »** : cherche sur YouTube « <nom du joueur> skills » (aussi : talent, buts/goals,
+   best of, highlights, meilleurs moments). Si aucun **titre** ne correspond clairement, **lis la
+   DESCRIPTION** de la vidéo : si elle indique un récap du joueur (ex. « Dans cette vidéo je vous
+   présente les meilleurs moments de Florian Sotoca »), on peut la retenir. Renseigne alors le champ
+   `video` (URL ou identifiant) → bouton **« Skills ↗ »**.
+   ⚠️ **Vérifie que la vidéo existe toujours** : oEmbed `https://www.youtube.com/oembed?url=https://
    www.youtube.com/watch?v=<ID>&format=json` doit répondre **200** (les compilations sont souvent
-   supprimées — remplace tout lien mort). Sinon, la fiche affiche automatiquement un bouton
-   **« Vidéos ↗ »** vers une recherche YouTube du joueur. On ne fait que **lier**, aucun hébergement.
+   supprimées — remplace tout lien mort). Sinon, la fiche affiche un bouton **« Vidéos ↗ »** vers une
+   recherche YouTube du joueur. On ne fait que **lier**, aucun hébergement.
 5. **Stats** (`matches`, `goals`, `assists`) : via **API-Football**, la **Ligue 1 uniquement**.
    - Requête (paginée) : `GET https://v3.football.api-sports.io/players?team=116&season=2024&league=61&page=N`
      avec l'en-tête `x-apisports-key: <clé>` ; boucle sur `paging.total` (pause ~6 s entre pages).

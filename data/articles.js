@@ -207,7 +207,6 @@ window.ARTICLES = [
     title: 'Gift Links : Lens pousse pour le défenseur, mais le dossier avec l’AGF Aarhus se complique',
     excerpt: 'Les Sang et Or auraient transmis une offre avoisinant les 5 M€ bonus compris. L’étalement du paiement proposé freine encore les négociations.',
     image: 'images/articles/giftlinks.jpg',
-    imgPos: 'center 42%',
     featured: null,
     pinned: false,
     body: [

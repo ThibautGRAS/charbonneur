@@ -35,10 +35,15 @@ Tu mets à jour le fil d'actualité (`data/articles.js`), avec pour chaque artic
    - **c) Aucune image fiable ?** → **laisse `image` vide** : le site choisit une image de
      `images/defaut/` selon la catégorie (news→stade, mercato→stade2, interview→tribune,
      mag→bollaert-nuit, saison→kop). Rien à inventer.
-   - **CADRAGE — on doit BIEN VOIR LE VISAGE.** Analyse la vignette : visage entier, pas de tête
-     coupée. Le héros d'article recadre en `object-position: center 32%` par défaut ; si le visage
-     n'est pas bien centré (gros plan, montage, visage haut/bas), **règle le champ `imgPos`** de
-     l'article (ex. `'center 45%'`, `'center top'`) pour révéler le visage.
+   - **CADRAGE — on doit BIEN VOIR LE VISAGE : reformate l'image, ne compte pas sur le CSS.**
+     Les cartes d'articles sont larges (paysage) : une image **portrait ou carrée** y couperait le
+     visage. Donc **recadre toute image portrait/carrée en paysage 16:9 CENTRÉ sur le visage**
+     (détection de visage OpenCV/Haar : `haarcascade_frontalface_default.xml` → visage le plus grand,
+     cadre 16:9 max centré horizontalement, visage vers 45% en hauteur ; à défaut de visage détecté,
+     repli centre-haut ~40%). Les images déjà en paysage (stades) sont OK telles quelles. Le CSS
+     recadre ensuite en `object-position: center center` ; le champ `imgPos` reste un ajustement
+     de dernier recours. ⚠️ Ne recadre QUE `images/articles/` — les portraits `images/players/`
+     restent verticaux (tuiles joueurs).
    - **PAS de crédit photo dans l'article** : n'ajoute **pas** de champ `imageCredit` ni de mention
      de source photo. L'attribution Creative Commons figure **globalement** dans le disclaimer en
      pied de page — c'est suffisant.
