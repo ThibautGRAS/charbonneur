@@ -36,7 +36,13 @@ Tu mets à jour **uniquement** `data/players.js` (effectif de la saison en cours
    www.youtube.com/watch?v=<ID>&format=json` doit répondre **200** (les compilations sont souvent
    supprimées — remplace tout lien mort). Sinon, la fiche affiche un bouton **« Vidéos ↗ »** vers une
    recherche YouTube du joueur. On ne fait que **lier**, aucun hébergement.
-5. **Stats** (`matches`, `goals`, `assists`) : via **API-Football**, la **Ligue 1 uniquement**.
+5. **Stats** (`matches`, `goals`, `assists`) — deux sources possibles :
+   - **OneFootball (à privilégier — donne la saison en cours / la dernière saison, ce que le plan
+     gratuit d'API-Football ne couvre pas)** : sur `onefootball.com/fr/equipe/rc-lens-256/effectif`,
+     récupère l'URL profil de chaque joueur (`/fr/joueur/<slug>-<id>`), puis sa page
+     `.../stats?seasonId=<id de la saison Ligue 1>` → buts, passes, et matchs (si affichés). Vérifie
+     bien la **saison** couverte et que le **nombre de matchs** est présent (sinon complète/repli).
+   - **API-Football** (repli), la **Ligue 1 uniquement** :
    - Requête (paginée) : `GET https://v3.football.api-sports.io/players?team=116&season=2024&league=61&page=N`
      avec l'en-tête `x-apisports-key: <clé>` ; boucle sur `paging.total` (pause ~6 s entre pages).
    - Pour chaque joueur, prends la ligne `statistics` où `league.id == 61` :
