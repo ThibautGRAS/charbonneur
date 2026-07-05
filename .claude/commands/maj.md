@@ -16,10 +16,13 @@ de chaque fichier de ce dossier, puis fais un résumé global.
      (`<td class="team">…<span title="NOM">`, suivie des `<td>` dans l'ordre : MJ, V, N, D, buts, **diff**, **pts**).
    - `standings` : `pos`, `club`, `played`, `diff` (ex. `'+31'`), `pts`, `isLens:true` pour le RC Lens ;
      `standingsTitle` décrit la période (ex. « Classement final 2025-2026 »). Garde ~6 lignes (haut de tableau).
-   - `lastMatch` : dernier match (`comp`, `home`/`away` = `{code,name,score}`, `isLens:true` côté Lens,
-     `info` = lieu · état). ⚠️ Le widget « dernier match » (fctables) de lensois est **protégé (Cloudflare)** :
-     s'il est inaccessible, recoupe le résultat via une source fiable — **n'invente jamais** un score non
-     vérifié (en cas de doute, laisse la valeur en place).
+   - `lastMatch` : **récupère le dernier résultat (et le prochain match) via OneFootball**
+     (`https://onefootball.com/fr/equipe/rc-lens-256`, données datées et fiables) → `comp`,
+     `home`/`away` = `{code,name,score}`, `isLens:true` côté Lens, `info` = lieu · état.
+     **N'invente jamais** un score ; en cas de doute, laisse la valeur en place.
+   - **Classement en saison** : dès que la saison en cours a démarré, prends le classement **live**
+     (OneFootball `/fr/competition/ligue-1-23/classement`, ou le widget scoreaxis de lensois).
+     **Hors saison**, garde la **table finale** de la dernière saison jouée (cas actuel : 2025-2026).
 
 ### Règles communes
 - N'édite que les fichiers `data/` concernés + `images/players/` pour les photos libres.
