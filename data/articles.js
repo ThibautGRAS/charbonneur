@@ -9,6 +9,28 @@
 
 window.ARTICLES = [
   {
+    id: 'abdulhamid-officiel',
+    date: '2026-07-05',
+    time: '14:15',
+    category: 'mercato',
+    title: 'Saud Abdulhamid rejoint définitivement le RC Lens',
+    excerpt: 'Le latéral saoudien, prêté la saison passée par l’AS Rome, s’est engagé à titre définitif avec les Sang et Or jusqu’en 2029.',
+    image: 'images/articles/abdulhamid-lens.jpg',
+    featured: 'feat',
+    pinned: false,
+    body: [
+      'Le RC Lens officialise l’arrivée définitive de Saud Abdulhamid. Le défenseur saoudien, qui évoluait déjà sous les couleurs lensoises la saison dernière sous forme de prêt en provenance de l’AS Rome, a paraphé un contrat courant jusqu’en 2029.',
+      'Latéral droit capable de dépanner dans un couloir gauche, Abdulhamid avait rapidement gagné sa place dans la rotation défensive artésienne, apprécié pour sa vitesse de récupération et sa solidité dans les duels. Son passage en prêt aura permis au staff de confirmer qu’il correspondait au profil recherché pour durer.',
+      'Cette signature à titre définitif intervient alors que le secteur défensif lensois est en pleine recomposition, avec les départs annoncés de Malang Sarr et le suivi rapproché dont fait l’objet Robin Risser. Sécuriser un latéral international déjà adapté au groupe permet au club de limiter l’incertitude estivale.',
+      'Pour Abdulhamid, international saoudien, ce nouveau bail représente une étape de stabilisation en Europe après un parcours entre l’Italie et la France. Le joueur avait exprimé son souhait de poursuivre l’aventure à Bollaert, où il dit s’être senti rapidement intégré.',
+      'Le RC Lens, engagé en Ligue des champions la saison prochaine, mise sur cette continuité pour aborder sereinement une préparation estivale chargée, entre matches de gala et finalisation du reste du mercato.'
+    ],
+    sources: [
+      { name: 'Média Sportif', url: 'https://www.mediasportif.fr/2026/07/03/rc-lens-mercato-le-successeur-de-malang-sarr-trouve-et-ca-ne-va-rien-couter/' },
+      { name: 'MadeInLens', url: 'https://www.madeinlens.com/tableau-mercato/ete-2026.html' }
+    ]
+  },
+  {
     id: 'risser-aston-villa',
     date: '2026-07-05',
     time: '11:30',
@@ -59,7 +81,7 @@ window.ARTICLES = [
     title: 'Officiel : Thorgan Hazard signe au RC Lens, un retour aux sources',
     excerpt: 'Libre après son passage à Anderlecht, l’international belge s’engage deux saisons dans l’Artois — là même où il avait lancé sa carrière avant Chelsea.',
     image: 'images/articles/hazard.jpg',
-    featured: 'feat',
+    featured: null,
     pinned: false,
     body: [
       'Le RC Lens tient une recrue de prestige : Thorgan Hazard s’est engagé pour deux saisons avec les Sang et Or. Libre de tout contrat après son aventure à Anderlecht, l’international belge relance sa carrière dans l’Artois.',
