@@ -3,48 +3,49 @@
    Affiché dans la section « La mine ». Data-driven.
    Événements synthétisés et REFORMULÉS d'après la chronologie officielle
    (rclens.fr/club/histoire) — aucune reprise texte. Faits vérifiés.
+   Images : illustratives (Wikimedia + visuels ajoutés à la main).
    ===================================================================== */
 window.HISTOIRE = {
   filons: [
     { year: 1906, titre: 'La création du club', image: 'images/histoire/creation.jpg',
       recit: [
-        'Le Racing Club de Lens naît en 1906, dans le quartier de la Place Verte, au cœur du bassin minier du Pas-de-Calais.',
-        'Porté par la communauté des mineurs, le club forge très tôt son identité populaire et ouvrière — celle des « Charbonneurs », les gueules noires du fond.'
+        'Tout commence en 1906, à l’ombre des chevalements. Sur la Place Verte, quelques passionnés fondent le Racing Club de Lens, dans une ville qui vit au rythme des sirènes de la mine.',
+        'D’emblée, le club est celui des gueules noires : un football de corons, rugueux et fier, qui puise sa force dans la solidarité du fond. L’ADN des Charbonneurs est scellé.'
       ] },
     { year: 1933, titre: 'L’arrivée à Bollaert', image: 'images/histoire/bollaert.jpg',
       recit: [
-        'Au début des années 1930, le club s’installe dans son écrin : le stade Félix-Bollaert, inauguré en 1933, avant d’embrasser le football professionnel.',
-        'L’enceinte deviendra l’un des chaudrons les plus réputés de France, connue pour une ferveur hors norme dans une ville pourtant modeste.'
+        'En 1933, le Racing pose ses valises dans un écrin appelé à devenir mythique : le stade Félix-Bollaert. Bientôt, l’enceinte peut accueillir plus de spectateurs qu’il n’y a d’habitants à Lens.',
+        'Les jours de match, la ville entière se déverse dans les tribunes. Naît alors la réputation d’un chaudron unique, où le douzième homme fait trembler les charpentes.'
       ] },
-    { year: 1998, titre: 'Champion de France', image: 'images/histoire/kop.jpg',
+    { year: 1998, titre: 'Champion de France', image: 'images/histoire/tifo.jpg',
       recit: [
-        'En 1998, à Auxerre, le RC Lens est sacré Champion de France pour la première — et à ce jour unique — fois de son histoire.',
-        'Sous la houlette de Daniel Leclercq, « le Druide », une génération dorée (Warmuz, Šmicer, Vairelles, Sikora…) écrit la plus belle page du club.'
+        'Printemps 1998. Porté par « le Druide » Daniel Leclercq et une bande de guerriers — Warmuz, Šmicer, Vairelles, Sikora — le RC Lens réalise l’impensable et devient Champion de France.',
+        'Le titre se scelle loin de ses bases, à Auxerre, mais c’est tout un bassin minier qui explose de joie. Le seul et unique sacre national du club, gravé à jamais.'
       ] },
-    { year: 1999, titre: 'Coupe de la Ligue & nuits d’Europe', image: 'images/defaut/stade2.jpg',
+    { year: 1999, titre: 'Coupe de la Ligue & nuits d’Europe', image: 'images/defaut/bollaert-nuit.jpg',
       recit: [
-        'Dans la foulée du titre, Lens remporte la Coupe de la Ligue en 1999 et s’installe sur la scène continentale.',
-        'En 2000, le club réalise un parcours retentissant en Coupe de l’UEFA jusqu’en demi-finale : Bollaert vibre au rythme des grandes soirées européennes.'
+        'Sur sa lancée, Lens soulève la Coupe de la Ligue en 1999 et goûte enfin aux grands rendez-vous continentaux.',
+        'En 2000, les Sang et Or défient l’Europe et poussent jusqu’aux demi-finales de la Coupe de l’UEFA. Sous les projecteurs, Bollaert gronde comme jamais.'
       ] },
-    { year: 2014, titre: 'Les années yo-yo', image: 'images/histoire/mine.jpg',
+    { year: 2014, titre: 'Les années yo-yo', image: 'images/histoire/terril.jpg',
       recit: [
-        'Les années 2000-2010 sont plus contrastées : le Racing alterne le meilleur et le pire, entre maintiens accrochés et allers-retours avec la Ligue 2.',
-        'Une traversée du désert éprouvante — mais le club ne perd jamais le soutien indéfectible de son public, l’un des plus fidèles de France.'
+        'Après les sommets, la descente. Dans les années 2000-2010, le Racing enchaîne montées et rechutes — l’élite une saison, la Ligue 2 la suivante — mettant le cœur des supporters à rude épreuve.',
+        'Mais même dans la tourmente, Bollaert ne se vide jamais. Cette fidélité à toute épreuve deviendra la marque d’un peuple qui n’abandonne pas les siens.'
       ] },
-    { year: 2020, titre: 'Le retour dans l’élite', image: 'images/defaut/tribune.jpg',
+    { year: 2020, titre: 'Le retour dans l’élite', image: 'images/histoire/kop.jpg',
       recit: [
-        'En 2020, après cinq saisons en Ligue 2, Lens retrouve l’élite en terminant en tête du championnat de deuxième division.',
-        'Le retour à Bollaert s’accompagne d’une ferveur intacte et relance un projet sportif ambitieux.'
+        '2020 : après cinq longues saisons de purgatoire, Lens arrache son retour parmi les grands en dominant la Ligue 2.',
+        'Le peuple sang et or reprend possession de son antre. La faim est intacte, l’ambition de nouveau permise — une nouvelle ère se lève sur l’Artois.'
       ] },
-    { year: 2023, titre: 'Le retour en Ligue des Champions', image: 'images/defaut/bollaert-nuit.jpg',
+    { year: 2023, titre: 'Le retour en Ligue des Champions', image: 'images/histoire/nuit.jpg',
       recit: [
-        'Vice-champion de France en 2023, le RC Lens décroche son billet pour la Ligue des Champions, une vingtaine d’années après sa dernière apparition.',
-        'Bollaert-Delelis renoue avec les nuits européennes et confirme le retour du club parmi l’élite continentale.'
+        'Vice-champion de France en 2023, le RC Lens signe l’un des plus beaux exploits de son histoire moderne et retrouve la Ligue des Champions, une vingtaine d’années après sa dernière apparition.',
+        'Sous les étoiles de Bollaert, les hymnes européens résonnent à nouveau : le club de mineurs tient tête aux cadors du continent.'
       ] },
     { year: 2026, titre: 'Dauphin & Coupe de France', image: 'images/defaut/supporters.jpg',
       recit: [
-        'La saison 2025-2026 restera dans les mémoires : dauphin du Paris Saint-Germain en Ligue 1 et vainqueur de la Coupe de France.',
-        'Un aboutissement qui confirme le nouveau statut du RC Lens et le renvoie vers les sommets européens.'
+        'La saison 2025-2026 restera comme une saison d’anthologie : dauphin du tout-puissant Paris Saint-Germain et vainqueur de la Coupe de France.',
+        'Du fond de la mine aux sommets du football français, les Charbonneurs n’ont jamais aussi bien porté leur nom.'
       ] }
   ],
   legendes: [
@@ -93,7 +94,7 @@ window.HISTOIRE = {
         'Gardien et capitaine au tempérament de leader.',
         'Artisan de la remontée en Ligue 1 en 2020, il incarne le renouveau lensois de la fin des années 2010.'
       ] },
-    { name: 'Kevin Danso', role: 'Défenseur', era: 'RC Lens 2020-2024',
+    { name: 'Kevin Danso', photo: 'images/legendes/danso.jpg', role: 'Défenseur', era: 'RC Lens 2020-2024',
       texte: [
         'Défenseur central puissant et fiable, international autrichien.',
         'Pilier de l’arrière-garde lensoise de 2020 à 2024, il accompagne le retour du club en Ligue des Champions.'
