@@ -33,6 +33,9 @@ Tu mets à jour **uniquement** `data/videos.js`.
    **skills d'une recrue** (ex. Hazard) ou une **vidéo récente**. **Jamais** une vidéo bloquée ou en
    redirection en vedette. (Sans flag, le site met en avant la 1ʳᵉ `embeddable` ; le code refuse
    d'office de mettre en avant une non-embeddable.)
+   **Ce n'est PAS figé** : à chaque maj, **réattribue** `feature: true` à la vidéo la plus
+   d'actualité du moment et **retire-le de l'ancienne** (toujours une seule vedette). Hazard
+   aujourd'hui, un autre demain selon les news.
 7. Conserve les anciennes, aucun doublon d'`id`. **Vérifie** que le JS reste valide.
 
 Ne touche à aucun autre fichier. Jamais de vidéo bloquée en France ; jamais d'hébergement
