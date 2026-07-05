@@ -64,8 +64,10 @@ Tu mets à jour **uniquement** `data/players.js` (effectif de la saison en cours
    Cuisance 172270 · Sangaré 402249 · Aguilar 41892 · Gradit 61231 · Chávez 364689 · Antonio 562971 ·
    Agbonifo 514196 · Rayan Fofana 562967 · Labeau-Lascary 445297 · Abdulhamid 303511 · Udol 110631 ·
    Baidoo 384110 · Ganiou 485773 · Čelik 562603 · S. Sagnan 550238 · Bulatović 543232 · Diallo 552062 ·
-   Risser 465098 · Jourdren 616450.
-   *À retrouver (absents de la liste OneFootball) : Koffi, Thorgan Hazard, Koyalipou.*
+   Risser 465098 · Jourdren 616450 · Koffi 194462 · Thorgan Hazard 31125.
+   *À retrouver (profil non indexé pour l'instant) : Koyalipou.*
+   *NB : en 2025-26, Koffi (prêt Angers), Koyalipou (prêt Levante/Angers) et Hazard (Anderlecht)
+   n'étaient pas à Lens → stats Lens ~0 cette saison-là ; leurs stats sang et or partent de 2026-27.*
 6. **Vérifie** que le JS reste valide. **Résume** les entrées/sorties + sources.
 
 Ne touche qu'à `data/players.js` et `images/players/` (photos libres).
