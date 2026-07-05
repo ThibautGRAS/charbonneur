@@ -25,7 +25,8 @@ Tu mets à jour **uniquement** `data/players.js` (effectif de la saison en cours
    - ⚠️ **Jamais** de photo de presse / d'agence protégée. Sans photo libre → pas de `photo`
      (le site affiche une tuile « maillot »).
 4. **Vidéo « skills »** : cherche sur YouTube « <nom du joueur> skills » (aussi : talent, buts/goals,
-   best of, highlights, **meilleurs moments**, **meilleures actions**, top, compilation, résumé).
+   best of, highlights, **meilleurs moments**, **meilleures actions**, top, compilation, résumé). **Ne force PAS « RC Lens »** dans la requête : beaucoup de compils
+   couvrent la carrière du joueur **hors Lens** (autres clubs) — cherche par **nom + mot-clé** seul.
    Cherche large — au besoin directement dans YouTube (`/results?search_query=…&hl=fr&gl=FR`), pas
    seulement via un moteur US. **S'il y a plusieurs récaps, prends le PLUS RÉCENT.** Si aucun **titre**
    ne correspond clairement, **lis la DESCRIPTION** de la vidéo : si elle indique un récap du joueur

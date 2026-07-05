@@ -23,17 +23,17 @@ window.PLAYERS = [
   { num: 2,  name: 'Ruben Aguilar',    pos: 'D', nat: 'France',              flag: '🇫🇷', born: 1993, photo: 'images/players/aguilar.jpg', matches: 19, goals: 1, assists: 2 },
   { num: 4,  name: 'Nidal Čelik',      pos: 'D', nat: 'Bosnie-Herzégovine',  flag: '🇧🇦', born: 2006 },
   { num: 6,  name: 'Samson Baidoo',    pos: 'D', nat: 'Autriche',            flag: '🇦🇹', born: 2004, photo: 'images/players/baidoo.jpg' },
-  { num: 13, name: 'Jhoanner Chávez',  pos: 'D', nat: 'Équateur',            flag: '🇪🇨', born: 2002, photo: 'images/players/chavez.jpg', desc: 'Latéral international équatorien, de retour de prêt.', matches: 10, goals: 1, assists: 0 },
+  { num: 13, name: 'Jhoanner Chávez',  pos: 'D', nat: 'Équateur',            flag: '🇪🇨', born: 2002, photo: 'images/players/chavez.jpg', video: 'https://www.youtube.com/watch?v=kbUyIFG-ZRw', desc: 'Latéral international équatorien, de retour de prêt.', matches: 10, goals: 1, assists: 0 },
   { num: 14, name: 'Matthieu Udol',    pos: 'D', nat: 'France',              flag: '🇫🇷', born: 1996, photo: 'images/players/udol.jpg' },
   { num: 23, name: 'Saud Abdulhamid',  pos: 'D', nat: 'Arabie saoudite',     flag: '🇸🇦', born: 1999, photo: 'images/players/abdulhamid.jpg' },
-  { num: 24, name: 'Jonathan Gradit',  pos: 'D', nat: 'France',              flag: '🇫🇷', born: 1992, photo: 'images/players/gradit.jpg', matches: 29, goals: 0, assists: 0 },
+  { num: 24, name: 'Jonathan Gradit',  pos: 'D', nat: 'France',              flag: '🇫🇷', born: 1992, photo: 'images/players/gradit.jpg', video: 'https://www.youtube.com/watch?v=_zlAbTWIlC8', matches: 29, goals: 0, assists: 0 },
   { num: 25, name: 'Ismaëlo Ganiou',   pos: 'D', nat: 'Burkina Faso',        flag: '🇧🇫', born: 2005 },
   { num: 32, name: 'Kyllian Antonio',  pos: 'D', nat: 'France',              flag: '🇫🇷', born: 2008, matches: 7, goals: 0, assists: 0 },
   { num: 41, name: 'Souleymane Sagnan', pos: 'D', nat: 'Mali',               flag: '🇲🇱', born: 2005, desc: 'Défenseur de retour de prêt.' },
 
   // ---- Milieux ----
   { num: 5,  name: 'Andrija Bulatović', pos: 'M', nat: 'Monténégro',         flag: '🇲🇪', born: 2006 },
-  { num: 8,  name: 'Mamadou Sangaré',   pos: 'M', nat: 'Mali',               flag: '🇲🇱', born: 2002 },
+  { num: 8,  name: 'Mamadou Sangaré', video: 'https://www.youtube.com/watch?v=45I99UWGP7Q',   pos: 'M', nat: 'Mali',               flag: '🇲🇱', born: 2002 },
   { num: null, name: 'Angelo Fulgini',  pos: 'M', nat: 'France',             flag: '🇫🇷', born: 1996, photo: 'images/players/fulgini.jpg', video: 'https://www.youtube.com/watch?v=lDCeT93KKw4', desc: 'Milieu offensif de retour au club après un prêt.', matches: 29, goals: 1, assists: 1 },
   { num: 21, name: 'Amadou Haidara',    pos: 'M', nat: 'Mali',               flag: '🇲🇱', born: 1998, photo: 'images/players/haidara.jpg', video: 'https://www.youtube.com/watch?v=FeM6vMPYQQQ', matches: 23, goals: 0, assists: 0 },
   { num: 27, name: 'Michaël Cuisance',  pos: 'M', nat: 'France',             flag: '🇫🇷', born: 1999, photo: 'images/players/cuisance.jpg', video: 'https://www.youtube.com/watch?v=mLYctPMyMos', desc: 'Recrue estivale 2026, arrivé du Hertha Berlin.' },
@@ -47,6 +47,6 @@ window.PLAYERS = [
   { num: 19, name: 'Abdallah Sima',    pos: 'A', nat: 'Sénégal',             flag: '🇸🇳', born: 2001, photo: 'images/players/sima.jpg', video: 'https://www.youtube.com/watch?v=w3tp1BLeMJM' },
   { num: null, name: 'Goduine Koyalipou', pos: 'A', nat: 'Centrafrique',     flag: '🇨🇫', born: 2000, photo: 'images/players/koyalipou.jpg', video: 'https://www.youtube.com/watch?v=kLO2iv1_WPo', desc: 'Attaquant de retour de prêt.', matches: 18, goals: 4, assists: 0 },
   { num: null, name: 'Jeremy Agbonifo', pos: 'A', nat: 'Suède',              flag: '🇸🇪', born: 2005, matches: 11, goals: 1, assists: 0 },
-  { num: 36, name: 'Rémy Labeau-Lascary', pos: 'A', nat: 'France',           flag: '🇫🇷', born: 2003, desc: 'Jeune attaquant formé au RC Lens.', matches: 14, goals: 2, assists: 1 },
+  { num: 36, name: 'Rémy Labeau-Lascary', pos: 'A', nat: 'France',           flag: '🇫🇷', born: 2003, video: 'https://www.youtube.com/watch?v=73V3Zmo6JoA', desc: 'Jeune attaquant formé au RC Lens.', matches: 14, goals: 2, assists: 1 },
   { num: 38, name: 'Rayan Fofana',     pos: 'A', nat: 'France',              flag: '🇫🇷', born: 2006, desc: 'Jeune attaquant du centre de formation.', matches: 3, goals: 0, assists: 0 }
 ];
