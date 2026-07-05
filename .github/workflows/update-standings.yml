@@ -1,0 +1,38 @@
+name: Classement (toutes les 5 h)
+
+# Rafraîchit le classement Ligue 1 dans data/club.js depuis lensois.com,
+# puis pousse le changement -> Netlify redéploie (si le site est relié au dépôt).
+
+on:
+  schedule:
+    - cron: "0 */5 * * *"   # 00:00, 05:00, 10:00, 15:00, 20:00 UTC
+  workflow_dispatch: {}      # permet aussi un lancement manuel (bouton "Run workflow")
+
+permissions:
+  contents: write            # autorise le push via GITHUB_TOKEN
+
+concurrency:
+  group: maj-classement
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rafraîchir le classement
+        run: python scripts/update_standings.py
+      - name: Commit & push si changement
+        run: |
+          git config user.name "charbonneurs-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- data/club.js; then
+            echo "Classement inchangé - rien a pousser."
+          else
+            git add data/club.js
+            git commit -m "auto: maj classement (GitHub Actions)"
+            git push
+          fi
