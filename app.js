@@ -779,8 +779,8 @@
   // mix : corons (s'atténuent vite en descendant) + ascenseur directionnel (descend / monte)
   function updateAudioMix(p, scrolling, dir) {
     if (!ambienceReady) return;
-    var corons = 0.85 * Math.pow(1 - Math.min(1, p), 2.4);  // corons bien plus atténués en descendant
-    var elev = scrolling ? (0.28 + p * 0.52) : 0;           // ascenseur (un peu moins fort)
+    var corons = 0.60 * Math.pow(1 - Math.min(1, p), 2.4);  // corons bien plus atténués en descendant
+    var elev = scrolling ? (0.28 + p * 0.52) * 0.5 : 0;           // ascenseur (un peu moins fort)
     var downV = (dir >= 0) ? elev : 0;                      // scroll bas → son "descend"
     var upV = (dir < 0) ? elev : 0;                         // scroll haut → son "monte"
     var deep = Math.max(0, (p - 0.45) / 0.55);              // présence de "fond de mine"
