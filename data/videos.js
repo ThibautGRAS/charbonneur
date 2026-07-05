@@ -39,7 +39,8 @@ window.VIDEOS = [
     id: 'xnDn2XUqsJ8',
     title: 'Thorgan Hazard — talent & skills du nouveau Sang et Or',
     author: 'Skills compilation',
-    embeddable: true
+    embeddable: true,
+    feature: true
   },
   {
     id: '30C4H7-hJwM',
