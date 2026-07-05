@@ -15,10 +15,14 @@ Tu mets à jour le fil d'actualité (`data/articles.js`), avec pour chaque artic
 1. **Lis** `data/articles.js` (les `id` déjà présents).
 2. **Recherche** (WebSearch) l'actu RC Lens des dernières 24-48 h :
    « RC Lens actualité <mois année> », « RC Lens mercato », « RC Lens match résultat ».
-3. **Sélectionne** 1 à 3 infos nouvelles (aucun doublon d'`id`/de sujet).
+3. **Sélectionne** 1 à 2 infos **VRAIMENT RÉCENTES** : vérifie la **date de publication** de la
+   source — n'accepte que ce qui date des **~3-4 derniers jours**. **Écarte** toute info ancienne,
+   déjà présente dans un article, **ou déjà reflétée dans l'effectif** (un transfert déjà acté/intégré
+   n'est PLUS une news — ex. un joueur déjà dans `data/players.js`). **Si rien de neuf : n'ajoute RIEN.**
 4. **Rédige avec tes propres mots** (faits reformulés, JAMAIS de copier-coller, jamais de
    fausses citations). Champs :
-   - `id` (minuscules-tirets, unique), `date` (AAAA-MM-JJ), `time` (HH:MM — alimente le fil d'infos),
+   - `id` (minuscules-tirets, unique), `date` = **date RÉELLE de l'info** (celle de la source, AAAA-MM-JJ)
+     — **surtout pas** la date du run, `time` (HH:MM — alimente le fil d'infos),
    - `category` (news|mercato|interview|mag|saison), `title`, `excerpt` (1-2 phrases),
    - `body` : **4 à 6 paragraphes étoffés** (contexte, profil/enjeux, ce que ça change, la suite),
    - `sources` : **tableau `{ name, url }`** — les **sites d'où vient l'info** (obligatoire),

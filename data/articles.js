@@ -10,13 +10,13 @@
 window.ARTICLES = [
   {
     id: 'abdulhamid-officiel',
-    date: '2026-07-05',
+    date: '2026-06-04',
     time: '14:15',
     category: 'mercato',
     title: 'Saud Abdulhamid rejoint définitivement le RC Lens',
     excerpt: 'Le latéral saoudien, prêté la saison passée par l’AS Rome, s’est engagé à titre définitif avec les Sang et Or jusqu’en 2029.',
     image: 'images/articles/abdulhamid-lens.jpg',
-    featured: 'feat',
+    featured: null,
     pinned: false,
     body: [
       'Le RC Lens officialise l’arrivée définitive de Saud Abdulhamid. Le défenseur saoudien, qui évoluait déjà sous les couleurs lensoises la saison dernière sous forme de prêt en provenance de l’AS Rome, a paraphé un contrat courant jusqu’en 2029.',
@@ -81,7 +81,7 @@ window.ARTICLES = [
     title: 'Officiel : Thorgan Hazard signe au RC Lens, un retour aux sources',
     excerpt: 'Libre après son passage à Anderlecht, l’international belge s’engage deux saisons dans l’Artois — là même où il avait lancé sa carrière avant Chelsea.',
     image: 'images/articles/hazard.jpg',
-    featured: null,
+    featured: 'feat',
     pinned: false,
     body: [
       'Le RC Lens tient une recrue de prestige : Thorgan Hazard s’est engagé pour deux saisons avec les Sang et Or. Libre de tout contrat après son aventure à Anderlecht, l’international belge relance sa carrière dans l’Artois.',
