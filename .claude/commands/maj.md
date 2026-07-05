@@ -1,5 +1,5 @@
 ---
-description: Mise à jour GLOBALE du site Charbonneurs (articles + vidéos + effectif)
+description: Mise à jour GLOBALE du site Charbonneurs (articles + vidéos + effectif + club)
 ---
 
 Exécute les procédures de mise à jour, dans l'ordre, en suivant le détail
@@ -28,11 +28,12 @@ de chaque fichier de ce dossier, puis fais un résumé global.
   **intégration/lien YouTube** (jamais bloquées en France, jamais de fichier vidéo protégé).
 - Termine par un **résumé** : ce qui a été ajouté/modifié dans chaque section + sources.
 
-### Commit automatique (une seule fois, à la fin)
-Après les trois mises à jour, fais **un seul commit global** :
-`git add -A` puis `git commit -m "maj globale : articles + vidéos + effectif (<date>)"`
-(termine le message par `Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>`).
-Ne relance pas les commits individuels des sous-procédures.
+### Commit automatique (après CHAQUE section)
+Après **chaque** section (articles, vidéos, effectif, club), fais un **commit dédié puis pousse** :
+`git add -A` → `git commit -m "maj <section> : <résumé court>"` → `git push origin main`
+(termine chaque message par la ligne `Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>`).
+Chaque type de maj a ainsi son commit clair, et le site déployé se met à jour au fil de l'eau.
+Si une section n'apporte rien de nouveau, ne fais pas de commit vide pour elle.
 
 ### Automatiser la maj quotidienne
 Le site est local → pour lancer cette maj chaque jour automatiquement :
