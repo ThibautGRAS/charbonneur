@@ -13,8 +13,10 @@ Tu mets à jour le fil d'actualité (`data/articles.js`), avec pour chaque artic
 - **Aucun sous-agent** : fais tout en direct. Résumé final **court** (2-3 lignes).
 
 1. **Lis** `data/articles.js` (les `id` déjà présents).
-2. **Recherche** (WebSearch) l'actu RC Lens des dernières 24-48 h :
-   « RC Lens actualité <mois année> », « RC Lens mercato », « RC Lens match résultat ».
+2. **Scanne l'actu récente**, en priorité via **OneFootball**
+   (`https://onefootball.com/fr/equipe/rc-lens-256`) : il agrège des titres RC Lens **datés**
+   (« il y a X heures/jours »), multi-sources — idéal pour ne retenir que du **frais** et fiable.
+   Complète au besoin par **WebSearch** : « RC Lens mercato/actualité <mois année> », « RC Lens résultat ».
 3. **Sélectionne** 1 à 2 infos **VRAIMENT RÉCENTES** : vérifie la **date de publication** de la
    source — n'accepte que ce qui date des **~3-4 derniers jours**. **Écarte** toute info ancienne,
    déjà présente dans un article, **ou déjà reflétée dans l'effectif** (un transfert déjà acté/intégré
