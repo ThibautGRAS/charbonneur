@@ -36,7 +36,9 @@ Tu mets à jour **uniquement** `data/players.js` (effectif de la saison en cours
    www.youtube.com/watch?v=<ID>&format=json` doit répondre **200** (les compilations sont souvent
    supprimées — remplace tout lien mort). Sinon, la fiche affiche un bouton **« Vidéos ↗ »** vers une
    recherche YouTube du joueur. On ne fait que **lier**, aucun hébergement.
-5. **Stats** (`matches`, `goals`, `assists`) — deux sources possibles :
+5. **Stats** (`matches`, `goals`, `assists`). ⚠️ **Ne réinjecte JAMAIS de stats d'une saison
+   passée/périmée** (ex. 2024-25 sur un effectif 2026-27) : **hors saison, laisse les champs vides**.
+   On ne les branche que **quand la saison en cours a des données** — deux sources possibles :
    - **OneFootball (à privilégier — donne la saison en cours / la dernière saison, ce que le plan
      gratuit d'API-Football ne couvre pas)** : sur `onefootball.com/fr/equipe/rc-lens-256/effectif`,
      récupère l'URL profil de chaque joueur (`/fr/joueur/<slug>-<id>`), puis sa page
