@@ -57,6 +57,15 @@ Tu mets à jour **uniquement** `data/players.js` (effectif de la saison en cours
    ⚠️ La **clé API reste dans un fichier LOCAL non versionné** (scratchpad), **jamais** dans le site ni le
    dépôt ; on n'écrit que les **nombres** dans `players.js`. Après coup, vérifie que la clé n'apparaît
    nulle part dans le projet (`grep` de la clé → 0).
+
+   **IDs OneFootball enregistrés** (aller direct : `onefootball.com/fr/joueur/<slug>-<id>/stats`).
+   En saison, la page **sans seasonId** donne les stats **live** ; hors saison elle est vide.
+   Sotoca 113240 · Thauvin 30992 · Édouard 136186 · Sima 402324 · Fulgini 109684 · Haidara 168911 ·
+   Cuisance 172270 · Sangaré 402249 · Aguilar 41892 · Gradit 61231 · Chávez 364689 · Antonio 562971 ·
+   Agbonifo 514196 · Rayan Fofana 562967 · Labeau-Lascary 445297 · Abdulhamid 303511 · Udol 110631 ·
+   Baidoo 384110 · Ganiou 485773 · Čelik 562603 · S. Sagnan 550238 · Bulatović 543232 · Diallo 552062 ·
+   Risser 465098 · Jourdren 616450.
+   *À retrouver (absents de la liste OneFootball) : Koffi, Thorgan Hazard, Koyalipou.*
 6. **Vérifie** que le JS reste valide. **Résume** les entrées/sorties + sources.
 
 Ne touche qu'à `data/players.js` et `images/players/` (photos libres).
