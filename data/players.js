@@ -41,7 +41,7 @@ window.PLAYERS = [
 
   // ---- Attaquants ----
   { num: null, name: 'Thorgan Hazard',  pos: 'A', nat: 'Belgique',            flag: '🇧🇪', born: 1993, photo: 'images/players/hazard.jpg', video: 'https://www.youtube.com/watch?v=xnDn2XUqsJ8', desc: 'Ailier international belge (47 sél.), revenu à Lens où il a débuté avant Chelsea.' },
-  { num: 7,  name: 'Florian Sotoca',   pos: 'A', nat: 'France',              flag: '🇫🇷', born: 1990, cap: true, photo: 'images/players/sotoca.jpg', desc: 'Capitaine emblématique des Sang & Or.', matches: 31, goals: 1, assists: 1 },
+  { num: 7,  name: 'Florian Sotoca',   pos: 'A', nat: 'France',              flag: '🇫🇷', born: 1990, cap: true, photo: 'images/players/sotoca.jpg', video: 'https://www.youtube.com/watch?v=SLHa6BXnmW4', desc: 'Capitaine emblématique des Sang & Or.', matches: 31, goals: 1, assists: 1 },
   { num: 10, name: 'Florian Thauvin',  pos: 'A', nat: 'France',              flag: '🇫🇷', born: 1993, photo: 'images/players/thauvin.jpg', video: 'https://www.youtube.com/watch?v=z0tKqyzXdWg', desc: 'Ailier technique international, champion du monde 2018, arrivé à Lens en janvier 2025.' },
   { num: 11, name: 'Odsonne Édouard',  pos: 'A', nat: 'France',              flag: '🇫🇷', born: 1998, photo: 'images/players/edouard.jpg', video: 'https://www.youtube.com/watch?v=zDRbxEfxh5Q', desc: 'Attaquant formé au PSG, passé par le Celtic et Crystal Palace.' },
   { num: 19, name: 'Abdallah Sima',    pos: 'A', nat: 'Sénégal',             flag: '🇸🇳', born: 2001, photo: 'images/players/sima.jpg', video: 'https://www.youtube.com/watch?v=w3tp1BLeMJM' },
