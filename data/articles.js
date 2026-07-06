@@ -9,6 +9,28 @@
 
 window.ARTICLES = [
   {
+    id: 'programme-ete-2026',
+    date: '2026-07-06',
+    time: '09:00',
+    category: 'saison',
+    title: 'Reprise le 9 juillet : le programme estival des Sang et Or se précise',
+    excerpt: 'Entre reprise de l’entraînement, tournoi en Italie et Trophée des Champions face au PSG, l’été lensois s’annonce chargé avant la Ligue des champions.',
+    image: '',
+    featured: 'feat',
+    pinned: false,
+    body: [
+      'Le calendrier de la préparation estivale du RC Lens commence à prendre forme. Les Sang et Or reprendront l’entraînement le 9 juillet à la Gaillette, avant d’enchaîner plusieurs échéances qui doivent leur permettre d’aborder la saison de Ligue des champions dans les meilleures conditions.',
+      'Point d’orgue de cette préparation, le club artésien s’envolera pour l’Italie où il participera à la Como Cup, un tournoi amical organisé à Côme du 28 juillet au 1er août. Six équipes internationales y sont annoncées : outre Lens et le club hôte, Villarreal, Al-Ula, Famalicão et Crystal Palace complètent l’affiche, un plateau relevé qui promet une opposition de haut niveau à l’ancien groupe de Franck Haise.',
+      'Retour ensuite à Bollaert-Delelis pour un rendez-vous désormais installé dans le calendrier estival : le Trophée 1906, dont la deuxième édition opposera Lens à Sunderland AFC le samedi 8 août à 16h. Un test grandeur nature face au club promu en Premier League, dans un stade qui devrait déjà afficher une belle ambiance avant la reprise officielle.',
+      'Le clou du spectacle interviendra à la mi-août avec la tenue du Trophée des Champions face au Paris Saint-Germain, une affiche qui confirme la place retrouvée du RC Lens parmi les grandes équipes du football français et l’intérêt médiatique suscité par sa saison écoulée.',
+      'Ce programme dense doit permettre au staff de peaufiner les automatismes d’un effectif encore en mouvement, entre arrivées à finaliser et incertitudes qui planent sur plusieurs cadres. Les prochaines semaines seront donc suivies de près, tant sur le plan sportif que sur celui du mercato.'
+    ],
+    sources: [
+      { name: 'France 3 Hauts-de-France', url: 'https://france3-regions.franceinfo.fr/hauts-de-france/pas-calais/lens/rc-lens-date-de-reprise-de-l-entrainement-tournoi-amical-trophee-des-champions-le-programme-des-sang-et-or-cet-ete-3359905.html' },
+      { name: 'Lensois.com', url: 'https://www.lensois.com/lete-du-rc-lens-commence-a-se-dessiner-avec-une-reprise-programmee-en-juillet/' }
+    ]
+  },
+  {
     id: 'atom-piste-sarr',
     date: '2026-07-03',
     time: '11:30',
