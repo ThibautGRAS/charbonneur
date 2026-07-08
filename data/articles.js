@@ -9,6 +9,27 @@
 
 window.ARTICLES = [
   {
+    id: 'sage-verites-depart',
+    date: '2026-07-08',
+    time: '10:30',
+    category: 'interview',
+    title: 'Pierre Sage s’explique sur son départ du RC Lens : « Le train ne repassera pas »',
+    excerpt: 'Dans L’Équipe, l’ancien entraîneur artésien revient sur les coulisses de son départ pour Crystal Palace, entre le fameux « oui » lâché à Téléfoot et la suite logique de sa carrière.',
+    image: 'images/articles/sage.jpg',
+    featured: null,
+    pinned: false,
+    body: [
+      'Un mois après avoir quitté le RC Lens pour rejoindre Crystal Palace, Pierre Sage a choisi les colonnes de L’Équipe pour revenir sur les circonstances de son départ, un dossier qui avait suscité l’incompréhension d’une partie du public artésien.',
+      'L’ancien technicien lensois est notamment revenu sur l’épisode du « oui ou non » posé par Téléfoot, auquel il avait répondu de façon à laisser penser qu’il resterait sur le banc sang et or. Il reconnaît aujourd’hui s’être « un peu fait piégé » par l’exercice, un format qui ne laissait guère de place à la nuance.',
+      'Sage explique avoir répondu sincèrement à l’instant T, tout en admettant que des discussions étaient déjà engagées en coulisses. Il dit avoir été « plus nuancé » dans la réalité, conscient que « des choses étaient en train de se dérouler » du côté de Crystal Palace au moment où la question lui était posée.',
+      'Le technicien justifie son choix par la formule qui donne son titre à l’entretien : une opportunité de ce type, en Premier League, ne se représenterait pas deux fois. Après une saison référence avec Lens, conclue par une qualification en Ligue des champions, il assume avoir voulu franchir un cap dans un championnat qu’il juge parmi les plus formateurs pour un entraîneur.',
+      'Ce départ, acté au moment où le club artésien lançait sa préparation pour une saison européenne exigeante, a ouvert la voie à l’arrivée de Dino Toppmöller. Les propos de Sage permettent surtout de refermer un chapitre resté en suspens dans l’esprit de nombreux supporters lensois.'
+    ],
+    sources: [
+      { name: 'L’Équipe (via Lensois.com)', url: 'https://www.lensois.com/le-train-ne-repassera-pas-pierre-sage-livre-ses-verites-sur-son-depart-du-rc-lens/' }
+    ]
+  },
+  {
     id: 'programme-ete-2026',
     date: '2026-07-06',
     time: '09:00',
@@ -436,7 +457,7 @@ window.ARTICLES = [
     category: 'mercato',
     title: 'Anthony Bermont prêté à Angers pour emmagasiner du temps de jeu',
     excerpt: 'Accord trouvé entre les deux clubs pour le prêt de l’ailier de 21 ans, qui va tenter de franchir un cap.',
-    image: 'images/defaut/tribune.jpg',
+    image: 'images/articles/bermont.jpg',
     featured: null,
     pinned: false,
     body: [
