@@ -4,9 +4,10 @@ name: Classement (toutes les 5 h)
 # puis pousse le changement -> Netlify redéploie (si le site est relié au dépôt).
 
 on:
-  schedule:
-    - cron: "0 */5 * * *"   # 00:00, 05:00, 10:00, 15:00, 20:00 UTC
-  workflow_dispatch: {}      # permet aussi un lancement manuel (bouton "Run workflow")
+  # MAJ automatique DÉSACTIVÉE (plus de cron). Pour réactiver, décommenter le bloc schedule.
+  # schedule:
+  #   - cron: "0 */5 * * *"   # 00:00, 05:00, 10:00, 15:00, 20:00 UTC
+  workflow_dispatch: {}      # lancement manuel uniquement (bouton "Run workflow")
 
 permissions:
   contents: write            # autorise le push via GITHUB_TOKEN
