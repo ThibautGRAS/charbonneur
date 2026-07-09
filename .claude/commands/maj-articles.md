@@ -30,6 +30,10 @@ Tu mets à jour le fil d'actualité (`data/articles.js`), avec pour chaque artic
    - `sources` : **tableau `{ name, url }`** — les **sites d'où vient l'info** (obligatoire),
    - `image` (+ `imgPos` optionnel pour bien cadrer le visage — voir point 5),
    - `featured` ('hero'|'feat'|null), `pinned`.
+   - `video` (+ `poster`) optionnels : le héros peut tourner une vidéo de fond. **Dans ce cas,
+     renseigne AUSSI `image`** avec une photo de bonne qualité — c'est elle (pas la vidéo) qui
+     s'affiche quand on ouvre l'article.
+   - `hot: true` ou `heat: <nombre>` optionnels : coup de pouce pour désigner l'actu « brûlante ».
 5. **PHOTO de l'article — pipeline automatique.** Applique cet **arbre de décision**, dans l'ordre :
    - **a) Réutiliser une image LOCALE existante (à privilégier, pour TOUT type de sujet).**
      Identifie le **sujet central** (joueur, entraîneur, dirigeant, adversaire, jeune…). **Liste
@@ -45,9 +49,10 @@ Tu mets à jour le fil d'actualité (`data/articles.js`), avec pour chaque artic
    - **b) Sinon, chercher une photo libre** : **Wikidata** `P18` (identité prénom + nom + nationalité,
      anti-homonyme), sinon **Wikimedia Commons** (nom de fichier = sujet). Télécharge la miniature
      (`iiurlwidth=640`) dans **`images/articles/<slug>.jpg`** et mets `image` = ce chemin.
-   - **c) Aucune image fiable ?** → **laisse `image` vide** : le site choisit une image de
-     `images/defaut/` selon la catégorie (news→stade, mercato→stade2, interview→tribune,
-     mag→bollaert-nuit, saison→kop). Rien à inventer.
+   - **c) Aucune image fiable ?** → **laisse `image` vide** : le site pioche **au hasard** (mais de
+     façon stable, d'après l'`id` de l'article) une photo d'ambiance dans `images/defaut/`. Si le titre
+     cite un joueur de l'effectif, sa photo `images/players/` est utilisée automatiquement à la place.
+     Rien à inventer. (Pool défaut modifiable via `DEFAULT_POOL` dans `app.js`.)
    - **CADRAGE — on doit BIEN VOIR LE VISAGE : reformate l'image, ne compte pas sur le CSS.**
      Les cartes d'articles sont larges (paysage) : une image **portrait ou carrée** y couperait le
      visage. Donc **recadre toute image portrait/carrée en paysage 16:9 CENTRÉ sur le visage**
@@ -62,7 +67,10 @@ Tu mets à jour le fil d'actualité (`data/articles.js`), avec pour chaque artic
      pied de page — c'est suffisant.
    - ⚠️ **JAMAIS** de photo de presse/agence protégée. Évite de réutiliser la **même** photo pour
      deux articles consécutifs. Dossiers : `images/defaut/` = défauts · `images/articles/` = articles.
-6. **Insère EN TÊTE** du tableau, conserve TOUS les anciens. Garde 1 `hero` + 2 `feat` max.
+6. **Insère EN TÊTE** du tableau, conserve TOUS les anciens. Le **héros est choisi
+   AUTOMATIQUEMENT** = l'actu la plus brûlante (fraîcheur + poids de catégorie, mercato en tête ;
+   ajustable via `hot`/`heat`). `featured: 'hero'` ne sert plus qu'à **forcer** une une précise.
+   Garde 2 `feat` max pour les mises en avant secondaires.
 7. **Vérifie** que le JS reste valide. **Commit** (voir ci-dessous). **Résume** : articles
    ajoutés + sources.
 

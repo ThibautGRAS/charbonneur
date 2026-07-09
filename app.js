@@ -24,16 +24,73 @@
     return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : iso;
   }
   function cat(c) { return CATS[c] || { label: c || 'News', cls: '' }; }
-  // image par défaut selon la catégorie (variété + jamais d'image cassée)
-  var DEFAULT_IMG = {
-    news:      'images/defaut/stade.jpg',
-    mercato:   'images/defaut/stade2.jpg',
-    interview: 'images/defaut/tribune.jpg',
-    mag:       'images/defaut/bollaert-nuit.jpg',
-    saison:    'images/defaut/kop.jpg'
-  };
-  function defImg(c) { return DEFAULT_IMG[c] || 'images/defaut/stade.jpg'; }
-  function artImg(a) { return a.image || defImg(a.category); }
+  // Images de secours (aucune image d'article / photo joueur) : tirage aléatoire dans ce
+  // pool, mais STABLE par article (hash de l'id) → chaque article garde toujours la même,
+  // vignette et bandeau cohérents, et l'ensemble reste bien réparti. Déposer un fichier
+  // ici suffit à l'ajouter au tirage.
+  var DEFAULT_POOL = [
+    'images/defaut/stade.jpg',
+    'images/defaut/stade2.jpg',
+    'images/defaut/tribune.jpg',
+    'images/defaut/bollaert-nuit.jpg',
+    'images/defaut/lens2.jpg',
+    'images/defaut/lens3.jpg'
+  ];
+  function defImg(a) {
+    var key = (a && (a.id || a.title)) || '';
+    var h = 0;
+    for (var i = 0; i < key.length; i++) { h = ((h << 5) - h + key.charCodeAt(i)) | 0; }
+    return DEFAULT_POOL[Math.abs(h) % DEFAULT_POOL.length];
+  }
+  // Slug sans accents (minuscules, alphanumérique) — partagé photo joueur / détection article.
+  function slugify(s) {
+    return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .toLowerCase().replace(/[^a-z0-9]/g, '');
+  }
+  // Image d'un article : champ `image` explicite → sinon photo d'un joueur de l'effectif
+  // (champ `player` prioritaire, à défaut nom de famille détecté dans le titre) → sinon
+  // image générique de catégorie. Le `onerror` des <img> retombe de toute façon sur defImg.
+  function artImg(a) {
+    if (a.image) return a.image;
+    var pp = articlePlayerPhoto(a);
+    return pp || defImg(a);
+  }
+  // Quand l'image d'un article est une photo de joueur (portrait cadré en haut) — qu'elle
+  // soit explicite (`image: 'images/players/…'`) ou déduite — on ajoute cette classe pour
+  // recadrer vers le visage au lieu du centre → tête visible dans les bandeaux larges.
+  function isPlayerImg(src) { return !!src && src.indexOf('images/players/') === 0; }
+  function artImgClass(a) {
+    return isPlayerImg(a.image || articlePlayerPhoto(a)) ? ' is-portrait' : '';
+  }
+  // Image de la vue article (au clic) : on veut une VRAIE photo de qualité même si le héros
+  // tourne une vidéo → `image` explicite, sinon le poster de la vidéo, sinon photo du joueur cité.
+  function artDetailImg(a) {
+    return a.image || a.poster || articlePlayerPhoto(a) || defImg(a);
+  }
+  function articlePlayerPhoto(a) {
+    var players = window.PLAYERS || [];
+    var i, p;
+    // 1) champ explicite `player` (nom, prénom+nom ou slug)
+    if (a.player) {
+      var want = slugify(a.player);
+      for (i = 0; i < players.length; i++) {
+        p = players[i];
+        var full = slugify(p.name);
+        var last = slugify(p.name.split(/\s+/).pop());
+        if (want === full || want === last) return playerPhoto(p);
+      }
+      return '';
+    }
+    // 2) détection auto : nom de famille présent dans le titre (mot entier)
+    var title = ' ' + String(a.title || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim() + ' ';
+    for (i = 0; i < players.length; i++) {
+      p = players[i];
+      var lastName = slugify(p.name.split(/\s+/).pop());
+      if (lastName.length >= 4 && title.indexOf(' ' + lastName + ' ') !== -1) return playerPhoto(p);
+    }
+    return '';
+  }
   function isRecent(iso) {
     // marque "NOUVEAU" si daté d'aujourd'hui ou hier (basé sur la date la plus récente du jeu)
     return iso >= newestDate;
@@ -41,6 +98,22 @@
   var newestDate = '';
 
   function byDateDesc(a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; }
+
+  // « Chaleur » d'un article pour choisir la une : la FRAÎCHEUR domine (référence = l'article
+  // le plus récent du site), un poids de catégorie départage (mercato le plus brûlant), et on
+  // peut forcer un coup de pouce éditorial via `hot: true` ou `heat: <nombre>` dans l'article.
+  var CAT_HEAT = { mercato: 6, transfert: 6, interview: 4, news: 3, saison: 3, mag: 1 };
+  function daysBetween(isoA, isoB) {
+    var da = new Date(isoA), db = new Date(isoB);
+    if (isNaN(da) || isNaN(db)) return 0;
+    return Math.abs(da - db) / 86400000;
+  }
+  function heatScore(a) {
+    var age = daysBetween(newestDate, a.date || '');           // 0 = le plus frais
+    var recency = Math.max(0, 30 - age);                       // fenêtre ~1 mois
+    var cat = CAT_HEAT[a.category] || 2;
+    return recency + cat + (a.hot ? 15 : 0) + (+a.heat || 0);
+  }
 
   // ---------- Rendu ----------
   function render() {
@@ -54,8 +127,12 @@
     var rest   = all.filter(function (a) { return !a.pinned; }).sort(byDateDesc);
     var ordered = pinned.concat(rest);
 
-    // Hero : premier 'hero' explicite, sinon l'article le plus récent
-    var hero = ordered.filter(function (a) { return a.featured === 'hero'; })[0] || ordered[0];
+    // Hero : override manuel 'hero' si présent, sinon l'actu la plus « brûlante » (score de chaleur)
+    var hero = ordered.filter(function (a) { return a.featured === 'hero'; })[0] ||
+      ordered.slice().sort(function (a, b) {
+        var d = heatScore(b) - heatScore(a);
+        return d !== 0 ? d : byDateDesc(a, b);
+      })[0];
     // Mises en avant : jusqu'à 2 articles 'feat'
     var feats = ordered.filter(function (a) { return a.featured === 'feat' && a !== hero; }).slice(0, 2);
     // Fil : tout le reste
@@ -82,7 +159,7 @@
     var bg = a.video
       ? '<video class="bg" autoplay muted loop playsinline poster="' + (a.poster || a.image) + '">' +
           '<source src="' + a.video + '" type="video/mp4"></video>'
-      : '<img class="bg" src="' + artImg(a) + '" alt="' + esc(a.title) + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a.category) + '\'">';
+      : '<img class="bg' + artImgClass(a) + '" src="' + artImg(a) + '" alt="' + esc(a.title) + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a) + '\'">';
     el.innerHTML =
       '<section class="hero">' +
         bg +
@@ -107,7 +184,7 @@
     el.innerHTML = list.map(function (a) {
       var c = cat(a.category);
       return '<a class="feat" href="#">' +
-        '<img src="' + artImg(a) + '" alt="' + esc(a.title) + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a.category) + '\'">' +
+        '<img class="' + artImgClass(a).trim() + '" src="' + artImg(a) + '" alt="' + esc(a.title) + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a) + '\'">' +
         '<span class="tag ' + c.cls + '">' + c.label + '</span>' +
         '<div class="ft"><h3>' + esc(a.title) + '</h3></div>' +
       '</a>';
@@ -178,7 +255,7 @@
       div.setAttribute('role', 'button');
       div.setAttribute('tabindex', '0');
       div.innerHTML =
-        '<div class="thumb"><img src="' + artImg(a) + '" alt="' + esc(a.title) + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a.category) + '\'"></div>' +
+        '<div class="thumb"><img class="' + artImgClass(a).trim() + '" src="' + artImg(a) + '" alt="' + esc(a.title) + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a) + '\'"></div>' +
         '<div class="article-body">' +
           '<span class="tag ' + c.cls + '">' + c.label + '</span>' +
           '<h3>' + esc(a.title) + newTag + '</h3>' +
@@ -209,6 +286,26 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m];
     });
   }
+
+  // Chemin photo d'un joueur : champ `photo` explicite, sinon deviné depuis le nom
+  // de famille (images/players/<nom>.jpg). Si le fichier n'existe pas, `onerror`
+  // bascule la tuile sur le maillot. → il suffit de déposer une photo bien nommée.
+  function playerPhoto(p) {
+    if (p.photo) return p.photo;
+    var slug = slugify(String(p.name).trim().split(/\s+/).pop());
+    return slug ? 'images/players/' + slug + '.jpg' : '';
+  }
+  // Callback global : si la photo ne charge pas, on la retire (ainsi que son badge) pour
+  // révéler le maillot + numéro déjà présents dessous. Le numéro reste donc toujours affiché.
+  window.__pjImgFail = function (img) {
+    var box = img.parentNode;
+    if (!box) return;
+    box.className = box.className.replace('duo', 'jersey');
+    // retire les numéros superposés à la photo (tuile + modal) → ne reste que le maillot dessous
+    var over = box.querySelectorAll('.pnum-badge, .pm-num');
+    for (var i = 0; i < over.length; i++) { over[i].parentNode.removeChild(over[i]); }
+    img.parentNode.removeChild(img);
+  };
 
   // ---------- Lens Foot TV (vraies vidéos YouTube, chargement différé) ----------
   function ytThumb(id) { return 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg'; }
@@ -297,10 +394,15 @@
 
   function playerMedia(p) {
     var num = (p.num != null) ? p.num : '—';
-    return p.photo
-      ? '<span class="player-photo duo"><img src="' + p.photo + '" alt="' + esc(p.name) + '" loading="lazy">' +
-          '<span class="pnum-badge">' + num + '</span></span>'
-      : '<span class="player-photo jersey"><span class="pj-stripe"></span><span class="player-num">' + num + '</span></span>';
+    var src = playerPhoto(p);
+    // Maillot + numéro TOUJOURS présents en couche de fond : le numéro reste visible même
+    // si la photo manque. La photo (si elle charge) recouvre ce fond ; sinon `onerror` la
+    // retire et révèle le maillot dessous → l'étiquette ne peut jamais disparaître.
+    var base = '<span class="pj-stripe"></span><span class="player-num">' + num + '</span>';
+    if (!src) return '<span class="player-photo jersey">' + base + '</span>';
+    return '<span class="player-photo duo">' + base +
+      '<img src="' + src + '" alt="' + esc(p.name) + '" loading="lazy" onerror="window.__pjImgFail(this)">' +
+      '<span class="pnum-badge">' + num + '</span></span>';
   }
   function playerCardHTML(p, i) {
     return '<button class="player-card reveal" data-i="' + i + '" data-pos="' + p.pos + '">' +
@@ -352,11 +454,14 @@
       ? (/^https?:/.test(p.video) ? p.video : 'https://www.youtube.com/watch?v=' + p.video)
       : 'https://www.youtube.com/results?search_query=' + encodeURIComponent(p.name + ' RC Lens skills');
     var skillsLabel = p.video ? '▶ Skills ↗' : '▶ Vidéos ↗';
-    var head = p.photo
-      ? '<div class="pm-head duo"><img src="' + p.photo + '" alt="' + esc(p.name) + '">' +
-          (p.cap ? '<span class="player-cap">C</span>' : '') + '<span class="pm-num">' + num + '</span></div>'
+    var pmSrc = playerPhoto(p);
+    var pmCap = p.cap ? '<span class="player-cap">C</span>' : '';
+    var head = pmSrc
+      ? '<div class="pm-head duo"><span class="pj-stripe"></span><span class="player-num pm-base-num">' + num + '</span>' +
+          '<img src="' + pmSrc + '" alt="' + esc(p.name) + '" onerror="window.__pjImgFail(this)">' +
+          pmCap + '<span class="pm-num">' + num + '</span></div>'
       : '<div class="pm-head jersey"><span class="pj-stripe"></span>' +
-          (p.cap ? '<span class="player-cap">C</span>' : '') + '<span class="player-num">' + num + '</span></div>';
+          pmCap + '<span class="player-num">' + num + '</span></div>';
     var tiles = pmStat('Numéro', num) + pmStat('Poste', POS[p.pos].l) +
                 pmStat('Âge', age ? age + ' ans' : '—') + pmStat('Né en', p.born || '—');
     if (p.matches != null) tiles += pmStat('Matchs', p.matches);
@@ -369,7 +474,7 @@
         '<h3>' + esc(p.name) + '</h3>' +
         (p.desc ? '<p class="pm-desc">' + esc(p.desc) + '</p>' : '') +
         '<div class="pm-stats">' + tiles + '</div>' +
-        (p.matches != null ? '<span class="pm-statyear">Statistiques Ligue 1 · saison 2024-2025</span>' : '') +
+        (p.matches != null ? '<span class="pm-statyear">Statistiques Ligue 1 · saison 2025-2026</span>' : '') +
         '<div class="pm-actions">' +
           '<a class="btn btn-ghost pm-link" href="https://www.rclens.fr/fr/equipe/saison-2025-2026" target="_blank" rel="noopener">Fiche officielle ↗</a>' +
           '<a class="btn btn-gold pm-skills" href="' + skillsUrl + '" target="_blank" rel="noopener">' + skillsLabel + '</a>' +
@@ -397,7 +502,7 @@
     var paras = (a.body && a.body.length ? a.body : [a.excerpt]);
     m.querySelector('.am-inner').innerHTML =
       '<button class="am-close" aria-label="Fermer">×</button>' +
-      '<div class="am-hero"><img src="' + artImg(a) + '" alt="' + esc(a.title) + '"' + (a.imgPos ? ' style="object-position:' + a.imgPos + '"' : '') + ' loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a.category) + '\'">' +
+      '<div class="am-hero"><img class="' + (isPlayerImg(artDetailImg(a)) ? 'is-portrait' : '') + '" src="' + artDetailImg(a) + '" alt="' + esc(a.title) + '"' + (a.imgPos ? ' style="object-position:' + a.imgPos + '"' : '') + ' loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a) + '\'">' +
         '<span class="tag ' + c.cls + '">' + c.label + '</span>' +
       '</div>' +
       '<article class="am-body">' +

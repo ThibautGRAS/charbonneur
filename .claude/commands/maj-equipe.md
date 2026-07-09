@@ -38,9 +38,17 @@ Tu mets à jour **uniquement** `data/players.js` (effectif de la saison en cours
    recherche YouTube du joueur. On ne fait que **lier**, aucun hébergement.
 5. **Stats** (`matches`, `goals`, `assists`). ⚠️ **Ne réinjecte JAMAIS de stats d'une saison
    passée/périmée** (ex. 2024-25 sur un effectif 2026-27) : **hors saison, laisse les champs vides**.
-   On ne les branche que **quand la saison en cours a des données** — deux sources possibles :
-   - **OneFootball (à privilégier — donne la saison en cours / la dernière saison, ce que le plan
-     gratuit d'API-Football ne couvre pas)** : sur `onefootball.com/fr/equipe/rc-lens-256/effectif`,
+   On ne les branche que **quand la saison en cours a des données** — trois sources possibles :
+   - **Site officiel RC Lens (à privilégier — gratuit, sans clé, stats de la saison en cours dans le
+     HTML, récupérables directement par WebFetch)** : chaque joueur a une fiche
+     `rclens.fr/fr/equipe-premiere/effectif/joueurs/<prenom>-<nom>` (slug sans accents,
+     ex. `nidal-celik`, `florian-thauvin`). La page affiche pour la **saison en cours** :
+     Apparitions, Titularisations, Minutes, Buts, Passes décisives (+ un bloc défense/passes détaillé
+     dont on n'utilise que `matches`=Apparitions, `goals`=Buts, `assists`=Passes décisives). Vérifie
+     bien la **saison** indiquée en tête de page ; hors saison elle montre encore la précédente → dans
+     ce cas, **ne branche rien** (règle « pas de stats périmées »). Mets le libellé des tuiles
+     (`app.js`) en cohérence avec la saison réellement affichée.
+   - **OneFootball** (repli) : sur `onefootball.com/fr/equipe/rc-lens-256/effectif`,
      récupère l'URL profil de chaque joueur (`/fr/joueur/<slug>-<id>`), puis sa page
      `.../stats?seasonId=<id de la saison Ligue 1>` → buts, passes, et matchs (si affichés). Vérifie
      bien la **saison** couverte et que le **nombre de matchs** est présent (sinon complète/repli).
