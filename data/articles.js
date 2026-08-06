@@ -9,6 +9,51 @@
 
 window.ARTICLES = [
   {
+    id: 'kebbal-piste-offensive',
+    date: '2026-08-05',
+    time: '17:30',
+    category: 'mercato',
+    title: 'Ilan Kebbal, la nouvelle piste offensive du Racing pour animer le couloir droit',
+    excerpt: 'Le milieu offensif algérien du Paris FC, auteur de 9 buts et 5 passes décisives la saison dernière, figure sur les tablettes lensoises. Courtisé aussi par l\u2019OM, il incarne le profil créatif recherché après les départs de Saïd et Saint-Maximin.',
+    image: '',
+    featured: null,
+    pinned: false,
+    body: [
+      'Le mercato lensois entre dans sa deuxième phase. Après avoir remodelé son entrejeu avec Michaël Cuisance puis Yacine Titraoui, la cellule de recrutement s\u2019attaque au secteur offensif, et un nom revient avec insistance depuis le début de la semaine : Ilan Kebbal, le milieu offensif du Paris FC.',
+      'Selon les informations du journaliste Sébastien Vidal, relayées par plusieurs médias, les dirigeants artésiens se sont positionnés sur l\u2019international algérien de 28 ans. Le joueur sort d\u2019une saison 2025-2026 aboutie avec le club francilien : 9 buts et 5 passes décisives en Ligue 1, un rendement qui a naturellement attiré les regards.',
+      'Le dossier s\u2019annonce toutefois disputé : l\u2019Olympique de Marseille suit le joueur depuis plusieurs semaines, et son nouveau directeur sportif Grégory Lorenzi apprécie le profil. Formé à Reims et installé au Paris FC depuis 2022, Kebbal représente une valeur sûre du championnat, capable d\u2019évoluer sur un côté comme dans l\u2019axe.',
+      'Cette piste répond à un besoin identifié : les départs de Wesley Saïd et d\u2019Allan Saint-Maximin n\u2019ont pas encore été compensés, et le staff de Dino Toppmöller souhaite élargir la rotation offensive avant d\u2019attaquer une saison à trois fronts, entre Ligue 1, défense de la Coupe de France et Ligue des champions.',
+      'La défense reste l\u2019autre chantier prioritaire de cette fin de mercato : le poste de doublure au flanc gauche est toujours vacant, et plusieurs retours de blessure compliquent la gestion de l\u2019effectif. Les prochaines semaines diront si le Racing peut mener les deux dossiers de front avant la clôture du marché, le 1er septembre à 20h.'
+    ],
+    sources: [
+      { name: 'MercatoMinute', url: 'https://mercatominute.fr/rc-lens/' },
+      { name: 'Livefoot', url: 'https://www.livefoot.fr/france/ligue1/rc-lens.php' },
+      { name: 'MediaSportif (urgence défensive)', url: 'https://www.mediasportif.fr/2026/08/06/rc-lens-mercato-le-staff-technique-cherche-en-urgence-un-renfort-et-le-profil-cible-est-un-lateral-gauche/' }
+    ]
+  },
+  {
+    id: 'sunderland-trophee-1906',
+    date: '2026-08-06',
+    time: '12:00',
+    category: 'saison',
+    title: 'Trophée 1906 : Sunderland à Bollaert samedi pour le dernier test de l\u2019été',
+    excerpt: 'Invaincus en préparation et auréolés de la Como Cup, les Sang et Or reçoivent Sunderland samedi à 16h pour la deuxième édition du Trophée 1906. Attention au trafic : la préfecture alerte sur des travaux majeurs autour de l\u2019A1.',
+    image: 'images/defaut/bollaert-nuit.jpg',
+    featured: null,
+    pinned: false,
+    body: [
+      'La préparation estivale touche à sa fin, et elle se conclura à la maison. Samedi 8 août à 16h, Bollaert-Delelis accueille Sunderland AFC pour la deuxième édition du Trophée 1906, ultime répétition générale avant les choses sérieuses.',
+      'Le test a de l\u2019allure : face aux Sang et Or se dressera un pensionnaire de Premier League, dans un stade qui devrait déjà vibrer trois semaines avant la reprise du championnat. Pour le groupe de Dino Toppmöller, invaincu cet été et vainqueur de la Como Cup face à Villarreal, c\u2019est l\u2019occasion de valider la montée en puissance entrevue en Italie.',
+      'Ce sera aussi l\u2019opportunité de voir à l\u2019œuvre les recrues devant le public artésien, à commencer par Yacine Titraoui, dont les premiers pas à Bollaert sont attendus avec impatience. L\u2019ancien milieu de Charleroi, adoubé cette semaine par Mehdi Tahrat, devrait découvrir l\u2019ambiance du chaudron pour la première fois sous ses nouvelles couleurs.',
+      'Un point pratique à anticiper pour les supporters : la préfecture alerte sur un trafic très chargé ce week-end autour du stade. La DIR Nord a lancé un important chantier de rénovation de chaussée sur l\u2019A1 entre Dourges et Carvin, dans le sens Paris-Lille, et les axes voisins risquent d\u2019être saturés. Mieux vaut partir en avance ou privilégier les itinéraires alternatifs.',
+      'Après Sunderland, le calendrier s\u2019accélère : Trophée des champions face au PSG le dimanche 16 août à Bollaert, puis reprise de la Ligue 1 le 22 août avec la réception d\u2019Auxerre. L\u2019été parfait des Sang et Or n\u2019attend plus que sa confirmation officielle.'
+    ],
+    sources: [
+      { name: 'Livefoot (alerte trafic, via actu.fr)', url: 'https://www.livefoot.fr/france/ligue1/rc-lens.php' },
+      { name: 'MadeInLens (programme de l\u2019été)', url: 'https://www.madeinlens.com/tableau-mercato/ete-2026.html' }
+    ]
+  },
+  {
     id: 'titraoui-officiel',
     date: '2026-08-03',
     time: '20:30',
