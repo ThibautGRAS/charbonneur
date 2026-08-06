@@ -12,6 +12,31 @@
 
 window.VIDEOS = [
   {
+    id: '3HrULUsF_fo',
+    title: 'Les Lensois préparent l’Europe — Épisode 4 (coulisses de l’été)',
+    author: 'RC Lens (chaîne officielle)',
+    embeddable: true,
+    feature: true
+  },
+  {
+    id: 'UGS9uZ-vMfw',
+    title: 'Les Lensois préparent l’Europe — Épisode 3',
+    author: 'RC Lens (chaîne officielle)',
+    embeddable: true
+  },
+  {
+    id: 'fcPZsKEhDr4',
+    title: 'Les Lensois préparent l’Europe — Épisode 2 (souvenir européen des Made in Gaillette)',
+    author: 'RC Lens (chaîne officielle)',
+    embeddable: true
+  },
+  {
+    id: 'fgJU_lc28Q4',
+    title: 'Les Lensois préparent l’Europe — Épisode 1 (avec Vladimir Šmicer)',
+    author: 'RC Lens (chaîne officielle)',
+    embeddable: true
+  },
+  {
     id: 'V42MiNAhR14',
     title: 'CHARBONNEURS — le documentaire Ligue 1+ sur une saison historique',
     author: 'Ligue 1 McDonald’s',
@@ -39,8 +64,7 @@ window.VIDEOS = [
     id: 'xnDn2XUqsJ8',
     title: 'Thorgan Hazard — talent & skills du nouveau Sang et Or',
     author: 'Skills compilation',
-    embeddable: true,
-    feature: true
+    embeddable: true
   },
   {
     id: '30C4H7-hJwM',
