@@ -365,7 +365,7 @@ window.ARTICLES = [
     image: 'images/articles/toppmoller.jpg',
     poster: 'images/defaut/stade.jpg',
     video: 'video/fond.mp4',
-    featured: 'hero',
+    featured: null,
     pinned: false,
     body: [
       'Le RC Lens tient son nouvel entraîneur : Dino Toppmöller s’est engagé jusqu’en 2028. L’Allemand succède à Pierre Sage, qui a choisi de relever un nouveau défi en Premier League du côté de Crystal Palace.',
