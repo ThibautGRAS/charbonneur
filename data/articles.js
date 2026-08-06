@@ -9,6 +9,52 @@
 
 window.ARTICLES = [
   {
+    id: 'titraoui-officiel',
+    date: '2026-08-03',
+    time: '20:30',
+    category: 'mercato',
+    title: 'Yacine Titraoui est Sang et Or : le successeur désigné de Sangaré arrive de Charleroi',
+    excerpt: '« One, two, three… Viva Titraoui » : le Racing a officialisé lundi soir la signature du milieu international algérien de 23 ans, engagé jusqu’en 2031 pour reprendre le n°8 laissé par Mamadou Sangaré, parti à Brentford.',
+    image: '',
+    featured: null,
+    pinned: false,
+    hot: true,
+    body: [
+      'Le dossier était suivi de longue date par la cellule de recrutement lensoise, il a trouvé son épilogue lundi soir : le RC Lens a officialisé par communiqué la signature de Yacine Titraoui, milieu de terrain de 23 ans en provenance du Royal Charleroi SC. L’international algérien (5 sélections) s’est engagé jusqu’en juin 2031, pour un transfert estimé autour de 8 millions d’euros.',
+      'Formé au Paradou AC, Titraoui avait rejoint Charleroi à l’été 2024 pour sa première expérience européenne. Deux saisons pleines en Belgique ont fait de lui une pierre angulaire des Zèbres et un profil très courtisé : il avait d’ailleurs repoussé quelques jours plus tôt une offre de l’Olympiakos, financièrement plus généreuse, pour privilégier le projet lensois et la perspective de la Ligue des champions.',
+      'Le club le présente comme un « inlassable coureur et véritable métronome de l’entrejeu », de retour d’Amérique où il figurait dans la liste de l’Algérie pour la Coupe du monde 2026. Volume de course, capacité de récupération et qualité de relance : le profil colle à celui laissé vacant par Mamadou Sangaré, dont le transfert record vers Brentford a été acté quelques jours plus tôt.',
+      'Le symbole ne s’arrête pas là : Titraoui hérite du numéro 8, et sa présentation a été mise en scène aux côtés de Seydou Keita, iconique milieu artésien, dans la série estivale du club. Une passation d’héritage assumée pour celui qui est désigné comme le nouveau dépositaire de l’entrejeu sang et or.',
+      'Avec Michaël Cuisance déjà arrivé cet été, et aux côtés d’Andrija Bulatović et d’Amadou Haidara, c’est tout le cœur du jeu lensois qui a été remodelé avant une saison à trois fronts : Ligue 1, défense de la Coupe de France et Ligue des champions. La deuxième partie du mercato devrait maintenant se concentrer sur le secteur défensif.'
+    ],
+    sources: [
+      { name: 'RC Lens (communiqué, via But! Football Club)', url: 'https://www.butfootballclub.fr/1688523-rc-lens-mercato-cest-officiel-pour-yacine-titraoui/' },
+      { name: 'RCLensois.fr', url: 'https://www.rclensois.fr/transferts/linternational-algerien-yacine-titraoui-rejoint-officiellement/' },
+      { name: 'MercatoLive (Sangaré à Brentford)', url: 'https://mercatolive.fr/france/rc-lens/' }
+    ]
+  },
+  {
+    id: 'como-cup-victoire',
+    date: '2026-08-01',
+    time: '22:30',
+    category: 'saison',
+    title: 'Le Racing soulève la Como Cup : Villarreal battu 3-1, une préparation sans fausse note',
+    excerpt: 'Au Stadio Giuseppe Sinigaglia, les Sang et Or ont dominé Villarreal en finale du tournoi de Côme, avec un Florian Thauvin étincelant. Le Racing reste invaincu cet été avant le Trophée 1906 face à Sunderland.',
+    image: 'images/players/thauvin.jpg',
+    featured: 'feat',
+    pinned: false,
+    body: [
+      'Une finale pour conclure en beauté le stage sur les bords du lac de Côme. Opposé à Villarreal samedi soir au Stadio Giuseppe Sinigaglia, le RC Lens s’est imposé 3 à 1 et ramène le trophée de la Como Cup dans l’Artois, au terme d’une semaine italienne qui l’avait déjà vu écarter Crystal Palace et Famalicão.',
+      'Aligné avec une formation proche de celle attendue pour la reprise du championnat, le Racing a une nouvelle fois été porté par Florian Thauvin. L’attaquant a d’abord offert l’égalisation à Matthieu Udol d’une superbe ouverture, avant de transformer un penalty plein de sang-froid. Une prestation qui lui a valu d’être désigné Lensois du match par les lecteurs de Lensois.com — et qui confirme son entente déjà évidente avec le nouveau groupe de Dino Toppmöller.',
+      'Au-delà du trophée, c’est la trajectoire de la préparation qui rassure : succès face à Boulogne-sur-Mer (4-1), nul contre Charleroi (2-2), puis un parcours plein à Côme. Les Sang et Or restent invaincus cet été, avec un contenu qui monte en puissance à trois semaines des choses sérieuses.',
+      'La suite s’annonce copieuse, et à domicile : samedi 8 août à 16h, Bollaert-Delelis accueille Sunderland pour la deuxième édition du Trophée 1906, dernier test face à un pensionnaire de Premier League. Puis le dimanche 16 août, toujours à Bollaert, le Racing défiera le Paris Saint-Germain pour la 31e édition du Trophée des champions — la première affiche officielle de la saison.',
+      'La reprise de la Ligue 1 suivra le 22 août avec la réception d’Auxerre, pour lancer la 63e saison d’après-guerre du club dans l’élite, la septième consécutive depuis la remontée de 2020. Entre la défense de la Coupe de France et le retour en Ligue des champions, cet été parfait ressemble à la meilleure des rampes de lancement.'
+    ],
+    sources: [
+      { name: 'Lensois.com (via OneFootball)', url: 'https://onefootball.com/fr/news/rc-lens-villareal-3-1-tous-les-buts-lensois-en-video-43218650' },
+      { name: 'OneFootball (Trophée des champions)', url: 'https://onefootball.com/fr/news/le-rc-lens-met-en-place-un-challenge-pour-les-supporters-avant-le-trophee-des-champions-43227322' }
+    ]
+  },
+  {
     id: 'sage-verites-depart',
     date: '2026-07-08',
     time: '10:30',
@@ -37,7 +83,7 @@ window.ARTICLES = [
     title: 'Reprise le 9 juillet : le programme estival des Sang et Or se précise',
     excerpt: 'Entre reprise de l’entraînement, tournoi en Italie et Trophée des Champions face au PSG, l’été lensois s’annonce chargé avant la Ligue des champions.',
     image: '',
-    featured: 'feat',
+    featured: null,
     pinned: false,
     body: [
       'Le calendrier de la préparation estivale du RC Lens commence à prendre forme. Les Sang et Or reprendront l’entraînement le 9 juillet à la Gaillette, avant d’enchaîner plusieurs échéances qui doivent leur permettre d’aborder la saison de Ligue des champions dans les meilleures conditions.',
