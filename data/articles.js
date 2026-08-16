@@ -9,6 +9,28 @@
 
 window.ARTICLES = [
   {
+    id: 'defenseur-gaucher-recherche',
+    date: '2026-08-15',
+    time: '21:00',
+    category: 'mercato',
+    title: 'Mercato : Lens accélère sa quête d’un défenseur central gaucher avant le Trophée des Champions',
+    excerpt: 'Avec le départ de Malang Sarr et l’absence prolongée de Samson Baidoo, le Racing cherche un renfort défensif capable d’apporter immédiatement de la solidité, pour un budget avoisinant les 6 millions d’euros.',
+    image: '',
+    featured: null,
+    pinned: false,
+    body: [
+      'A deux semaines de la clôture du mercato, le RC Lens a identifié sa priorité absolue : recruter un défenseur central gaucher capable de s’intégrer immédiatement dans le dispositif de Dino Toppmöller. Le dossier a pris un tour plus concret ces derniers jours, avec un budget évoqué autour de 6 millions d’euros.',
+      'La nécessité est née d’un enchaînement de circonstances. Le départ de Malang Sarr a privé l’effectif d’un axe gaucher expérimenté, tandis que Samson Baidoo reste éloigné des terrains pour une durée indéterminée. Jonathan Gradit, cadre du secteur défensif, n’est de son côté toujours pas disponible pour la compétition.',
+      'Sur le papier, la rotation existe encore avec Ismaëlo Ganiou et le jeune Kyllian Antonio, mais aucun des deux ne dispose du profil ou de l’expérience jugés suffisants pour tenir la charge d’une saison à trois fronts, entre Ligue 1, Coupe de France et retour en Ligue des champions.',
+      'Le staff lensois et la cellule de recrutement travaillent donc sur un ciblage précis : un joueur pouvant apporter de la solidité dès ses premiers matches, sans besoin d’une longue période d’adaptation au système de jeu du club artésien.',
+      'Aucun nom n’a pour l’instant filtré côté piste privilégiée. Le club dispose d’environ deux semaines pour boucler cette arrivée avant la reprise de la Ligue 1, avec en ligne de mire immédiate le Trophée des Champions face au PSG, ce dimanche à Bollaert.',
+      'Ce dossier défensif s’ajoute à celui, toujours ouvert, d’un renfort offensif sur le couloir droit avec la piste Ilan Kebbal : Lens entend mener les deux chantiers de front avant la fermeture du marché, le 1er septembre à 20h.'
+    ],
+    sources: [
+      { name: 'But! Football Club', url: 'https://www.butfootballclub.fr/1690901-rc-lens-mercato-le-dernier-gros-coup-de-lete-pourrait-couter-6-millions-deuros/' }
+    ]
+  },
+  {
     id: 'trophee-champions-psg-2026',
     date: '2026-08-16',
     time: '20:45',
