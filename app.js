@@ -200,7 +200,11 @@
       return da < db ? 1 : da > db ? -1 : 0;
     }).slice(0, 6);
     el.innerHTML = list.map(function (a, i) {
-      return '<li data-i="' + i + '"><span class="time">' + (a.time || fmtDate(a.date)) + '</span>' +
+      var d = (a.date || '').split('-');
+      var short = d.length === 3 ? d[2] + '/' + d[1] : '';          // JJ/MM
+      var stamp = a.time ? (short ? short + ' · ' + a.time : a.time) // JJ/MM · HH:MM
+                         : (short || fmtDate(a.date));
+      return '<li data-i="' + i + '"><span class="time">' + stamp + '</span>' +
         '<span>' + esc(a.title) + '</span></li>';
     }).join('');
     el.querySelectorAll('li').forEach(function (li) {

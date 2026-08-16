@@ -195,7 +195,7 @@ body.has-scrolled .scroll-cue{opacity:0;pointer-events:none}
 .widget-body{padding:1.2rem}
 .fil li{padding:.7rem 0;border-bottom:1px solid var(--brd);display:flex;gap:.7rem;font-size:.85rem;color:var(--ink-dim);cursor:pointer}
 .fil li:last-child{border-bottom:0}
-.fil .time{color:var(--or);font-weight:700;font-size:.75rem;flex:none;min-width:38px}
+.fil .time{color:var(--or);font-weight:700;font-size:.75rem;flex:none;min-width:74px}
 .fil li:hover{color:var(--ink)}
 .match{text-align:center}
 .match .comp{color:var(--ink-faint);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.9rem}

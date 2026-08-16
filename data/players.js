@@ -50,5 +50,6 @@ window.PLAYERS = [
   { num: null, name: 'Goduine Koyalipou', pos: 'A', nat: 'Centrafrique',     flag: '🇨🇫', born: 2000, photo: 'images/players/koyalipou.jpg', video: 'https://www.youtube.com/watch?v=kLO2iv1_WPo', desc: 'Avant-centre athlétique international centrafricain, de retour de prêt et candidat à une place dans la rotation offensive lensoise.' },
   { num: null, name: 'Jeremy Agbonifo', pos: 'A', nat: 'Suède',              flag: '🇸🇪', born: 2005, desc: 'Ailier suédois d\'origine nigériane formé au BK Häcken, international jeune. Arrivé à Lens en prêt début 2025, il avait marqué dès sa première apparition contre Montpellier.' },
   { num: 36, name: 'Rémy Labeau-Lascary', pos: 'A', nat: 'France',           flag: '🇫🇷', born: 2003, video: 'https://www.youtube.com/watch?v=73V3Zmo6JoA', desc: 'Jeune attaquant formé au RC Lens.' },
-  { num: 38, name: 'Rayan Fofana',     pos: 'A', nat: 'France',              flag: '🇫🇷', born: 2006, matches: 25, goals: 5, assists: 0, desc: 'Jeune attaquant du centre de formation.' }
+  { num: 38, name: 'Rayan Fofana',     pos: 'A', nat: 'France',              flag: '🇫🇷', born: 2006, matches: 25, goals: 5, assists: 0, desc: 'Jeune attaquant du centre de formation.' },
+  { num: 29, name: 'Franjo Ivanović',  pos: 'A', nat: 'Croatie',             flag: '🇭🇷', born: 2003, desc: 'Attaquant international croate (9 sél.), prêté par Benfica pour 2026-27. Polyvalent, il peut évoluer en pointe ou sur l\'aile gauche.' }
 ];
