@@ -10,6 +10,19 @@ Tu mets à jour **uniquement** `data/videos.js`.
 2. **Recherche** (WebSearch) des vidéos YouTube RC Lens récentes : résumés, buts,
    interviews, coulisses, conférences de presse, documentaires, **et compilations
    « skills / talent » de joueurs** (titres avec « talent », « skills », « best of »…).
+   **Méthode de recherche — deux stratégies selon le type de contenu :**
+   - **Contenus club** (interviews, coulisses, presse, épisodes officiels) : requête
+     avec « RC Lens » ou le nom de la série (ex. « Les Lensois préparent l'Europe »).
+   - **Compilations joueur (skills)** : requête = **nom du joueur + mot-clé SEUL,
+     SANS forcer « RC Lens »** — beaucoup de compils couvrent la carrière du joueur
+     dans d'autres clubs et n'ont ni « RC Lens » ni « Lens » dans le titre.
+     Mots-clés à varier : skills, talent, buts/goals, best of, highlights,
+     meilleurs moments, meilleures actions, top, compilation, résumé.
+     Cherche large, au besoin directement dans YouTube
+     (`/results?search_query=…&hl=fr&gl=FR`), pas seulement via un moteur US.
+     **S'il y a plusieurs récaps, prends le PLUS RÉCENT.** Si aucun **titre** ne
+     correspond clairement, **lis la DESCRIPTION** de la vidéo : si elle indique un
+     récap du joueur, on peut la retenir.
 3. **Vérifie chaque candidate** :
    - **Existence** : oEmbed `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=<ID>&format=json`
      doit répondre **200** (sinon 404/privée → ne pas référencer).
