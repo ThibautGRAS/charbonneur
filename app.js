@@ -603,6 +603,7 @@
       '<button class="am-close" aria-label="Fermer">×</button>' +
       '<div class="am-hero"><img class="' + (isPlayerImg(artDetailImg(a)) ? 'is-portrait' : '') + '" src="' + artDetailImg(a) + '" alt="' + esc(a.title) + '"' + (a.imgPos ? ' style="object-position:' + a.imgPos + '"' : '') + ' loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a) + '\'">' +
         '<span class="tag ' + c.cls + '">' + c.label + '</span>' +
+        (a.imageCredit ? '<span class="am-credit">📷 ' + esc(a.imageCredit) + '</span>' : '') +
       '</div>' +
       '<article class="am-body">' +
         '<span class="am-meta">' + c.label + ' · ' + fmtDate(a.date) + '</span>' +

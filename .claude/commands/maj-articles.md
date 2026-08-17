@@ -46,9 +46,18 @@ Tu mets à jour le fil d'actualité (`data/articles.js`), avec pour chaque artic
      Si un fichier correspond, **réutilise-le** (`image` = ce chemin). Terminé.
      ⚠️ **Refais ce balayage aussi pour les articles récents DÉJÀ présents** : si une image a été
      déposée à la main dans `images/articles/` après coup, **adopte-la** (remplace l'image par défaut).
-   - **b) Sinon, chercher une photo libre** : **Wikidata** `P18` (identité prénom + nom + nationalité,
-     anti-homonyme), sinon **Wikimedia Commons** (nom de fichier = sujet). Télécharge la miniature
-     (`iiurlwidth=640`) dans **`images/articles/<slug>.jpg`** et mets `image` = ce chemin.
+   - **b) Sinon, photo LIBRE** (à privilégier) : **Wikidata** `P18` (identité prénom + nom +
+     nationalité, anti-homonyme), sinon **Wikimedia Commons** (nom de fichier = sujet). Télécharge la
+     miniature (`iiurlwidth=640`) dans **`images/articles/<slug>.jpg`**, `image` = ce chemin.
+     (Photo libre = **pas** de `imageCredit` obligatoire.)
+   - **b-bis) Sinon, l'`og:image` de la SOURCE de l'info** (pour éviter les images d'ambiance
+     génériques) : sur la page source (lensois.com, footmercato, madeinlens…), lis la balise
+     `<meta property="og:image">` (ou `twitter:image`). Télécharge-la dans `images/articles/<slug>.jpg`,
+     `image` = ce chemin, **et renseigne OBLIGATOIREMENT** `imageCredit: '<nom de la source>'`
+     (ex. `'Lensois.com'`, `'Foot Mercato'`) → un crédit « 📷 <source> » s'affiche sur l'article.
+     ⚠️ **Écarte** les visuels manifestement **filigranés / d'agence** (Icon Sport, AFP, Getty, watermark
+     visible) : préfère alors une image libre ou le défaut. On ne reprend qu'à titre **non commercial**
+     (site de fan), crédit visible à l'appui.
    - **c) Aucune image fiable ?** → **laisse `image` vide** : le site pioche **au hasard** (mais de
      façon stable, d'après l'`id` de l'article) une photo d'ambiance dans `images/defaut/`. Si le titre
      cite un joueur de l'effectif, sa photo `images/players/` est utilisée automatiquement à la place.
@@ -62,11 +71,11 @@ Tu mets à jour le fil d'actualité (`data/articles.js`), avec pour chaque artic
      recadre ensuite en `object-position: center center` ; le champ `imgPos` reste un ajustement
      de dernier recours. ⚠️ Ne recadre QUE `images/articles/` — les portraits `images/players/`
      restent verticaux (tuiles joueurs).
-   - **PAS de crédit photo dans l'article** : n'ajoute **pas** de champ `imageCredit` ni de mention
-     de source photo. L'attribution Creative Commons figure **globalement** dans le disclaimer en
-     pied de page — c'est suffisant.
-   - ⚠️ **JAMAIS** de photo de presse/agence protégée. Évite de réutiliser la **même** photo pour
-     deux articles consécutifs. Dossiers : `images/defaut/` = défauts · `images/articles/` = articles.
+   - **CRÉDIT** : dès que l'image vient d'une **source tierce** (og:image), renseigne `imageCredit`
+     (nom de la source). Une image **libre** (Wikimedia/Commons) ou une photo **locale** de joueur
+     n'en a pas besoin. Le crédit s'affiche discrètement en bas de la photo dans la vue article.
+   - ⚠️ Évite les photos **filigranées/d'agence** identifiables. Évite de réutiliser la **même** image
+     pour deux articles consécutifs. Dossiers : `images/defaut/` = défauts · `images/articles/` = articles.
 6. **Insère EN TÊTE** du tableau, conserve TOUS les anciens. Le **héros ET les 2 sous-unes sont
    choisis AUTOMATIQUEMENT** = les actus les plus brûlantes (fraîcheur + poids de catégorie, mercato
    en tête ; ajustable via `hot`/`heat`). `featured: 'hero'` ne sert plus qu'à **forcer** une une.
