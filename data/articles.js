@@ -79,28 +79,6 @@ window.ARTICLES = [
     ]
   },
   {
-    id: 'trophee-champions-psg-2026',
-    date: '2026-08-16',
-    time: '20:45',
-    category: 'saison',
-    title: 'Trophée des Champions : le RC Lens défie le PSG à Bollaert',
-    excerpt: 'Les Sang et Or ouvrent leur saison 2026-2027 par un choc au sommet contre le Paris Saint-Germain, ce dimanche soir à Bollaert, avec un premier trophée à la clé.',
-    image: 'images/defaut/bollaert-nuit.jpg',
-    featured: null,
-    pinned: false,
-    hot: true,
-    body: [
-      'Après un été parfait ponctué par la Como Cup et le Trophée 1906, le RC Lens entre dans le dur : le Trophée des Champions, ce dimanche 16 août à 20h45 à Bollaert-Delelis, face au Paris Saint-Germain. De quoi lancer la saison 2026-2027 sous les projecteurs.',
-      'En face, le PSG se présente au complet et part favori. Mais ce type d’affiche, disputée sur un match sec devant un chaudron plein, offre traditionnellement une occasion de créer l’exploit et de démarrer l’exercice par un titre.',
-      'Pour les Sang et Or, l’enjeu dépasse le seul trophée : c’est un premier test grandeur nature avant une saison à trois fronts, entre Ligue 1, défense de la Coupe de France et retour en Ligue des champions.',
-      'La recrue offensive Franjo Ivanović, tout juste prêtée par Benfica, figure parmi les joueurs qualifiés et pourrait connaître ses grands débuts sous le maillot artésien à cette occasion, aux côtés de l’autre renfort de l’entrejeu Yacine Titraoui.',
-      'Quel que soit le résultat, ce rendez-vous donnera un premier indicateur du visage de l’équipe de Dino Toppmöller, après un exercice précédent référence conclu par une place de dauphin du PSG et une Coupe de France.'
-    ],
-    sources: [
-      { name: 'Ligue1.com', url: 'https://ligue1.com/fr/articles/l1_article_5662-trophee-des-champions-franjo-ivanovic-qualifie-le-psg-au-complet' }
-    ]
-  },
-  {
     id: 'ivanovic-pret-benfica',
     date: '2026-08-13',
     time: '18:00',

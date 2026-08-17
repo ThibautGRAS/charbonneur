@@ -9,7 +9,11 @@
       "Bash(git fetch *)",
       "Bash(git rev-list *)",
       "Bash(cp .claude/settings.json /tmp/settings_backup.json)",
-      "Bash(git reset *)"
+      "Bash(git reset *)",
+      "PowerShell($p = \"$env:USERPROFILE\\\\.claude.json\"; if \\(Test-Path $p\\) { $j = Get-Content $p -Raw | ConvertFrom-Json; $key = \"C:/Users/gras/Desktop/Outils/lens\"; $proj = $j.projects.$key; if \\($null -eq $proj\\) { \"PROJET ABSENT de projects \\(clé: $key\\)\"; \"--- clés projects existantes ---\"; $j.projects.PSObject.Properties.Name } else { \"hasTrustDialogAccepted = \" + $proj.hasTrustDialogAccepted } } else { \"PAS DE .claude.json\" })",
+      "PowerShell($p = \"$env:USERPROFILE\\\\.claude.json\"; $bytes = [System.IO.File]::ReadAllBytes\\($p\\); $hasBom = \\($bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF\\); \"BOM présent : $hasBom\"; if \\($hasBom\\) { $text = [System.IO.File]::ReadAllText\\($p\\); $utf8NoBom = New-Object System.Text.UTF8Encoding\\($false\\); [System.IO.File]::WriteAllText\\($p, $text, $utf8NoBom\\); \"BOM retiré \\(réécrit sans BOM\\)\" }; $b2 = [System.IO.File]::ReadAllBytes\\($p\\); \"1ers octets: {0:X2} {1:X2} {2:X2}\" -f $b2[0],$b2[1],$b2[2]; try { $null = Get-Content $p -Raw | ConvertFrom-Json; \"JSON OK\" } catch { \"JSON: \" + $_.Exception.Message.Split\\([char]10\\)[0] })",
+      "Bash(git stash *)",
+      "Bash(git pull *)"
     ],
     "additionalDirectories": [
       "\\tmp"
