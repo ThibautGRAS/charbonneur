@@ -9,6 +9,54 @@
 
 window.ARTICLES = [
   {
+    id: 'trophee-champions-2026',
+    date: '2026-08-16',
+    time: '22:45',
+    category: 'saison',
+    title: 'HISTORIQUE : Lens terrasse le PSG et remporte son premier Trophée des Champions !',
+    excerpt: 'Réduits à dix pendant toute la seconde période, les Sang et Or ont fait tomber le PSG 1-0 dimanche soir à Bollaert, sur un but de leur nouveau capitaine Florian Thauvin. Le premier Trophée des Champions de l\u2019histoire du club, dès le premier match officiel de Dino Toppmöller.',
+    image: 'images/players/thauvin.jpg',
+    featured: null,
+    pinned: false,
+    hot: true,
+    heat: 10,
+    body: [
+      'Bollaert-Delelis a vécu dimanche soir une de ces soirées qui entrent directement dans la légende. Pour le premier match officiel de la saison, le RC Lens a battu le Paris Saint-Germain 1 à 0 et soulevé le premier Trophée des Champions de son histoire, devant son public.',
+      'Le héros de la soirée porte désormais le brassard : Florian Thauvin, promu capitaine cet été, a inscrit l\u2019unique but de la rencontre à la demi-heure de jeu (32e). Le champion du monde 2018 confirme un été étincelant, lui qui avait déjà été élu Lensois du match lors des deux dernières sorties de préparation.',
+      'L\u2019exploit est d\u2019autant plus retentissant que les Sang et Or ont disputé toute la seconde période en infériorité numérique. Réduits à dix, les hommes de Dino Toppmöller ont plié sans rompre, frustrant des Parisiens incapables de convertir leur domination, dans un chaudron incandescent.',
+      'Pour Dino Toppmöller, difficile de rêver meilleure entrée en matière : un trophée dès sa première rencontre officielle sur le banc artésien, face au champion de France en titre. Le technicien allemand efface au passage la fausse note de la préparation, la défaite contre Sunderland huit jours plus tôt.',
+      'Un an après le doublé vice-champion \u2013 Coupe de France, le Racing démarre donc la saison 2026-2027 comme il avait fini la précédente : en soulevant un trophée. Place maintenant à la reprise de la Ligue 1, samedi 22 août à Bollaert face à Auxerre, avant le grand retour de la Ligue des champions à l\u2019automne.'
+    ],
+    sources: [
+      { name: 'franceinfo', url: 'https://www.franceinfo.fr/sports/foot/le-rc-lens-resiste-au-psg-et-remporte-le-premier-trophee-des-champions-de-son-histoire_8150309.html' },
+      { name: 'Eurosport (direct)', url: 'https://www.eurosport.fr/football/trophee-des-champions/2026/live-rc-lens-paris-saint-germain_mtc21872498/live-commentary.shtml' },
+      { name: 'L\u2019Équipe / Media365 (via Orange)', url: 'https://sports.orange.fr/football/autres/article/trophee-des-champions-sacre-historique-pour-lens-qui-fait-tomber-le-psg-exclu-CNT000002rmz1s.html' }
+    ]
+  },
+  {
+    id: 'sunderland-defaite-1906',
+    date: '2026-08-08',
+    time: '18:30',
+    category: 'saison',
+    title: 'Trophée 1906 : le Racing chute contre Sunderland (0-2) pour clore sa préparation',
+    excerpt: 'Devant plus de 35 000 spectateurs, les Sang et Or ont concédé leur première défaite de l\u2019été face aux Black Cats, malgré les premiers pas prometteurs de Titraoui à Bollaert et la bonne nouvelle de la prolongation de Ganiou.',
+    image: 'images/defaut/tribune.jpg',
+    featured: null,
+    pinned: false,
+    body: [
+      'La série d\u2019invincibilité estivale s\u2019est arrêtée à Bollaert. Pour son dernier match de préparation, le RC Lens s\u2019est incliné 0-2 face à Sunderland samedi 8 août, dans le cadre de la deuxième édition du Trophée 1906, devant plus de 35 000 spectateurs dont près de 2 000 supporters anglais.',
+      'Longtemps accrocheurs face au 7e de la dernière Premier League, qualifié pour la Ligue Europa, les Sang et Or ont cédé en seconde période sur des buts de Hume (67e) et d\u2019Isidor (82e), l\u2019ancien attaquant passé par la France. Thauvin, capitaine et une nouvelle fois élu Lensois du match, a été le plus remuant, sans parvenir à débloquer la situation.',
+      'La soirée a tout de même livré ses motifs de satisfaction : les premiers pas de Yacine Titraoui devant le public artésien, entré à l\u2019heure de jeu et déjà remarqué pour sa disponibilité et sa verticalité, la solidité de Kyllian Antonio dans le couloir droit, et l\u2019annonce de la prolongation de Ganiou, qui écarte définitivement l\u2019hypothèse d\u2019un départ cet été.',
+      'Le précédent de 2025 invitait d\u2019ailleurs à relativiser : battu sur le même score par l\u2019AS Rome lors de la première édition du Trophée 1906, le Racing avait ensuite signé la meilleure saison de son histoire récente. Une défaite en amical n\u2019a jamais écrit un destin.',
+      'La suite a d\u2019ailleurs donné raison aux optimistes : huit jours plus tard, c\u2019est bien le PSG qui tombait à Bollaert pour offrir aux Sang et Or leur premier Trophée des Champions.'
+    ],
+    sources: [
+      { name: 'RC Lens (compte rendu officiel)', url: 'https://www.rclens.fr/fr/rclens-sunderland-prepartois-compte-rendu-20260808' },
+      { name: 'AllezLens', url: 'https://allezlens.fr/rc-lens-sunderland-afc-0-2-nous-avons-aime-nous-navons-pas-aime/' },
+      { name: 'Lensois.com', url: 'https://www.lensois.com/rc-lens-sunderland-0-2-florian-thauvin-est-votre-lensois-du-match/' }
+    ]
+  },
+  {
     id: 'defenseur-gaucher-recherche',
     date: '2026-08-15',
     time: '21:00',
