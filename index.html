@@ -91,58 +91,16 @@
   <!-- HÉROS plein écran (rempli par le moteur) -->
   <div id="hero-slot"></div>
 
-  <!-- RÉCIT : statement typographique spacieux -->
+  <!-- RÉCIT : manifeste typographique (intro, suivi directement de l'actu) -->
   <section class="statement" id="recit">
     <div class="statement-inner reveal">
       <span class="sec-kicker">De la mine à Bollaert</span>
       <h2>Ici, le football se joue <em>au charbon.</em></h2>
       <p>Descendez dans l’antre des Sang &amp; Or — là où la ferveur des corons remonte à la surface, saison après saison. Plus vous descendez, plus vous vous rapprochez du cœur du Racing.</p>
     </div>
-    <div class="wrap" id="histoireSlot"></div>
   </section>
 
-  <!-- PALMARÈS / STATS -->
-  <section class="section" id="palmares">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-kicker">Bilan sportif</span>
-        <h2 class="sec-title">La saison 2025-2026 en chiffres</h2>
-      </div>
-      <section class="stats-band reveal" aria-label="Statistiques de la saison 2025-2026">
-        <div class="stat"><span class="num" data-to="2" data-suffix="ᵉ">0</span><span class="lbl">de Ligue 1</span></div>
-        <div class="stat"><span class="num" data-to="1">0</span><span class="lbl">Coupe de France</span></div>
-        <div class="stat"><span class="num" data-to="70">0</span><span class="lbl">points en L1</span></div>
-        <div class="stat"><span class="num" data-to="38" data-suffix=" k">0</span><span class="lbl">spectateurs / match</span></div>
-      </section>
-    </div>
-  </section>
-
-  <!-- EFFECTIF -->
-  <section class="section" id="effectif">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-kicker">L’équipe première</span>
-        <h2 class="sec-title">L’effectif Sang &amp; Or</h2>
-      </div>
-      <div id="squadSpotlight" class="reveal"></div>
-      <div class="squad-filters" id="squadFilters"></div>
-      <div class="squad" id="squad"></div>
-    </div>
-  </section>
-
-  <!-- LENS FOOT TV -->
-  <section class="section" id="tv">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-kicker">Vidéos officielles</span>
-        <h2 class="sec-title">Lens Foot TV</h2>
-      </div>
-      <div id="tv-feature" class="reveal"></div>
-      <div class="tv-grid" id="tv-grid"></div>
-    </div>
-  </section>
-
-  <!-- ACTUALITÉ -->
+  <!-- ACTUALITÉ (remontée juste après le manifeste) -->
   <section class="section" id="actu">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -212,6 +170,59 @@
       </div>
     </div>
   </section>
+
+  <!-- HISTOIRE DU CLUB (détachée du manifeste) -->
+  <section class="section" id="histoire">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-kicker">Le club</span>
+        <h2 class="sec-title">L’histoire des Sang &amp; Or</h2>
+      </div>
+    </div>
+    <div class="wrap" id="histoireSlot"></div>
+  </section>
+
+  <!-- PALMARÈS / STATS -->
+  <section class="section" id="palmares">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-kicker">Bilan sportif</span>
+        <h2 class="sec-title">La saison 2025-2026 en chiffres</h2>
+      </div>
+      <section class="stats-band reveal" aria-label="Statistiques de la saison 2025-2026">
+        <div class="stat"><span class="num" data-to="2" data-suffix="ᵉ">0</span><span class="lbl">de Ligue 1</span></div>
+        <div class="stat"><span class="num" data-to="1">0</span><span class="lbl">Coupe de France</span></div>
+        <div class="stat"><span class="num" data-to="70">0</span><span class="lbl">points en L1</span></div>
+        <div class="stat"><span class="num" data-to="38" data-suffix=" k">0</span><span class="lbl">spectateurs / match</span></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- EFFECTIF -->
+  <section class="section" id="effectif">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-kicker">L’équipe première</span>
+        <h2 class="sec-title">L’effectif Sang &amp; Or</h2>
+      </div>
+      <div id="squadSpotlight" class="reveal"></div>
+      <div class="squad-filters" id="squadFilters"></div>
+      <div class="squad" id="squad"></div>
+    </div>
+  </section>
+
+  <!-- LENS FOOT TV -->
+  <section class="section" id="tv">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-kicker">Vidéos officielles</span>
+        <h2 class="sec-title">Lens Foot TV</h2>
+      </div>
+      <div id="tv-feature" class="reveal"></div>
+      <div class="tv-grid" id="tv-grid"></div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
