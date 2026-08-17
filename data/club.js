@@ -10,10 +10,10 @@
 window.CLUB = {
   // Dernier match : finale de la Como Cup remportée face à Villarreal (1er août 2026, Côme)
   lastMatch: {
-    comp: 'Finale · Como Cup (amical)',
-    home: { code: 'RCL', name: 'RC Lens', score: 3, isLens: true },
-    away: { code: 'VIL', name: 'Villarreal', score: 1 },
-    info: 'Côme · vainqueur, invaincu en préparation'
+    comp: 'Trophée des Champions',
+    home: { code: 'RCL', name: 'RC Lens', score: 1, isLens: true },
+    away: { code: 'PSG', name: 'Paris SG', score: 0 },
+    info: 'Bollaert · premier Trophée des Champions de l\u2019histoire du club'
   },
   // Classement final Ligue 1 2025-2026 (source : lensois.com/classement/)
   standingsTitle: 'Classement final 2025-2026',
