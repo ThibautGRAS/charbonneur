@@ -205,8 +205,9 @@
       var short = d.length === 3 ? d[2] + '/' + d[1] : '';          // JJ/MM
       var stamp = a.time ? (short ? short + ' · ' + a.time : a.time) // JJ/MM · HH:MM
                          : (short || fmtDate(a.date));
-      return '<li data-i="' + i + '"><span class="time">' + stamp + '</span>' +
-        '<span>' + esc(a.title) + '</span></li>';
+      return '<li data-i="' + i + '"><span class="fil-dot"></span>' +
+        '<div class="fil-c"><span class="time">' + stamp + '</span>' +
+        '<span class="fil-t">' + esc(a.title) + '</span></div></li>';
     }).join('');
     el.querySelectorAll('li').forEach(function (li) {
       li.addEventListener('click', function () { openArticle(list[+li.getAttribute('data-i')]); });
@@ -218,8 +219,11 @@
     var el = document.getElementById('lastMatch');
     if (!el || !window.CLUB || !CLUB.lastMatch) return;
     var m = CLUB.lastMatch, h = m.home, a = m.away;
+    var lensS = +(h.isLens ? h.score : a.score), oppS = +(h.isLens ? a.score : h.score);
+    var res = lensS > oppS ? ['win', 'Victoire'] : (lensS < oppS ? ['loss', 'Défaite'] : ['draw', 'Nul']);
     el.innerHTML =
-      '<div class="comp">' + esc(m.comp) + '</div>' +
+      '<div class="mt-top"><span class="comp">' + esc(m.comp) + '</span>' +
+        '<span class="mt-res ' + res[0] + '">' + res[1] + '</span></div>' +
       '<div class="score">' +
         '<div class="team"><span class="dot ' + (h.isLens ? 'rcl' : 'opp') + '">' + esc(h.code) + '</span>' + esc(h.name) + '</div>' +
         '<div class="nums">' + h.score + ' <small>-</small> ' + a.score + '</div>' +

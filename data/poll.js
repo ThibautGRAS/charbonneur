@@ -15,9 +15,9 @@ window.POLL = {
   id: 'trophee-champions-2026',
   question: 'Après le sacre au Trophée des Champions, que peut viser Lens cette saison ?',
   options: [
-    { label: 'Le titre de champion',                    base: 42 },
-    { label: 'Le podium et la Ligue des champions',     base: 88 },
-    { label: 'Une place européenne',                    base: 51 },
-    { label: 'Se maintenir sereinement',                base: 12 }
+    { label: 'Le titre de champion',                    base: 0 },
+    { label: 'Le podium et la Ligue des champions',     base: 0 },
+    { label: 'Une place européenne',                    base: 0 },
+    { label: 'Se maintenir sereinement',                base: 0 }
   ]
 };
