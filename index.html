@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Charbonneurs — L'actualité du RC Lens, de la mine à Bollaert</title>
 <meta name="description" content="Charbonneurs : média immersif 100% RC Lens — actu, mercato, vidéos, effectif et stats. Descendez dans l'antre des Sang & Or.">
-<link rel="icon" href="images/logo/Logo_RC_Lens_-_1955.svg.webp">
+<link rel="icon" href="images/logo/logo2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -69,7 +69,7 @@
 <header class="site-header" id="siteHeader">
   <div class="wrap nav-wrap">
     <a class="logo" href="#top" aria-label="Charbonneurs accueil">
-      <img class="logo-img" src="images/logo/Logo_RC_Lens_-_1955.svg.webp" alt="" width="38" height="42">
+      <img class="logo-img" src="images/logo/logo2.png" alt="Charbonneurs">
       <span class="name">Charbonneurs</span>
     </a>
     <nav>
@@ -117,6 +117,11 @@
         </div>
 
         <aside class="sidebar">
+          <section class="widget widget-poll reveal">
+            <div class="widget-title">Sondage à chaud <span class="flame">🔥</span></div>
+            <div class="widget-body poll" id="pollBox"></div>
+          </section>
+
           <section class="widget reveal">
             <div class="widget-title">Le fil d’infos</div>
             <div class="widget-body">
@@ -130,34 +135,18 @@
           </section>
 
           <section class="widget reveal">
-            <div class="widget-title">Sondage</div>
-            <div class="widget-body poll">
-              <p class="q">Que peut viser le RC Lens avec Dino Toppmöller ?</p>
-              <div class="opt"><div class="bar"><div class="fill" data-w="61%"></div><div class="lbl"><span>Le podium et l’Europe</span><span>61%</span></div></div></div>
-              <div class="opt"><div class="bar"><div class="fill" data-w="29%"></div><div class="lbl"><span>Une place européenne</span><span>29%</span></div></div></div>
-              <div class="opt"><div class="bar"><div class="fill" data-w="10%"></div><div class="lbl"><span>Une saison de transition</span><span>10%</span></div></div></div>
-            </div>
-          </section>
-
-          <section class="widget reveal">
             <div class="widget-title" id="standingsTitle">Classement</div>
             <div class="widget-body" style="padding:.5rem" id="standingsBox"></div>
           </section>
 
           <section class="widget newsletter reveal">
-            <div class="widget-title">Newsletter</div>
+            <div class="widget-title">Restez connectés</div>
             <div class="widget-body">
-              <p>Recevez toute l’actu Sang &amp; Or directement dans votre boîte mail.</p>
+              <p>Recevez toute l’actu Sang &amp; Or dans votre boîte mail.</p>
               <form onsubmit="alert('Merci ! (démo)');return false">
                 <input type="email" placeholder="Votre adresse e-mail" required aria-label="E-mail">
                 <button type="submit">Je m’abonne</button>
               </form>
-            </div>
-          </section>
-
-          <section class="widget reveal">
-            <div class="widget-title">Suivez Charbonneurs</div>
-            <div class="widget-body">
               <div class="follow-grid">
                 <a class="fb" href="#">Facebook</a>
                 <a class="tw" href="#">X / Twitter</a>
@@ -277,6 +266,7 @@
 <script src="data/players.js"></script>
 <script src="data/club.js"></script>
 <script src="data/histoire.js"></script>
+<script src="data/poll.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

@@ -67,10 +67,13 @@ Tu mets à jour le fil d'actualité (`data/articles.js`), avec pour chaque artic
      pied de page — c'est suffisant.
    - ⚠️ **JAMAIS** de photo de presse/agence protégée. Évite de réutiliser la **même** photo pour
      deux articles consécutifs. Dossiers : `images/defaut/` = défauts · `images/articles/` = articles.
-6. **Insère EN TÊTE** du tableau, conserve TOUS les anciens. Le **héros est choisi
-   AUTOMATIQUEMENT** = l'actu la plus brûlante (fraîcheur + poids de catégorie, mercato en tête ;
-   ajustable via `hot`/`heat`). `featured: 'hero'` ne sert plus qu'à **forcer** une une précise.
-   Garde 2 `feat` max pour les mises en avant secondaires.
+6. **Insère EN TÊTE** du tableau, conserve TOUS les anciens. Le **héros ET les 2 sous-unes sont
+   choisis AUTOMATIQUEMENT** = les actus les plus brûlantes (fraîcheur + poids de catégorie, mercato
+   en tête ; ajustable via `hot`/`heat`). `featured: 'hero'` ne sert plus qu'à **forcer** une une.
+6bis. **SONDAGE** (`data/poll.js`) : si l'actu la plus chaude appelle une question (résultat de match,
+   gros transfert, débat du moment), **régénère le sondage** — nouvelle `question` + `options` en lien
+   avec le sujet, et surtout **change l'`id`** (sinon les visiteurs qui ont déjà voté ne peuvent pas
+   revoter). Donne des amorces `base` crédibles (petits nombres). 1 seul sondage actif à la fois.
 7. **Vérifie** que le JS reste valide. **Commit** (voir ci-dessous). **Résume** : articles
    ajoutés + sources.
 

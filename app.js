@@ -127,14 +127,15 @@
     var rest   = all.filter(function (a) { return !a.pinned; }).sort(byDateDesc);
     var ordered = pinned.concat(rest);
 
-    // Hero : override manuel 'hero' si présent, sinon l'actu la plus « brûlante » (score de chaleur)
-    var hero = ordered.filter(function (a) { return a.featured === 'hero'; })[0] ||
-      ordered.slice().sort(function (a, b) {
-        var d = heatScore(b) - heatScore(a);
-        return d !== 0 ? d : byDateDesc(a, b);
-      })[0];
-    // Mises en avant : jusqu'à 2 articles 'feat'
-    var feats = ordered.filter(function (a) { return a.featured === 'feat' && a !== hero; }).slice(0, 2);
+    // Classement par « chaleur » (fraîcheur + catégorie) — sert à la une ET aux sous-unes
+    var byHeat = ordered.slice().sort(function (a, b) {
+      var d = heatScore(b) - heatScore(a);
+      return d !== 0 ? d : byDateDesc(a, b);
+    });
+    // Hero : override manuel 'hero' si présent, sinon l'actu la plus brûlante
+    var hero = ordered.filter(function (a) { return a.featured === 'hero'; })[0] || byHeat[0];
+    // Sous-unes : les 2 articles les plus FRAIS après la une → jamais de vieille info remontée
+    var feats = byHeat.filter(function (a) { return a !== hero; }).slice(0, 2);
     // Fil : tout le reste
     var used = [hero].concat(feats);
     listArticles = ordered.filter(function (a) { return used.indexOf(a) === -1; });
@@ -459,6 +460,55 @@
         applySquadFilter(b.getAttribute('data-f'));
       });
     });
+  }
+
+  // ---------- Sondage interactif (data/poll.js) ----------
+  // Un vote par navigateur et par sondage (clé localStorage = id du sondage). Change l'`id`
+  // dans data/poll.js → nouveau sondage, chacun peut revoter. Les compteurs = amorce `base`
+  // + le vote local. (Agrégation réelle multi-visiteurs = backend requis.)
+  function renderPoll() {
+    var box = document.getElementById('pollBox');
+    if (!box || !window.POLL || !POLL.options) return;
+    var P = window.POLL, key = 'cb_poll_' + P.id, voted = null;
+    try { voted = localStorage.getItem(key); } catch (e) {}
+
+    function draw() {
+      var counts = P.options.map(function (o, i) {
+        return (o.base || 0) + (voted !== null && +voted === i ? 1 : 0);
+      });
+      var total = counts.reduce(function (a, b) { return a + b; }, 0) || 1;
+      var html = '<p class="q">' + esc(P.question) + '</p>';
+      P.options.forEach(function (o, i) {
+        if (voted !== null) {
+          var pct = Math.round(counts[i] / total * 100);
+          html += '<div class="opt done' + (+voted === i ? ' mine' : '') + '">' +
+            '<div class="bar"><div class="fill" style="width:0" data-w="' + pct + '%"></div>' +
+            '<div class="lbl"><span>' + (+voted === i ? '✓ ' : '') + esc(o.label) + '</span>' +
+            '<span>' + pct + '%</span></div></div></div>';
+        } else {
+          html += '<button class="opt vote" type="button" data-i="' + i + '">' +
+            '<div class="bar"><div class="lbl"><span>' + esc(o.label) + '</span>' +
+            '<span class="go">Voter ›</span></div></div></button>';
+        }
+      });
+      html += '<p class="poll-foot">' +
+        (voted !== null ? (total + ' vote' + (total > 1 ? 's' : '') + ' · merci !') : 'Donnez votre avis — 1 vote par personne') +
+        '</p>';
+      box.innerHTML = html;
+      requestAnimationFrame(function () {
+        box.querySelectorAll('.fill').forEach(function (f) { f.style.width = f.dataset.w; });
+      });
+      if (voted === null) {
+        box.querySelectorAll('.opt.vote').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            voted = btn.getAttribute('data-i');
+            try { localStorage.setItem(key, voted); } catch (e) {}
+            draw();
+          });
+        });
+      }
+    }
+    draw();
   }
 
   function pmStat(label, val) {
@@ -996,6 +1046,7 @@
     renderPlayers();
     renderMatch();
     renderStandings();
+    renderPoll();
     renderHistoire();
     buildEmbers();
     cacheMine();
