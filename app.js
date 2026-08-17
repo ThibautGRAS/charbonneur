@@ -409,12 +409,26 @@
       '<span class="pnum-badge">' + num + '</span></span>';
   }
   function playerCardHTML(p, i) {
-    return '<button class="player-card reveal" data-i="' + i + '" data-pos="' + p.pos + '">' +
+    var meta = p.loan ? ('🔁 Prêt · ' + esc(p.loan)) : (p.flag + ' ' + POS[p.pos].l);
+    return '<button class="player-card reveal' + (p.loan ? ' is-loan' : '') + '" data-i="' + i +
+        '" data-pos="' + p.pos + '" data-loan="' + (p.loan ? '1' : '0') + '">' +
       playerMedia(p) +
       (p.cap ? '<span class="player-cap">C</span>' : '') +
+      (p.loan ? '<span class="player-loan">PRÊT</span>' : '') +
       '<span class="player-scrim"><span class="player-name">' + esc(p.name) + '</span>' +
-        '<span class="player-meta">' + p.flag + ' ' + POS[p.pos].l + '</span></span>' +
+        '<span class="player-meta">' + meta + '</span></span>' +
     '</button>';
+  }
+  // Affiche/masque les cartes selon le filtre. Les prêtés sont exclus de l'effectif
+  // premier ('all' + postes) et regroupés sous le filtre 'loan'.
+  function applySquadFilter(f) {
+    document.querySelectorAll('#squad .player-card').forEach(function (c) {
+      var isLoan = c.getAttribute('data-loan') === '1';
+      var show = (f === 'loan') ? isLoan
+               : (f === 'all') ? !isLoan
+               : (!isLoan && c.getAttribute('data-pos') === f);
+      c.style.display = show ? '' : 'none';
+    });
   }
 
   function renderPlayers() {
@@ -424,11 +438,14 @@
     playerList = list.slice().sort(function (a, b) {
       return (order[a.pos] - order[b.pos]) || ((a.num || 99) - (b.num || 99));
     });
-    var filters = [['all', 'Tous'], ['G', 'Gardiens'], ['D', 'Défenseurs'], ['M', 'Milieux'], ['A', 'Attaquants']];
+    var hasLoan = playerList.some(function (p) { return p.loan; });
+    var filters = [['all', 'Effectif'], ['G', 'Gardiens'], ['D', 'Défenseurs'], ['M', 'Milieux'], ['A', 'Attaquants']];
+    if (hasLoan) filters.push(['loan', 'Prêtés']);
     document.getElementById('squadFilters').innerHTML = filters.map(function (f, i) {
       return '<button class="sq-filter' + (i === 0 ? ' active' : '') + '" data-f="' + f[0] + '">' + f[1] + '</button>';
     }).join('');
     document.getElementById('squad').innerHTML = playerList.map(playerCardHTML).join('');
+    applySquadFilter('all');   // par défaut : effectif premier (prêtés masqués)
     renderSpotlight();
 
     document.querySelectorAll('#squad .player-card').forEach(function (c) {
@@ -439,10 +456,7 @@
       b.addEventListener('click', function () {
         document.querySelectorAll('#squadFilters .sq-filter').forEach(function (x) { x.classList.remove('active'); });
         b.classList.add('active');
-        var f = b.getAttribute('data-f');
-        document.querySelectorAll('#squad .player-card').forEach(function (c) {
-          c.style.display = (f === 'all' || c.getAttribute('data-pos') === f) ? '' : 'none';
-        });
+        applySquadFilter(b.getAttribute('data-f'));
       });
     });
   }
@@ -474,7 +488,7 @@
     m.querySelector('.pm-inner').innerHTML =
       '<button class="pm-close" aria-label="Fermer">×</button>' + head +
       '<div class="pm-body">' +
-        '<span class="player-meta">' + p.flag + ' ' + esc(p.nat) + (p.cap ? ' · Capitaine' : '') + '</span>' +
+        '<span class="player-meta">' + p.flag + ' ' + esc(p.nat) + (p.cap ? ' · Capitaine' : '') + (p.loan ? ' · Prêté à ' + esc(p.loan) : '') + '</span>' +
         '<h3>' + esc(p.name) + '</h3>' +
         (p.desc ? '<p class="pm-desc">' + esc(p.desc) + '</p>' : '') +
         '<div class="pm-stats">' + tiles + '</div>' +
@@ -608,8 +622,8 @@
   function renderSpotlight() {
     var el = document.getElementById('squadSpotlight');
     if (!el) return;
-    var star = playerList.filter(function (p) { return p.cap && p.photo; })[0] ||
-               playerList.filter(function (p) { return p.photo; })[0];
+    var star = playerList.filter(function (p) { return p.cap && p.photo && !p.loan; })[0] ||
+               playerList.filter(function (p) { return p.photo && !p.loan; })[0];
     if (!star) { el.innerHTML = ''; return; }
     var num = (star.num != null) ? star.num : '—';
     el.innerHTML =
