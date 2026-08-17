@@ -11,7 +11,7 @@
 window.POLL = {
   // URL de la Realtime Database Firebase (vrais votes agrégés). Vide = mode local (1 vote/navigateur).
   // Ex. 'https://charbonneurs-default-rtdb.europe-west1.firebasedatabase.app'
-  dbUrl: '',
+  dbUrl: 'https://charbonneurs-65a49-default-rtdb.europe-west1.firebasedatabase.app',
   id: 'trophee-champions-2026',
   question: 'Après le sacre au Trophée des Champions, que peut viser Lens cette saison ?',
   options: [
