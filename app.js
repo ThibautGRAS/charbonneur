@@ -471,16 +471,31 @@
     if (!box || !window.POLL || !POLL.options) return;
     var P = window.POLL, key = 'cb_poll_' + P.id, voted = null;
     try { voted = localStorage.getItem(key); } catch (e) {}
+    var db = (P.dbUrl || '').replace(/\/+$/, '');           // Realtime DB Firebase (vide = local)
+    var base = P.options.map(function (o) { return o.base || 0; });
+    var remote = null;                                       // vrais votes lus depuis Firebase
 
-    function draw() {
-      var counts = P.options.map(function (o, i) {
-        return (o.base || 0) + (voted !== null && +voted === i ? 1 : 0);
+    function counts() {
+      return P.options.map(function (o, i) {
+        var real = remote ? (remote[i] || 0) : 0;
+        var localVote = (!db && voted !== null && +voted === i) ? 1 : 0;
+        return base[i] + real + localVote;
       });
-      var total = counts.reduce(function (a, b) { return a + b; }, 0) || 1;
+    }
+    function pushVote(i) {                                   // incrément atomique côté Firebase
+      if (!db) return;
+      if (remote) remote[i] = (remote[i] || 0) + 1;          // optimiste
+      var body = {}; body[i] = { '.sv': { increment: 1 } };
+      fetch(db + '/polls/' + encodeURIComponent(P.id) + '.json', {
+        method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
+      }).catch(function () {});
+    }
+    function draw() {
+      var c = counts(), total = c.reduce(function (a, b) { return a + b; }, 0) || 1;
       var html = '<p class="q">' + esc(P.question) + '</p>';
       P.options.forEach(function (o, i) {
         if (voted !== null) {
-          var pct = Math.round(counts[i] / total * 100);
+          var pct = Math.round(c[i] / total * 100);
           html += '<div class="opt done' + (+voted === i ? ' mine' : '') + '">' +
             '<div class="bar"><div class="fill" style="width:0" data-w="' + pct + '%"></div>' +
             '<div class="lbl"><span>' + (+voted === i ? '✓ ' : '') + esc(o.label) + '</span>' +
@@ -503,12 +518,24 @@
           btn.addEventListener('click', function () {
             voted = btn.getAttribute('data-i');
             try { localStorage.setItem(key, voted); } catch (e) {}
+            pushVote(+voted);
             draw();
           });
         });
       }
     }
-    draw();
+    // En mode Firebase : on lit d'abord les vrais compteurs, puis on affiche
+    if (db) {
+      fetch(db + '/polls/' + encodeURIComponent(P.id) + '.json')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          remote = P.options.map(function (_, i) { return (data && data[i] != null) ? +data[i] : 0; });
+          draw();
+        })
+        .catch(function () { remote = P.options.map(function () { return 0; }); draw(); });
+    } else {
+      draw();
+    }
   }
 
   function pmStat(label, val) {
