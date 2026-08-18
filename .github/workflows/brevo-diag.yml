@@ -1,0 +1,12 @@
+name: Brevo diagnostic
+on: workflow_dispatch
+permissions: { contents: read }
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - env: { BREVO_API_KEY: "${{ secrets.BREVO_API_KEY }}" }
+        run: node scripts/brevo-diag.js
