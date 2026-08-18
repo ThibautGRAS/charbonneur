@@ -159,10 +159,13 @@
             <div class="widget-title">Restez connectés</div>
             <div class="widget-body">
               <p>Recevez toute l’actu Sang &amp; Or dans votre boîte mail.</p>
-              <form onsubmit="alert('Merci ! (démo)');return false">
-                <input type="email" placeholder="Votre adresse e-mail" required aria-label="E-mail">
+              <form id="nlForm" novalidate>
+                <input type="email" name="EMAIL" placeholder="Votre adresse e-mail" required aria-label="E-mail" autocomplete="email">
+                <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+                <input type="hidden" name="locale" value="fr">
                 <button type="submit">Je m’abonne</button>
               </form>
+              <p class="nl-msg" id="nlMsg" role="status" aria-live="polite"></p>
               <div class="follow-grid">
                 <a class="fb" href="#">Facebook</a>
                 <a class="tw" href="#">X / Twitter</a>

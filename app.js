@@ -1125,6 +1125,33 @@
       placeFil();
       if (mq.addEventListener) mq.addEventListener('change', placeFil);
     })();
+    // Newsletter : inscription Brevo en AJAX (double opt-in configuré côté Brevo)
+    (function () {
+      var NL_URL = 'https://fd66c9ed.sibforms.com/serve/MUIFAP4QSnqJCuYn_hKfQVomNHLRqKWISXEAWmzr9dayVMmcxLw1-Hb8PfnFkhli03SUKWcXLACedDiPH9W2U0AlfWf7fK4D7DXnSOfJIkQvGRCa-bIcug9dzuztrNnV8uJ6QWTeL8Kbt6cD0WU2GQKyMSJqS-qr6VuPySUwUN5sjilUmx4ICf4SPDLxKAuoVZYOVECJVhZTgVokAQ==?isAjax=1';
+      var f = document.getElementById('nlForm'), msg = document.getElementById('nlMsg');
+      if (!f) return;
+      f.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = f.querySelector('button');
+        btn.disabled = true; msg.textContent = 'Inscription en cours…'; msg.className = 'nl-msg';
+        fetch(NL_URL, { method: 'POST', body: new FormData(f) })
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (d && d.success) {
+              msg.textContent = 'Presque fini ! Un e-mail de confirmation vient de vous être envoyé.';
+              msg.className = 'nl-msg ok'; f.reset();
+            } else {
+              msg.textContent = (d && (d.message || (d.errors && d.errors.EMAIL))) || 'Adresse invalide ou déjà inscrite.';
+              msg.className = 'nl-msg err'; btn.disabled = false;
+            }
+          })
+          .catch(function () {
+            // Repli : ouvrir le formulaire hébergé par Brevo
+            window.open('https://fd66c9ed.sibforms.com/serve/MUIFAP4QSnqJCuYn_hKfQVomNHLRqKWISXEAWmzr9dayVMmcxLw1-Hb8PfnFkhli03SUKWcXLACedDiPH9W2U0AlfWf7fK4D7DXnSOfJIkQvGRCa-bIcug9dzuztrNnV8uJ6QWTeL8Kbt6cD0WU2GQKyMSJqS-qr6VuPySUwUN5sjilUmx4ICf4SPDLxKAuoVZYOVECJVhZTgVokAQ==', '_blank', 'noopener');
+            msg.textContent = ''; btn.disabled = false;
+          });
+      });
+    })();
     document.getElementById('loadmore').addEventListener('click', renderMore);
     function setMenu(open) {
       var mn = document.getElementById('menu');
