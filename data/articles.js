@@ -9,6 +9,30 @@
 
 window.ARTICLES = [
   {
+    id: 'nawrocki-officiel-said-qatar',
+    date: '2026-08-17',
+    time: '12:00',
+    category: 'mercato',
+    title: 'Mercato : Nawrocki officialisé et déjà titulaire, Obispo en approche, Saïd file au Qatar',
+    excerpt: 'Le Racing muscle sa défense : Maik Nawrocki a signé à la veille du Trophée des Champions et débuté face au PSG, pendant que l\u2019arrivée d\u2019Armando Obispo (PSV) se précise. Dans le sens des départs, Wesley Saïd s\u2019est engagé avec Al Shamal.',
+    image: '',
+    featured: null,
+    pinned: false,
+    hot: true,
+    body: [
+      'Le mercato lensois s\u2019est brusquement accéléré ce week-end, et c\u2019est la défense qui en profite. Samedi, à la veille du Trophée des Champions, le Racing a officialisé la signature de Maik Nawrocki, défenseur central polonais de 25 ans formé au Legia Varsovie et passé par le Celtic Glasgow.',
+      'L\u2019intégration a été express : moins de vingt-quatre heures après l\u2019annonce, Nawrocki était titulaire face au PSG à Bollaert, dans l\u2019axe de la défense à trois aux côtés de Ganiou et du jeune Antonio. Des débuts couronnés d\u2019un trophée, difficile de faire mieux comme carte de visite.',
+      'Et le chantier défensif n\u2019est pas terminé. Selon plusieurs médias, Armando Obispo est attendu dans l\u2019Artois : l\u2019entraîneur du PSV Eindhoven, Peter Bosz, a lui-même confirmé le départ imminent de son défenseur central néerlandais. Un renfort qui répondrait à la quête d\u2019un gaucher dans l\u2019axe, identifiée comme prioritaire depuis plusieurs semaines.',
+      'Dans le sens des départs, un chapitre s\u2019est refermé lundi matin : Wesley Saïd s\u2019est officiellement engagé avec Al Shamal, au Qatar. Arrivé en 2022, l\u2019attaquant polyvalent aura connu la grande épopée récente du club, du retour en Ligue des champions au doublé vice-champion \u2013 Coupe de France.',
+      'À cinq jours de la reprise face à Auxerre, l\u2019effectif de Dino Toppmöller prend forme : il reste à concrétiser le dossier Obispo, trancher les pistes offensives (Kebbal, Rees-Dottin, Arévalo) et gérer les absences, Thorgan Hazard purgeant encore un match de suspension samedi.'
+    ],
+    sources: [
+      { name: 'Lensois.com (via Mercato.fr)', url: 'https://www.mercato.fr/equipe/racing-club-de-lens' },
+      { name: 'Foot Mercato (fiche club, onze vs PSG)', url: 'https://www.footmercato.net/club/racing-club-de-lens/' },
+      { name: 'LensFoot (revue de presse)', url: 'https://www.lensfoot.com/' }
+    ]
+  },
+  {
     id: 'trophee-champions-2026',
     date: '2026-08-16',
     time: '22:45',
