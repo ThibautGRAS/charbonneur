@@ -12,6 +12,12 @@
 
 window.VIDEOS = [
   {
+    id: 'GxT4bdHdqGs',
+    title: 'RC Lens 1-0 PSG : Thauvin offre aux Sang et Or le premier Trophée des Champions de leur histoire',
+    author: 'Résumé / réaction (contenu de match → redirection)',
+    embeddable: false
+  },
+  {
     id: '3HrULUsF_fo',
     title: 'Les Lensois préparent l’Europe — Épisode 4 (coulisses de l’été)',
     author: 'RC Lens (chaîne officielle)',
