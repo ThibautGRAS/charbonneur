@@ -32,26 +32,33 @@ if (!arts.length) { console.log('Aucun article sur ' + DAYS + ' j → pas d\'env
 const CAT = { mercato: 'MERCATO', saison: 'SAISON', news: 'NEWS', interview: 'INTERVIEW', mag: 'MAG' };
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const rows = arts.map(a => `
-  <tr><td style="padding:18px 24px;border-bottom:1px solid #eee">
-    <div style="font:700 11px/1 Arial;letter-spacing:.08em;color:#b8860b">${CAT[a.category] || 'ACTU'} · ${a.date}</div>
-    <div style="font:700 18px/1.3 Georgia,serif;color:#111;margin:6px 0">${esc(a.title)}</div>
-    <div style="font:400 14px/1.5 Arial;color:#444">${esc(a.excerpt || '')}</div>
+  <tr><td style="padding:20px 24px;border-bottom:1px solid #2a2622">
+    <span style="display:inline-block;font:700 10px/1 Arial,sans-serif;letter-spacing:.1em;color:#101010;background:#ffd700;padding:5px 10px;border-radius:999px">${CAT[a.category] || 'ACTU'}</span>
+    <span style="font:400 11px/1 Arial,sans-serif;color:#8d8578">&nbsp; ${a.date}</span>
+    <div style="font:700 19px/1.3 Georgia,'Times New Roman',serif;color:#f3efe8;margin:10px 0 6px">${esc(a.title)}</div>
+    <div style="font:400 14px/1.55 Arial,sans-serif;color:#b5ada0">${esc(a.excerpt || '')}</div>
   </td></tr>`).join('');
 
-const html = `<!doctype html><html lang="fr"><body style="margin:0;background:#f4f2ee">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px 12px">
-<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#fff;border:1px solid #e5e0d8">
-  <tr><td style="background:#101010;padding:20px 24px;border-bottom:3px solid #ffd700">
-    <span style="font:800 22px/1 Georgia,serif;color:#ffd700">CHARBONNEUR</span>
-    <span style="font:400 12px/1 Arial;color:#bbb"> — l'hebdo Sang &amp; Or</span>
+const LOGO = SITE + 'images/logo/Logo_RC_Lens_-_1955.svg.webp';
+const html = `<!doctype html><html lang="fr"><body style="margin:0;background:#0a0807">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#0a0807"><tr><td align="center" style="padding:24px 12px">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#171310;border:1px solid #2a2622;border-radius:6px;overflow:hidden">
+  <tr><td style="background:#0a0807;padding:18px 24px;border-bottom:3px solid #ffd700">
+    <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+      <td style="padding-right:14px"><img src="${LOGO}" width="44" alt="Blason RC Lens 1955" style="display:block;border:0"></td>
+      <td>
+        <div style="font:800 24px/1 Georgia,'Times New Roman',serif;color:#ffd700;letter-spacing:.02em">CHARBONNEUR</div>
+        <div style="font:400 11px/1.6 Arial,sans-serif;color:#8d8578;letter-spacing:.14em">L&rsquo;HEBDO SANG &amp; OR &mdash; DESCENDU DE LA FOSSE</div>
+      </td>
+    </tr></table>
   </td></tr>
   ${rows}
-  <tr><td align="center" style="padding:22px">
-    <a href="${SITE}#actu" style="font:700 14px Arial;color:#101010;background:#ffd700;text-decoration:none;padding:12px 22px;border-radius:4px;display:inline-block">Lire sur le site →</a>
+  <tr><td align="center" style="padding:24px">
+    <a href="${SITE}#actu" style="font:700 14px Arial,sans-serif;color:#101010;background:#ffd700;text-decoration:none;padding:13px 26px;border-radius:4px;display:inline-block">&#9874; Lire sur le site</a>
   </td></tr>
-  <tr><td style="padding:14px 24px;background:#faf8f4;font:400 11px/1.5 Arial;color:#888">
-    Site non officiel de supporters du RC Lens. Vous recevez cet e-mail car vous êtes inscrit sur ${SITE}.
-    {{ unsubscribe }}
+  <tr><td style="padding:14px 24px;background:#0f0c0a;border-top:1px solid #2a2622;font:400 11px/1.6 Arial,sans-serif;color:#6f685e">
+    Site non officiel de supporters du RC Lens &mdash; <a href="${SITE}" style="color:#8d8578">${SITE.replace('https://','')}</a><br>
+    Vous recevez cet e-mail car vous &ecirc;tes inscrit &agrave; la newsletter. {{ unsubscribe }}
   </td></tr>
 </table></td></tr></table></body></html>`;
 
