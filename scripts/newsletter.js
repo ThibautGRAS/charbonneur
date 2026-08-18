@@ -97,4 +97,10 @@ async function api(path, opts = {}) {
   }) });
   await api('/emailCampaigns/' + camp.id + '/sendNow', { method: 'POST', body: '{}' });
   console.log('Campagne #' + camp.id + ' envoyée à la liste ' + listId + ' (' + arts.length + ' articles).');
-})().catch(e => { console.error(e.message); process.exit(1); });
+})().catch(e => {
+  var m = String(e.message).replace(/[\r\n]+/g, ' ').slice(0, 400);
+  console.error(m);
+  // Annotation GitHub : visible via l'API même quand les logs bruts ne le sont pas
+  console.log('::error::' + m);
+  process.exit(1);
+});
