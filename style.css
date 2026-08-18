@@ -513,3 +513,11 @@ body.lamp-disabled #mine .cage{box-shadow:none!important}
   .article:hover .thumb img,.player-card:hover .duo img,.spotlight:hover .duo img,
   .video-card:hover .vthumb,.feat:hover img{transform:none}
 }
+
+/* ---- Bouton menu flottant (mobile, apparait apres scroll) ---- */
+.burger-fab{display:none}
+@media(max-width:820px){
+  .burger-fab{display:flex;align-items:center;justify-content:center;position:fixed;right:1rem;bottom:calc(1.1rem + env(safe-area-inset-bottom,0px));width:52px;height:52px;border-radius:50%;border:1px solid var(--brd);background:rgba(10,8,7,.9);backdrop-filter:blur(14px);color:#fff;font-size:1.3rem;z-index:65;box-shadow:0 6px 20px rgba(0,0,0,.45);opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .3s var(--e),transform .3s var(--e)}
+  body.has-scrolled .burger-fab{opacity:1;pointer-events:auto;transform:translateY(0)}
+  body.menu-open .burger-fab{opacity:0;pointer-events:none}
+}

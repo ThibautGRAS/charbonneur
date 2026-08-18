@@ -1112,12 +1112,23 @@
       lampToggle.setAttribute('aria-label', on ? 'Rétablir l’ambiance sombre' : 'Éclairer la page (désactiver l’effet sombre)');
     });
     document.getElementById('loadmore').addEventListener('click', renderMore);
-    document.getElementById('burger').addEventListener('click', function () {
-      document.getElementById('menu').classList.toggle('open');
-    });
+    function setMenu(open) {
+      var mn = document.getElementById('menu');
+      if (open === undefined) open = !mn.classList.contains('open');
+      mn.classList.toggle('open', open);
+      document.body.classList.toggle('menu-open', open);
+    }
+    document.getElementById('burger').addEventListener('click', function (e) { e.stopPropagation(); setMenu(); });
+    var fab = document.getElementById('burgerFab');
+    if (fab) fab.addEventListener('click', function (e) { e.stopPropagation(); setMenu(true); });
     // fermeture menu mobile au clic sur un lien
     document.querySelectorAll('#menu a').forEach(function (a) {
-      a.addEventListener('click', function () { document.getElementById('menu').classList.remove('open'); });
+      a.addEventListener('click', function () { setMenu(false); });
+    });
+    // fermeture au tap hors du panneau
+    document.addEventListener('click', function (e) {
+      var mn = document.getElementById('menu');
+      if (mn.classList.contains('open') && !mn.contains(e.target)) setMenu(false);
     });
     // fermeture de la fiche joueur
     var pm = document.getElementById('playerModal');
