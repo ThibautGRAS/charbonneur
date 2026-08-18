@@ -1,0 +1,34 @@
+name: Newsletter Charbonneur
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_email:
+        description: "Adresse pour un envoi de TEST (laisser vide pour envoyer à toute la liste)"
+        required: false
+        default: ""
+      days:
+        description: "Fenêtre d'articles en jours"
+        required: false
+        default: "7"
+  schedule:
+    # Chaque vendredi 17h00 UTC (19h00 heure de Lens en été)
+    - cron: "0 17 * * 5"
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Envoi newsletter
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          TEST_EMAIL: ${{ github.event.inputs.test_email }}
+          DAYS: ${{ github.event.inputs.days || '7' }}
+        run: node scripts/newsletter.js
