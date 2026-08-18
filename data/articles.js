@@ -63,7 +63,7 @@ window.ARTICLES = [
     category: 'mercato',
     title: 'Mercato : Lens accélère sa quête d’un défenseur central gaucher avant le Trophée des Champions',
     excerpt: 'Avec le départ de Malang Sarr et l’absence prolongée de Samson Baidoo, le Racing cherche un renfort défensif capable d’apporter immédiatement de la solidité, pour un budget avoisinant les 6 millions d’euros.',
-    image: '',
+    image: 'images/defaut/stade.jpg',
     featured: null,
     pinned: false,
     body: [
@@ -108,7 +108,7 @@ window.ARTICLES = [
     category: 'mercato',
     title: 'Ilan Kebbal, la nouvelle piste offensive du Racing pour animer le couloir droit',
     excerpt: 'Le milieu offensif algérien du Paris FC, auteur de 9 buts et 5 passes décisives la saison dernière, figure sur les tablettes lensoises. Courtisé aussi par l\u2019OM, il incarne le profil créatif recherché après les départs de Saïd et Saint-Maximin.',
-    image: '',
+    image: 'images/defaut/lens2.jpg',
     featured: null,
     pinned: false,
     body: [
@@ -153,7 +153,7 @@ window.ARTICLES = [
     category: 'mercato',
     title: 'Yacine Titraoui est Sang et Or : le successeur désigné de Sangaré arrive de Charleroi',
     excerpt: '« One, two, three… Viva Titraoui » : le Racing a officialisé lundi soir la signature du milieu international algérien de 23 ans, engagé jusqu’en 2031 pour reprendre le n°8 laissé par Mamadou Sangaré, parti à Brentford.',
-    image: '',
+    image: 'images/players/titraoui.jpg',
     featured: null,
     pinned: false,
     hot: true,
@@ -177,7 +177,7 @@ window.ARTICLES = [
     category: 'saison',
     title: 'Le Racing soulève la Como Cup : Villarreal battu 3-1, une préparation sans fausse note',
     excerpt: 'Au Stadio Giuseppe Sinigaglia, les Sang et Or ont dominé Villarreal en finale du tournoi de Côme, avec un Florian Thauvin étincelant. Le Racing reste invaincu cet été avant le Trophée 1906 face à Sunderland.',
-    image: 'images/players/thauvin.jpg',
+    image: 'images/defaut/lens3.jpg',
     featured: 'feat',
     pinned: false,
     body: [
@@ -220,7 +220,7 @@ window.ARTICLES = [
     category: 'saison',
     title: 'Reprise le 9 juillet : le programme estival des Sang et Or se précise',
     excerpt: 'Entre reprise de l’entraînement, tournoi en Italie et Trophée des Champions face au PSG, l’été lensois s’annonce chargé avant la Ligue des champions.',
-    image: '',
+    image: 'images/defaut/bollaert-nuit.jpg',
     featured: null,
     pinned: false,
     body: [
@@ -306,6 +306,7 @@ window.ARTICLES = [
     date: '2026-07-05',
     time: '10:00',
     category: 'mercato',
+    image: 'images/players/sangare.jpg',
     title: 'Mamadou Sangaré, valorisé à plus de 40 M€, attise les convoitises anglaises',
     excerpt: 'Le milieu lensois pourrait être la grosse vente de l’été : plusieurs clubs, notamment anglais, se positionnent.',
     featured: null,
