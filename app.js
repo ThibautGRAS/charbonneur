@@ -1138,7 +1138,7 @@
           .then(function (r) { return r.json(); })
           .then(function (d) {
             if (d && d.success) {
-              msg.textContent = 'Presque fini ! Un e-mail de confirmation vient de vous être envoyé.';
+              msg.textContent = 'Inscription confirmée — bienvenue chez les Charbonneurs ! Rendez-vous vendredi pour l\'hebdo.';
               msg.className = 'nl-msg ok'; f.reset();
             } else {
               msg.textContent = (d && (d.message || (d.errors && d.errors.EMAIL))) || 'Adresse invalide ou déjà inscrite.';
