@@ -1111,6 +1111,20 @@
       lampToggle.setAttribute('aria-pressed', on ? 'true' : 'false');
       lampToggle.setAttribute('aria-label', on ? 'Rétablir l’ambiance sombre' : 'Éclairer la page (désactiver l’effet sombre)');
     });
+    // Sur mobile : le fil d'infos remonte AVANT les articles (retour sidebar sur grand écran)
+    (function () {
+      var mq = window.matchMedia('(max-width:820px)');
+      function placeFil() {
+        var w = document.getElementById('filWidget');
+        var layout = document.querySelector('#actu .layout');
+        var sidebar = document.querySelector('#actu .sidebar');
+        if (!w || !layout || !sidebar) return;
+        if (mq.matches) { layout.insertBefore(w, layout.firstElementChild); }
+        else if (w.parentNode !== sidebar) { sidebar.insertBefore(w, sidebar.children[1] || null); }
+      }
+      placeFil();
+      if (mq.addEventListener) mq.addEventListener('change', placeFil);
+    })();
     document.getElementById('loadmore').addEventListener('click', renderMore);
     function setMenu(open) {
       var mn = document.getElementById('menu');
