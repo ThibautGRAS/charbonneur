@@ -1128,27 +1128,36 @@
     // Newsletter : inscription Brevo en AJAX (double opt-in configuré côté Brevo)
     (function () {
       var NL_URL = 'https://fd66c9ed.sibforms.com/serve/MUIFAP4QSnqJCuYn_hKfQVomNHLRqKWISXEAWmzr9dayVMmcxLw1-Hb8PfnFkhli03SUKWcXLACedDiPH9W2U0AlfWf7fK4D7DXnSOfJIkQvGRCa-bIcug9dzuztrNnV8uJ6QWTeL8Kbt6cD0WU2GQKyMSJqS-qr6VuPySUwUN5sjilUmx4ICf4SPDLxKAuoVZYOVECJVhZTgVokAQ==?isAjax=1';
+      var NL_FALLBACK = 'https://fd66c9ed.sibforms.com/serve/MUIFAP4QSnqJCuYn_hKfQVomNHLRqKWISXEAWmzr9dayVMmcxLw1-Hb8PfnFkhli03SUKWcXLACedDiPH9W2U0AlfWf7fK4D7DXnSOfJIkQvGRCa-bIcug9dzuztrNnV8uJ6QWTeL8Kbt6cD0WU2GQKyMSJqS-qr6VuPySUwUN5sjilUmx4ICf4SPDLxKAuoVZYOVECJVhZTgVokAQ==';
       var f = document.getElementById('nlForm'), msg = document.getElementById('nlMsg');
       if (!f) return;
+      function track(ev) { if (window.goatcounter && goatcounter.count) goatcounter.count({ path: 'newsletter-' + ev, event: true }); }
       f.addEventListener('submit', function (e) {
         e.preventDefault();
+        var email = f.querySelector('[name="EMAIL"]');
+        if (!email.value || email.validity && !email.validity.valid) {
+          msg.textContent = 'Adresse e-mail invalide.'; msg.className = 'nl-msg err'; return;
+        }
         var btn = f.querySelector('button');
         btn.disabled = true; msg.textContent = 'Inscription en cours…'; msg.className = 'nl-msg';
+        track('essai');
         fetch(NL_URL, { method: 'POST', body: new FormData(f) })
-          .then(function (r) { return r.json(); })
-          .then(function (d) {
-            if (d && d.success) {
-              msg.textContent = 'Inscription confirmée — bienvenue chez les Charbonneurs ! Rendez-vous vendredi pour l\'hebdo.';
-              msg.className = 'nl-msg ok'; f.reset();
-            } else {
-              msg.textContent = (d && (d.message || (d.errors && d.errors.EMAIL))) || 'Adresse invalide ou déjà inscrite.';
-              msg.className = 'nl-msg err'; btn.disabled = false;
-            }
+          .then(function (r) {
+            return r.text().then(function (t) {
+              var d = null; try { d = JSON.parse(t); } catch (_) {}
+              if ((d && d.success) || (!d && r.ok)) {
+                msg.textContent = 'Inscription confirmée — bienvenue chez les Charbonneurs ! Rendez-vous vendredi pour l\u2019hebdo.';
+                msg.className = 'nl-msg ok'; f.reset(); track('ok');
+              } else {
+                msg.textContent = (d && (d.message || (d.errors && d.errors.EMAIL))) || 'Adresse invalide ou déjà inscrite.';
+                msg.className = 'nl-msg err'; btn.disabled = false; track('refus');
+              }
+            });
           })
           .catch(function () {
-            // Repli : ouvrir le formulaire hébergé par Brevo
-            window.open('https://fd66c9ed.sibforms.com/serve/MUIFAP4QSnqJCuYn_hKfQVomNHLRqKWISXEAWmzr9dayVMmcxLw1-Hb8PfnFkhli03SUKWcXLACedDiPH9W2U0AlfWf7fK4D7DXnSOfJIkQvGRCa-bIcug9dzuztrNnV8uJ6QWTeL8Kbt6cD0WU2GQKyMSJqS-qr6VuPySUwUN5sjilUmx4ICf4SPDLxKAuoVZYOVECJVhZTgVokAQ==', '_blank', 'noopener');
-            msg.textContent = ''; btn.disabled = false;
+            // Pas de popup (bloqué sur iOS) : lien cliquable inline vers le formulaire hébergé
+            msg.innerHTML = 'Connexion impossible — <a href="' + NL_FALLBACK + '" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">inscrivez-vous ici</a>.';
+            msg.className = 'nl-msg err'; btn.disabled = false; track('reseau');
           });
       });
     })();
