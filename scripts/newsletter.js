@@ -43,32 +43,63 @@ if (!arts.length) { console.log('Aucun article sur ' + DAYS + ' j → pas d\'env
 // --- Composer le HTML (layout table, compatible clients mail) ---
 const CAT = { mercato: 'MERCATO', saison: 'SAISON', news: 'NEWS', interview: 'INTERVIEW', mag: 'MAG' };
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const rows = arts.map(a => `
-  <tr><td style="padding:20px 24px;border-bottom:1px solid #2b2723">
-    <span style="display:inline-block;font:800 10px/1 'Segoe UI',Tahoma,Arial,sans-serif;letter-spacing:.1em;color:#0a0807;background:#ffd21e;padding:5px 10px;border-radius:999px">${CAT[a.category] || 'ACTU'}</span>${a.statut === 'officiel' ? ' <span style="display:inline-block;font:800 10px/1 Arial;letter-spacing:.08em;color:#fff;background:#2e9e5b;padding:5px 10px;border-radius:999px">OFFICIEL</span>' : a.statut === 'rumeur' ? ' <span style="display:inline-block;font:800 10px/1 Arial;letter-spacing:.08em;color:#ff9c9c;border:1px solid #e01e1e;padding:4px 9px;border-radius:999px">RUMEUR</span>' : ''}
+const ST_CHIP = {
+  officiel: '<span style="display:inline-block;font:800 10px/1 Arial;letter-spacing:.08em;color:#fff;background:#2e9e5b;padding:5px 10px;border-radius:999px">OFFICIEL</span>',
+  confirme: '<span style="display:inline-block;font:800 10px/1 Arial;letter-spacing:.08em;color:#ffd21e;border:1px solid #ffd21e;padding:4px 9px;border-radius:999px">CONFIRM&Eacute;</span>',
+  rumeur:   '<span style="display:inline-block;font:800 10px/1 Arial;letter-spacing:.08em;color:#ff9c9c;border:1px solid #e01e1e;padding:4px 9px;border-radius:999px">RUMEUR</span>'
+};
+const rows = arts.map((a, k) => `
+  ${k > 0 ? `<tr><td style="padding:0 24px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td style="border-top:1px solid #2b2723;font:800 11px Arial;color:#ffd21e;padding-top:2px" width="18">&#9670;</td>
+    <td style="border-top:1px solid #2b2723"></td></tr></table></td></tr>` : ''}
+  <tr><td style="padding:20px 24px 22px">
+    <span style="display:inline-block;font:800 10px/1 'Segoe UI',Tahoma,Arial,sans-serif;letter-spacing:.1em;color:#0a0807;background:#ffd21e;padding:5px 10px;border-radius:999px">${CAT[a.category] || 'ACTU'}</span>
+    ${a.statut && ST_CHIP[a.statut] ? ' ' + ST_CHIP[a.statut] : ''}
     <span style="font:700 11px/1 'Segoe UI',Arial,sans-serif;color:#e01e1e">&nbsp;&#9679;&nbsp;</span><span style="font:400 11px/1 'Segoe UI',Arial,sans-serif;color:#6f675e">${a.date}</span>
     <div style="font:800 19px/1.3 'Segoe UI',Tahoma,Arial,sans-serif;color:#f2efe9;margin:10px 0 6px">${esc(a.title)}</div>
     <div style="font:400 14px/1.55 'Segoe UI',Arial,sans-serif;color:#a49b90">${esc(a.excerpt || '')}</div>
   </td></tr>`).join('');
 
 const LOGO = SITE + 'images/logo/logo2.png';
+const COVER = SITE + 'images/og-cover.jpg';
+const LAMP = SITE + 'images/logo/lamp-btn.png';
 const html = `<!doctype html><html lang="fr"><body style="margin:0;background:#0a0807">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#0a0807"><tr><td align="center" style="padding:24px 12px">
-<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#181310;border:1px solid #2b2723;border-radius:6px;overflow:hidden">
-  <tr><td style="background:#0a0807;padding:18px 24px;border-bottom:3px solid #ffd21e">
-    <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td style="padding-right:14px"><img src="${LOGO}" width="46" alt="Charbonneurs" style="display:block;border:0"></td>
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#141110;border:1px solid #2b2723;border-radius:8px;overflow:hidden">
+
+  <!-- Veine d'or -->
+  <tr><td style="height:4px;background:#ffd21e;font-size:0;line-height:0">&nbsp;</td></tr>
+
+  <!-- Masthead : logo + titre, sur fond charbon -->
+  <tr><td style="background:#0a0807;padding:20px 24px 16px">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+      <td style="padding-right:14px" width="60"><img src="${LOGO}" width="52" alt="Charbonneurs" style="display:block;border:0"></td>
       <td>
-        <div style="font:800 25px/1 'Segoe UI',Tahoma,Arial,sans-serif;color:#ffd21e;letter-spacing:.01em">CHARBONNEURS</div>
-        <div style="font:600 10px/1.7 'Segoe UI',Arial,sans-serif;color:#a49b90;letter-spacing:.16em">L&rsquo;ACTUALIT&Eacute; DU RC LENS, DE LA MINE &Agrave; BOLLAERT</div>
+        <div style="font:800 27px/1 'Segoe UI',Tahoma,Arial,sans-serif;color:#ffd21e;letter-spacing:.01em">CHARBONNEURS</div>
+        <div style="font:600 10px/1.8 'Segoe UI',Arial,sans-serif;color:#a49b90;letter-spacing:.16em">L&rsquo;ACTUALIT&Eacute; DU RC LENS, DE LA MINE &Agrave; BOLLAERT</div>
       </td>
+      <td align="right" width="34"><img src="${LAMP}" width="18" alt="" style="display:block;border:0;opacity:.9"></td>
     </tr></table>
   </td></tr>
-  ${rows}
-  <tr><td align="center" style="padding:24px">
-    <a href="${SITE}#actu" style="font:800 14px 'Segoe UI',Arial,sans-serif;color:#0a0807;background:#ffd21e;text-decoration:none;padding:13px 26px;border-radius:6px;display:inline-block">&#9874; Lire sur le site</a>
+
+  <!-- Bannière visuelle du site -->
+  <tr><td style="background:#0a0807;font-size:0;line-height:0"><a href="${SITE}" style="text-decoration:none"><img src="${COVER}" width="600" alt="Charbonneurs — le site des supporters du RC Lens" style="display:block;border:0;width:100%;height:auto"></a></td></tr>
+
+  <!-- Kicker de section, comme sur le site -->
+  <tr><td style="padding:20px 24px 2px">
+    <div style="font:800 11px/1 'Segoe UI',Arial,sans-serif;letter-spacing:.22em;color:#ffd21e">&#9472;&#9472;&nbsp; L&rsquo;ACTU DE LA SEMAINE</div>
   </td></tr>
-  <tr><td style="padding:14px 24px;background:#0a0807;border-top:3px solid #e01e1e;font:400 11px/1.6 'Segoe UI',Arial,sans-serif;color:#6f675e">
+
+  ${rows}
+
+  <!-- Bouton retour à la surface -->
+  <tr><td align="center" style="padding:6px 24px 26px">
+    <a href="${SITE}#actu" style="font:800 14px 'Segoe UI',Arial,sans-serif;color:#0a0807;background:#ffd21e;text-decoration:none;padding:14px 28px;border-radius:6px;display:inline-block">&#9874; Remonter &agrave; la surface &mdash; lire sur le site</a>
+  </td></tr>
+
+  <!-- Pied de page, liseré sang -->
+  <tr><td style="padding:14px 24px;background:#0a0807;border-top:3px solid #e01e1e;font:400 11px/1.7 'Segoe UI',Arial,sans-serif;color:#6f675e">
+    <span style="color:#a49b90">Descendu de la fosse, remont&eacute; dans votre bo&icirc;te mail.</span><br>
     Charbonneurs &mdash; site non officiel de supporters du RC Lens &mdash; <a href="${SITE}" style="color:#a49b90">${SITE.replace('https://','')}</a><br>
     Vous recevez cet e-mail car vous &ecirc;tes inscrit &agrave; la newsletter. {{ unsubscribe }}
   </td></tr>
