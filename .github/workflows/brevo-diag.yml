@@ -1,5 +1,11 @@
 name: Brevo diagnostic
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      export_to:
+        description: "Envoyer la liste complète des inscrits à cette adresse (vide = simple diagnostic masqué)"
+        required: false
+        default: ""
 permissions: { contents: read }
 jobs:
   diag:
@@ -8,5 +14,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
-      - env: { BREVO_API_KEY: "${{ secrets.BREVO_API_KEY }}" }
-        run: node scripts/brevo-diag.js
+      - env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          EXPORT_TO: ${{ github.event.inputs.export_to }}
+        run: |
+          if [ -n "$EXPORT_TO" ]; then node scripts/brevo-export.js; else node scripts/brevo-diag.js; fi
