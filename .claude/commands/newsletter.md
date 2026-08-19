@@ -27,3 +27,9 @@ La clé Brevo vit dans le secret GitHub `BREVO_API_KEY` — jamais dans le repo 
 - Envoi automatique : cron chaque vendredi 17h00 UTC (pas d'envoi si aucun article sur 7 j).
 - Jamais 2 envois réels le même jour sans demande explicite.
 - Le gabarit HTML vit dans `scripts/newsletter.js` (sombre natif, charbon/or, logo du site).
+
+## Garde-fous d'envoi (19/08/2026)
+- Envoi réel : seuls les articles ayant vécu ≥ 24h sur le site partent (sas de relecture).
+  Le mode test n'a pas cette contrainte.
+- Les articles `statut: 'rumeur'` de plus de 72h sont exclus automatiquement.
+- Badges OFFICIEL / RUMEUR affichés dans l'e-mail.

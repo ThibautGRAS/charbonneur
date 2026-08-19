@@ -534,3 +534,9 @@ body.lamp-disabled #mine .cage{box-shadow:none!important}
 .nl-msg{font-size:.8rem;margin:.5rem 0 0;min-height:1em;color:var(--ink);opacity:.85}
 .nl-msg.ok{color:#7ddc8f}
 .nl-msg.err{color:#ff8f8f}
+
+/* ---- Badges de statut editorial ---- */
+.st-badge{display:inline-block;font-size:.58rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:.16rem .5rem;border-radius:999px;margin-left:.45rem;vertical-align:middle}
+.st-officiel{background:#2e9e5b;color:#fff}
+.st-confirme{background:transparent;color:var(--or);border:1px solid var(--or)}
+.st-rumeur{background:transparent;color:#ff9c9c;border:1px solid var(--sang)}

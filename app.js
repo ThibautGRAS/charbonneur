@@ -102,6 +102,11 @@
   // « Chaleur » d'un article pour choisir la une : la FRAÎCHEUR domine (référence = l'article
   // le plus récent du site), un poids de catégorie départage (mercato le plus brûlant), et on
   // peut forcer un coup de pouce éditorial via `hot: true` ou `heat: <nombre>` dans l'article.
+  var ST_LABEL = { officiel: 'Officiel', confirme: 'Confirmé', rumeur: 'Rumeur' };
+  function stBadge(a) {
+    if (!a.statut || !ST_LABEL[a.statut]) return '';
+    return '<span class="st-badge st-' + a.statut + '">' + ST_LABEL[a.statut] + '</span>';
+  }
   var CAT_HEAT = { mercato: 6, transfert: 6, interview: 4, news: 3, saison: 3, mag: 1 };
   function daysBetween(isoA, isoB) {
     var da = new Date(isoA), db = new Date(isoB);
@@ -186,7 +191,7 @@
       var c = cat(a.category);
       return '<a class="feat" href="#">' +
         '<img class="' + artImgClass(a).trim() + '" src="' + artImg(a) + '" alt="' + esc(a.title) + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a) + '\'">' +
-        '<span class="tag ' + c.cls + '">' + c.label + '</span>' +
+        '<span class="tag ' + c.cls + '">' + c.label + '</span>' + stBadge(a) +
         '<div class="ft"><h3>' + esc(a.title) + '</h3></div>' +
       '</a>';
     }).join('');
@@ -266,7 +271,7 @@
       div.innerHTML =
         '<div class="thumb"><img class="' + artImgClass(a).trim() + '" src="' + artImg(a) + '" alt="' + esc(a.title) + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a) + '\'"></div>' +
         '<div class="article-body">' +
-          '<span class="tag ' + c.cls + '">' + c.label + '</span>' +
+          '<span class="tag ' + c.cls + '">' + c.label + '</span>' + stBadge(a) +
           '<h3>' + esc(a.title) + newTag + '</h3>' +
           '<p class="excerpt">' + esc(a.excerpt) + '</p>' +
           '<p class="meta">' + fmtDate(a.date) + ' · <span class="read-more">Lire l’article →</span></p>' +
@@ -602,7 +607,7 @@
     m.querySelector('.am-inner').innerHTML =
       '<button class="am-close" aria-label="Fermer">×</button>' +
       '<div class="am-hero"><img class="' + (isPlayerImg(artDetailImg(a)) ? 'is-portrait' : '') + '" src="' + artDetailImg(a) + '" alt="' + esc(a.title) + '"' + (a.imgPos ? ' style="object-position:' + a.imgPos + '"' : '') + ' loading="lazy" onerror="this.onerror=null;this.src=\'' + defImg(a) + '\'">' +
-        '<span class="tag ' + c.cls + '">' + c.label + '</span>' +
+        '<span class="tag ' + c.cls + '">' + c.label + '</span>' + stBadge(a) +
         (a.imageCredit ? '<span class="am-credit">📷 ' + esc(a.imageCredit) + '</span>' : '') +
       '</div>' +
       '<article class="am-body">' +

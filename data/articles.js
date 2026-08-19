@@ -37,6 +37,7 @@ window.ARTICLES = [
     date: '2026-08-19',
     time: '09:45',
     category: 'mercato',
+    statut: 'confirme',
     title: 'Dernier renfort défensif : après les échecs Obispo et Obert, le Racing ratisse large',
     excerpt: 'Le feuilleton du défenseur gaucher se complique : Obispo est finalement retourné au PSV cet été malgré un accord quasi bouclé, et Cagliari vient de repousser environ 10 M\u20ac pour Adam Obert. La pépite de Bournemouth Rees-Dottin reste suivie, pendant que Risser est conservé dans les cages.',
     image: 'images/defaut/lens3.jpg',
@@ -60,6 +61,7 @@ window.ARTICLES = [
     date: '2026-08-17',
     time: '12:00',
     category: 'mercato',
+    statut: 'officiel',
     title: 'Mercato : Nawrocki officialisé et déjà titulaire, Saïd file au Qatar',
     excerpt: 'Le Racing muscle sa défense : Maik Nawrocki a signé à la veille du Trophée des Champions et débuté face au PSG. Dans le sens des départs, Wesley Saïd s\u2019est engagé avec Al Shamal.',
     image: '',
@@ -132,6 +134,7 @@ window.ARTICLES = [
     date: '2026-08-15',
     time: '21:00',
     category: 'mercato',
+    statut: 'confirme',
     title: 'Mercato : Lens accélère sa quête d’un défenseur central gaucher avant le Trophée des Champions',
     excerpt: 'Avec le départ de Malang Sarr et l’absence prolongée de Samson Baidoo, le Racing cherche un renfort défensif capable d’apporter immédiatement de la solidité, pour un budget avoisinant les 6 millions d’euros.',
     image: 'images/defaut/stade.jpg',
@@ -154,6 +157,7 @@ window.ARTICLES = [
     date: '2026-08-13',
     time: '18:00',
     category: 'mercato',
+    statut: 'officiel',
     title: 'Mercato : Franjo Ivanović prêté par Benfica pour renforcer l’attaque',
     excerpt: 'L’attaquant international croate rejoint le RC Lens sous la forme d’un prêt d’une saison sans option d’achat, séduit par la perspective de disputer la Ligue des champions.',
     image: 'images/defaut/stade2.jpg',
@@ -177,6 +181,7 @@ window.ARTICLES = [
     date: '2026-08-05',
     time: '17:30',
     category: 'mercato',
+    statut: 'rumeur',
     title: 'Ilan Kebbal, la nouvelle piste offensive du Racing pour animer le couloir droit',
     excerpt: 'Le milieu offensif algérien du Paris FC, auteur de 9 buts et 5 passes décisives la saison dernière, figure sur les tablettes lensoises. Courtisé aussi par l\u2019OM, il incarne le profil créatif recherché après les départs de Saïd et Saint-Maximin.',
     image: 'images/defaut/lens2.jpg',
@@ -222,6 +227,7 @@ window.ARTICLES = [
     date: '2026-08-03',
     time: '20:30',
     category: 'mercato',
+    statut: 'officiel',
     title: 'Yacine Titraoui est Sang et Or : le successeur désigné de Sangaré arrive de Charleroi',
     excerpt: '« One, two, three… Viva Titraoui » : le Racing a officialisé lundi soir la signature du milieu international algérien de 23 ans, engagé jusqu’en 2031 pour reprendre le n°8 laissé par Mamadou Sangaré, parti à Brentford.',
     image: 'images/players/titraoui.jpg',
@@ -377,6 +383,7 @@ window.ARTICLES = [
     date: '2026-07-05',
     time: '10:00',
     category: 'mercato',
+    statut: 'officiel',
     image: 'images/players/sangare.jpg',
     title: 'Mamadou Sangaré, valorisé à plus de 40 M€, attise les convoitises anglaises',
     excerpt: 'Le milieu lensois pourrait être la grosse vente de l’été : plusieurs clubs, notamment anglais, se positionnent.',
@@ -610,6 +617,7 @@ window.ARTICLES = [
     date: '2026-07-03',
     time: '13:15',
     category: 'mercato',
+    statut: 'officiel',
     title: 'Hugo Bayomog, jeune latéral du LOSC, sur le point de s’engager avec le Racing',
     excerpt: 'Le RC Lens finalise l’arrivée d’un latéral prometteur formé chez le voisin lillois, appelé à densifier le couloir droit.',
     image: 'images/defaut/stade2.jpg',
@@ -620,9 +628,11 @@ window.ARTICLES = [
       'Le profil correspond à la stratégie affichée par le club, qui mise volontiers sur des joueurs à fort potentiel pour les faire progresser et valoriser à terme.',
       'Sur le plan sportif, il s’agit de renforcer et de rajeunir le couloir droit, tout en préparant la relève à ce poste.',
       'Un mouvement qui, dans le contexte d’un derby du Nord toujours bouillant, ne manquera pas de faire parler des deux côtés.'
+      ,'Épilogue (mise à jour du 19/08) : le transfert a bien été officialisé le 12 août. Bayomog a signé son contrat stagiaire professionnel de deux ans et intègre le groupe Élite de Vincent Carlier pour poursuivre sa formation.'
     ],
     sources: [
-      { name: 'Lens Mercato', url: 'https://lensmercato.fr/' }
+      { name: 'Lensois.com (02/07)', url: 'https://www.lensois.com/un-lateral-droit-de-17-ans-du-losc-en-passe-de-sengager-avec-le-rc-lens/' },
+      { name: 'Le Petit Lillois (officialisation, 12/08)', url: 'https://lepetitlillois.com/2026/08/12/hugo-bayomog-passe-officiellement-du-losc-au-rc-lens/' }
     ]
   },
   {

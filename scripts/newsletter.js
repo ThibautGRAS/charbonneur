@@ -22,8 +22,20 @@ if (!KEY) { console.error('BREVO_API_KEY manquant'); process.exit(1); }
 const window = {};
 eval(fs.readFileSync('data/articles.js', 'utf8'));
 const cutoff = Date.now() - DAYS * 864e5;
+const isTest = !!process.env.TEST_EMAIL;
+// Sas de maturation : en envoi réel, un article doit avoir vécu >= 24h sur le site
+const MIN_AGE_MS = isTest ? 0 : 24 * 3600e3;
+// Péremption : une rumeur > 72h non passée en confirmé/officiel n'est plus envoyée
+const RUMOR_TTL_MS = 72 * 3600e3;
 const arts = window.ARTICLES
-  .filter(a => new Date(a.date + 'T' + (a.time || '12:00')) >= cutoff)
+  .filter(a => {
+    const t = new Date(a.date + 'T' + (a.time || '12:00'));
+    if (t < cutoff) return false;
+    const age = Date.now() - t;
+    if (age < MIN_AGE_MS) return false;
+    if (a.statut === 'rumeur' && age > RUMOR_TTL_MS) return false;
+    return true;
+  })
   .sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time));
 
 if (!arts.length) { console.log('Aucun article sur ' + DAYS + ' j → pas d\'envoi.'); process.exit(0); }
@@ -33,7 +45,7 @@ const CAT = { mercato: 'MERCATO', saison: 'SAISON', news: 'NEWS', interview: 'IN
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const rows = arts.map(a => `
   <tr><td style="padding:20px 24px;border-bottom:1px solid #2b2723">
-    <span style="display:inline-block;font:800 10px/1 'Segoe UI',Tahoma,Arial,sans-serif;letter-spacing:.1em;color:#0a0807;background:#ffd21e;padding:5px 10px;border-radius:999px">${CAT[a.category] || 'ACTU'}</span>
+    <span style="display:inline-block;font:800 10px/1 'Segoe UI',Tahoma,Arial,sans-serif;letter-spacing:.1em;color:#0a0807;background:#ffd21e;padding:5px 10px;border-radius:999px">${CAT[a.category] || 'ACTU'}</span>${a.statut === 'officiel' ? ' <span style="display:inline-block;font:800 10px/1 Arial;letter-spacing:.08em;color:#fff;background:#2e9e5b;padding:5px 10px;border-radius:999px">OFFICIEL</span>' : a.statut === 'rumeur' ? ' <span style="display:inline-block;font:800 10px/1 Arial;letter-spacing:.08em;color:#ff9c9c;border:1px solid #e01e1e;padding:4px 9px;border-radius:999px">RUMEUR</span>' : ''}
     <span style="font:700 11px/1 'Segoe UI',Arial,sans-serif;color:#e01e1e">&nbsp;&#9679;&nbsp;</span><span style="font:400 11px/1 'Segoe UI',Arial,sans-serif;color:#6f675e">${a.date}</span>
     <div style="font:800 19px/1.3 'Segoe UI',Tahoma,Arial,sans-serif;color:#f2efe9;margin:10px 0 6px">${esc(a.title)}</div>
     <div style="font:400 14px/1.55 'Segoe UI',Arial,sans-serif;color:#a49b90">${esc(a.excerpt || '')}</div>

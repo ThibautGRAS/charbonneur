@@ -69,3 +69,12 @@ La crédibilité du site prime sur la fraîcheur. Règles absolues :
 5. **Correctif assumé** : quand on rectifie une info publiée, le dire dans le texte
    (« précision importante sur un dossier évoqué ces derniers jours ») plutôt que
    d'effacer silencieusement.
+
+## 🛡️ GARDE-FOUS TECHNIQUES (19/08/2026)
+- **DOSSIERS.md** (racine du repo) : le lire AVANT d'écrire, le mettre à jour APRÈS
+  chaque commit d'article. Jamais citer comme piste un dossier marqué CLOS.
+- **Champ `statut`** obligatoire sur tout article mercato : 'officiel' (communiqué club),
+  'confirme' (2 sources datées concordantes), 'rumeur' (conditionnel obligatoire).
+  Badge affiché sur le site et dans la newsletter.
+- **`node scripts/lint-articles.js`** doit passer AVANT tout commit d'articles
+  (aussi exécuté en CI à chaque push : workflow lint-articles.yml).
