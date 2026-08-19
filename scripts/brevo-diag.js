@@ -17,4 +17,9 @@ async function api(p) {
   cts.forEach(c => console.log(`::notice::CONTACT ${mask(c.email)} créé ${c.createdAt} listes=[${(c.listIds||[]).join(',')}] blacklist=${c.emailBlacklisted}`));
   const senders = (await api('/senders')).senders || [];
   senders.forEach(s => console.log(`::notice::SENDER ${mask(s.email)} actif=${s.active}`));
+  const camps = (await api('/emailCampaigns?limit=5&sort=desc')).campaigns || [];
+  camps.forEach(c => {
+    const g = (c.statistics && c.statistics.globalStats) || {};
+    console.log('::notice::CAMPAGNE #' + c.id + ' "' + c.name + '" statut=' + c.status + ' envoyés=' + (g.sent||0) + ' délivrés=' + (g.delivered||0) + ' ouverts=' + (g.uniqueViews||0));
+  });
 })().catch(e => { console.log('::error::' + String(e.message).slice(0, 300)); process.exit(1); });
