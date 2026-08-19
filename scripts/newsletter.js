@@ -139,6 +139,23 @@ async function api(path, opts = {}) {
     if (!lists.length) throw new Error('Aucune liste de contacts Brevo');
     listId = lists[0].id;
   }
+  // Garde-fou destinataires : vérifier la composition RÉELLE de la liste
+  let members = 0;
+  try { members = (await api('/contacts/lists/' + listId + '/contacts?limit=1')).count || 0; } catch (_) {}
+  if (!members) {
+    // Rattacher explicitement tous les contacts non blacklistés à la liste
+    const emails = [];
+    for (let off = 0; ; off += 500) {
+      const page = (await api('/contacts?limit=500&offset=' + off)).contacts || [];
+      page.forEach(c => { if (!c.emailBlacklisted) emails.push(c.email); });
+      if (page.length < 500) break;
+    }
+    if (!emails.length) throw new Error('Aucun contact actif dans le compte — envoi annulé');
+    await api('/contacts/lists/' + listId + '/contacts/add', { method: 'POST', body: JSON.stringify({ emails }) });
+    members = (await api('/contacts/lists/' + listId + '/contacts?limit=1')).count || emails.length;
+    console.log('::notice::Liste ' + listId + ' recomposée : ' + emails.length + ' contact(s) rattaché(s).');
+  }
+  console.log('::notice::Destinataires dans la liste ' + listId + ' : ' + members);
   const camp = await api('/emailCampaigns', { method: 'POST', body: JSON.stringify({
     name: 'Charbonneurs ' + new Date().toISOString().slice(0, 10),
     subject, sender, type: 'classic',
@@ -146,7 +163,14 @@ async function api(path, opts = {}) {
     recipients: { listIds: [listId] }
   }) });
   await api('/emailCampaigns/' + camp.id + '/sendNow', { method: 'POST', body: '{}' });
-  console.log('Campagne #' + camp.id + ' envoyée à la liste ' + listId + ' (' + arts.length + ' articles).');
+  console.log('::notice::Campagne #' + camp.id + ' envoyée à la liste ' + listId + ' (' + arts.length + ' articles, ' + members + ' destinataires).');
+  // Contrôle post-envoi : relire les stats de la campagne
+  await new Promise(r => setTimeout(r, 8000));
+  try {
+    const st = ((await api('/emailCampaigns/' + camp.id)).statistics || {}).globalStats || {};
+    console.log('::notice::Stats campagne #' + camp.id + ' : envoyés=' + (st.sent || 0) + ' délivrés=' + (st.delivered || 0));
+    if (!st.sent) console.log('::warning::La campagne indique 0 envoyé — si cela persiste, le compte Brevo attend probablement une validation (bannière dans le tableau de bord Brevo).');
+  } catch (_) {}
 })().catch(e => {
   var m = String(e.message).replace(/[\r\n]+/g, ' ').slice(0, 400);
   console.error(m);
