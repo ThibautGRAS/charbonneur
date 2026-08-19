@@ -48,3 +48,24 @@ Le site est local → pour lancer cette maj chaque jour automatiquement :
 
 Demande à l'assistant de te **générer la tâche planifiée** (fichier `.bat` + commande
 `schtasks`) si tu veux l'activer.
+
+## ⚖️ ÉTHIQUE ÉDITORIALE (obligatoire, ajouté après l'incident Openda/Obispo du 19/08/2026)
+La crédibilité du site prime sur la fraîcheur. Règles absolues :
+1. **Sources datées uniquement.** Une info n'est publiable que si sa date de publication
+   est vérifiable et ≤ 72 h. Les listings d'agrégateurs sans date (pages « fiche club »
+   de jeunesfooteux, mercato.fr, tickers) NE SONT PAS des sources : ils ressortent des
+   articles vieux de plusieurs semaines (ex. rumeur Openda ressortie alors qu'il était
+   à l'OL depuis fin juillet). Ils servent seulement de point de départ pour retrouver
+   l'article original daté.
+2. **Rumeur = 2 sources datées et concordantes**, sinon on ne publie pas. Shoutbox,
+   forums et comptes fans ne comptent pas. Conditionnel obligatoire dans le texte.
+3. **Statut des joueurs cités** : avant de citer un joueur comme piste, vérifier qu'il
+   n'a pas déjà signé ailleurs (1 recherche « <nom> transfert officiel »).
+4. **Cohérence rétroactive** : avant tout commit d'article, relire les titres/excerpts
+   des articles encore dans la fenêtre newsletter (7 derniers jours). Si le nouvel
+   article contredit un ancien (transfert capoté, info démentie), CORRIGER AUSSI
+   l'ancien article (titre, excerpt, corps) pour que le fil et la newsletter racontent
+   une histoire cohérente — et le signaler dans le message de commit.
+5. **Correctif assumé** : quand on rectifie une info publiée, le dire dans le texte
+   (« précision importante sur un dossier évoqué ces derniers jours ») plutôt que
+   d'effacer silencieusement.

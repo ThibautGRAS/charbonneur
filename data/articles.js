@@ -38,15 +38,15 @@ window.ARTICLES = [
     time: '09:45',
     category: 'mercato',
     title: 'Dernier renfort défensif : après les échecs Obispo et Obert, le Racing ratisse large',
-    excerpt: 'Le feuilleton du défenseur gaucher se complique : Obispo est finalement retourné au PSV cet été malgré un accord quasi bouclé, et Cagliari vient de repousser environ 10 M\u20ac pour Adam Obert. Bondo, Links, Rees-Dottin\u2026 et même le rêve Openda animent la fin de mercato.',
+    excerpt: 'Le feuilleton du défenseur gaucher se complique : Obispo est finalement retourné au PSV cet été malgré un accord quasi bouclé, et Cagliari vient de repousser environ 10 M\u20ac pour Adam Obert. La pépite de Bournemouth Rees-Dottin reste suivie, pendant que Risser est conservé dans les cages.',
     image: 'images/defaut/lens3.jpg',
     featured: null,
     pinned: false,
     body: [
       'Précision importante sur un dossier que nous évoquions ces derniers jours : le transfert d\u2019Armando Obispo ne se fera pas. Alors qu\u2019un accord autour de 5,5 M\u20ac avait été trouvé avec le PSV et que le défenseur néerlandais avait fait le déplacement dans l\u2019Artois, les négociations ont capoté sur les derniers détails, et le joueur est retourné à Eindhoven, sans cacher sa déception.',
       'La piste suivante vient elle aussi de se refermer, au moins provisoirement : selon la presse, Cagliari a repoussé une offre lensoise d\u2019environ 8 M\u20ac plus 2 M\u20ac de bonus pour le défenseur central slovaque Adam Obert. Un refus catégorique qui oblige Jean-Louis Leca à élargir son champ de recherche à moins de deux semaines de la fin du marché.',
-      'Plusieurs noms circulent désormais : un intérêt s\u2019est manifesté pour Warren Bondo, le milieu de l\u2019AC Milan, sous forme de prêt avec option d\u2019achat, tandis que le dossier de l\u2019ailier sud-africain Gift Links aurait été réactivé. La pépite de Bournemouth Rees-Dottin reste suivie, mais la concurrence, dont l\u2019ASSE, s\u2019emballe.',
-      'Et puis il y a le rêve un peu fou qui agite les réseaux sang et or : un retour de Loïs Openda. Un prêt avec option d\u2019achat depuis la Juventus est évoqué, avec un accord de principe qui resterait à confirmer — et un effort salarial conséquent à consentir. À ce stade, rien de concret, mais le simple nom de l\u2019attaquant belge suffit à faire rêver Bollaert.',
+      'Jean-Louis Leca doit donc élargir son champ de recherche à moins de deux semaines de la fin du marché. Parmi les pistes datées et recoupées : la pépite anglaise de Bournemouth Rees-Dottin reste suivie de près, mais la concurrence, dont l\u2019ASSE, s\u2019emballe autour du joueur.',
+      'Une porte s\u2019est en revanche refermée depuis plusieurs semaines : celle d\u2019un retour de Loïs Openda. Un temps espéré dans l\u2019Artois, l\u2019ancien buteur sang et or a été prêté fin juillet par la Juventus\u2026 à l\u2019Olympique Lyonnais, où il a déjà repris la compétition. Le dossier est clos, n\u2019en déplaise aux nostalgiques de 2023.',
       'Bonne nouvelle enfin dans le sens des départs : le PSG s\u2019est retiré du dossier Robin Risser. Le gardien alsacien, impérial face à Paris dimanche, devrait bien garder la cage lensoise cette saison, même si la Juventus et Aston Villa resteraient à l\u2019affût.'
     ],
     sources: [
@@ -60,8 +60,8 @@ window.ARTICLES = [
     date: '2026-08-17',
     time: '12:00',
     category: 'mercato',
-    title: 'Mercato : Nawrocki officialisé et déjà titulaire, Obispo en approche, Saïd file au Qatar',
-    excerpt: 'Le Racing muscle sa défense : Maik Nawrocki a signé à la veille du Trophée des Champions et débuté face au PSG, pendant que l\u2019arrivée d\u2019Armando Obispo (PSV) se précise. Dans le sens des départs, Wesley Saïd s\u2019est engagé avec Al Shamal.',
+    title: 'Mercato : Nawrocki officialisé et déjà titulaire, Saïd file au Qatar',
+    excerpt: 'Le Racing muscle sa défense : Maik Nawrocki a signé à la veille du Trophée des Champions et débuté face au PSG. Dans le sens des départs, Wesley Saïd s\u2019est engagé avec Al Shamal.',
     image: '',
     featured: null,
     pinned: false,
@@ -69,9 +69,9 @@ window.ARTICLES = [
     body: [
       'Le mercato lensois s\u2019est brusquement accéléré ce week-end, et c\u2019est la défense qui en profite. Samedi, à la veille du Trophée des Champions, le Racing a officialisé la signature de Maik Nawrocki, défenseur central polonais de 25 ans formé au Legia Varsovie et passé par le Celtic Glasgow.',
       'L\u2019intégration a été express : moins de vingt-quatre heures après l\u2019annonce, Nawrocki était titulaire face au PSG à Bollaert, dans l\u2019axe de la défense à trois aux côtés de Ganiou et du jeune Antonio. Des débuts couronnés d\u2019un trophée, difficile de faire mieux comme carte de visite.',
-      'Et le chantier défensif n\u2019est pas terminé. Selon plusieurs médias, Armando Obispo est attendu dans l\u2019Artois : l\u2019entraîneur du PSV Eindhoven, Peter Bosz, a lui-même confirmé le départ imminent de son défenseur central néerlandais. Un renfort qui répondrait à la quête d\u2019un gaucher dans l\u2019axe, identifiée comme prioritaire depuis plusieurs semaines.',
+      'Et le chantier défensif n\u2019est pas terminé : le club cherche toujours un défenseur central gaucher pour compléter la ligne, un besoin identifié comme prioritaire depuis plusieurs semaines par la cellule de recrutement.',
       'Dans le sens des départs, un chapitre s\u2019est refermé lundi matin : Wesley Saïd s\u2019est officiellement engagé avec Al Shamal, au Qatar. Arrivé en 2022, l\u2019attaquant polyvalent aura connu la grande épopée récente du club, du retour en Ligue des champions au doublé vice-champion \u2013 Coupe de France.',
-      'À cinq jours de la reprise face à Auxerre, l\u2019effectif de Dino Toppmöller prend forme : il reste à concrétiser le dossier Obispo, trancher les pistes offensives (Kebbal, Rees-Dottin, Arévalo) et gérer les absences, Thorgan Hazard purgeant encore un match de suspension samedi.'
+      'À cinq jours de la reprise face à Auxerre, l\u2019effectif de Dino Toppmöller prend forme : il reste à dénicher ce fameux défenseur gaucher et à trancher les pistes offensives (Kebbal, Rees-Dottin, Arévalo) et gérer les absences, Thorgan Hazard purgeant encore un match de suspension samedi.'
     ],
     sources: [
       { name: 'Lensois.com (via Mercato.fr)', url: 'https://www.mercato.fr/equipe/racing-club-de-lens' },
