@@ -33,6 +33,7 @@ jobs:
       - name: Envoi newsletter
         env:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          SENDER_EMAIL: ${{ vars.SENDER_EMAIL }}
           TEST_EMAIL: ${{ github.event.inputs.test_email }}
           DAYS: ${{ github.event.inputs.days || '7' }}
           MIN_AGE_H: ${{ github.event.inputs.min_age_h || '24' }}

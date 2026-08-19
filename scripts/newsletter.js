@@ -120,6 +120,12 @@ async function api(path, opts = {}) {
 (async () => {
   // Expéditeur : premier sender validé du compte
   const senders = (await api('/senders')).senders.filter(s => s.active);
+  const wanted = (process.env.SENDER_EMAIL || '').trim().toLowerCase();
+  if (wanted) {
+    const hit = senders.find(s => s.email.toLowerCase() === wanted);
+    if (hit) senders.unshift(hit);
+    else console.log('::warning::SENDER_EMAIL ' + wanted + " n'est pas un expéditeur vérifié Brevo — repli sur " + (senders[0] ? senders[0].email : 'aucun'));
+  }
   if (!senders.length) throw new Error('Aucun expéditeur validé dans Brevo');
   const sender = { name: 'Charbonneurs', email: senders[0].email };
 

@@ -17,6 +17,12 @@ async function api(p, o = {}) {
   }
   const rows = all.map(c => `<tr><td style="padding:6px 12px;border-bottom:1px solid #eee">${c.email}</td><td style="padding:6px 12px;border-bottom:1px solid #eee">${(c.createdAt || '').slice(0, 16).replace('T', ' ')}</td><td style="padding:6px 12px;border-bottom:1px solid #eee">${c.emailBlacklisted ? 'désinscrit' : 'actif'}</td></tr>`).join('');
   const senders = (await api('/senders')).senders.filter(s => s.active);
+  const wanted = (process.env.SENDER_EMAIL || '').trim().toLowerCase();
+  if (wanted) {
+    const hit = senders.find(s => s.email.toLowerCase() === wanted);
+    if (hit) senders.unshift(hit);
+    else console.log('::warning::SENDER_EMAIL ' + wanted + " n'est pas un expéditeur vérifié Brevo — repli sur " + (senders[0] ? senders[0].email : 'aucun'));
+  }
   await api('/smtp/email', { method: 'POST', body: JSON.stringify({
     sender: { name: 'Charbonneurs', email: senders[0].email },
     to: [{ email: TO }],
