@@ -47,3 +47,13 @@ soit une rumeur pour la fenêtre suivante (à écrire comme telle, au conditionn
 soit une fausse/vieille news → ne pas publier.
 - **France 2026-27** : été = 10 juin → 1er septembre 2026 20h00 · hiver = début janvier → début février 2027 (vérifier les dates exactes LFP à l'ouverture).
 - Grands championnats européens : clôtures été autour du 1er septembre, MAIS chaque pays a ses dates propres (et certaines ligues — Turquie, Belgique, Golfe — ferment PLUS TARD : un départ lensois vers ces destinations reste possible après le 1/09). Vérifier la fenêtre du championnat de DESTINATION avant d'écrire.
+
+## 🗃️ Audit rétroactif du 19/08 (articles historiques)
+- Officiels également actés cet été : **Abdulhamid** (arrivée), **Hazard** (signature),
+  **Cuisance** (contrat 2030), **Fulgini** (retour de prêt d'Al-Taawoun).
+  Départs/prêts : **Medina** → OM (prêt, OA ~22 M€), **Bermont** → Angers (prêt).
+- Pistes dormantes (rumeurs, aucune suite publique connue au 19/08, à revérifier avant
+  toute nouvelle citation) : **Noël Atom** (libre, ex-Brighton), **Bentayeb** (buteur,
+  concurrence Porto/Olympiakos), **Gift Links** (ailier, AGF Aarhus, offre ~5 M€ freinée).
+- Gardiens : hiérarchie mouvante début juillet (retour Koffi, poussée Risser) ;
+  Koffi cité en instance de départ fin juillet — STATUT À VÉRIFIER avant d'en parler.

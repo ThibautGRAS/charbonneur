@@ -317,6 +317,7 @@ window.ARTICLES = [
     date: '2026-07-03',
     time: '11:30',
     category: 'mercato',
+    statut: 'rumeur',
     title: 'Un successeur à Malang Sarr dans le viseur : Lens s’intéresse à Noël Atom',
     excerpt: 'Libre depuis son départ de Brighton, le défenseur central allemand Noël Atom est suivi de près par le RC Lens pour combler le vide laissé par Malang Sarr.',
     image: '',
@@ -328,6 +329,7 @@ window.ARTICLES = [
       'Son profil physique impressionne : avec son 1,97 m, Atom est présenté comme un défenseur athlétique et solide dans le jeu aérien, deux qualités recherchées par le staff lensois pour compenser le départ de Sarr et sécuriser l’arrière-garde avant une saison de Ligue des champions.',
       'Le dossier n’est toutefois pas simple : le Stade Brestois serait également positionné sur le joueur et aurait entamé des discussions avec son entourage. Lens pourrait toutefois faire valoir un argument de poids, sa qualification européenne, pour convaincre le joueur de rejoindre Bollaert.',
       'Rien n’est acté à ce stade, et le club artésien explore en parallèle d’autres pistes défensives pour étoffer un secteur qui doit encore se réorganiser après les départs de l’été. L’issue de ce dossier devrait se préciser dans les prochains jours.'
+      ,'Épilogue (mise à jour du 19/08) : la piste n\u2019a pas connu de suite publique. La priorité de la cellule de recrutement s\u2019est depuis portée sur un défenseur central gaucher (dossiers Obispo puis Obert, tous deux non aboutis à ce jour).'
     ],
     sources: [
       { name: 'Média Sportif', url: 'https://www.mediasportif.fr/2026/07/03/rc-lens-mercato-le-successeur-de-malang-sarr-trouve-et-ca-ne-va-rien-couter/' },
@@ -339,6 +341,7 @@ window.ARTICLES = [
     date: '2026-06-04',
     time: '14:15',
     category: 'mercato',
+    statut: 'officiel',
     title: 'Saud Abdulhamid rejoint définitivement le RC Lens',
     excerpt: 'Le latéral saoudien, prêté la saison passée par l’AS Rome, s’est engagé à titre définitif avec les Sang et Or jusqu’en 2029.',
     image: 'images/articles/abdulhamid-lens.jpg',
@@ -361,6 +364,7 @@ window.ARTICLES = [
     date: '2026-07-05',
     time: '11:30',
     category: 'mercato',
+    statut: 'rumeur',
     title: 'Aston Villa suivrait de près le jeune gardien Robin Risser',
     excerpt: 'Le portier lensois de 21 ans figurerait parmi les pistes d’Aston Villa, qui prépare l’avenir de ses cages.',
     image: 'images/articles/risser.jpg',
@@ -372,6 +376,7 @@ window.ARTICLES = [
       'Pour Lens, cet intérêt est à double tranchant : il valorise le travail de formation, mais pose la question de la hiérarchie des gardiens, alors qu’Hervé Koffi est de retour et vise la place de numéro un.',
       'À ce stade, rien n’indique un départ imminent : il s’agit surtout d’une marque d’intérêt, et le club n’a aucune raison de brader un jeune prometteur encore sous contrat.',
       'Un dossier à suivre, révélateur de l’attractivité retrouvée des jeunes Sang et Or sur le marché européen.'
+      ,'Épilogue (mise à jour du 19/08) : Robin Risser est resté et a gardé la cage lensoise au Trophée des Champions. Le PSG, un temps intéressé, s\u2019est retiré du dossier le 17 août ; Aston Villa et la Juventus resteraient à l\u2019affût, sans offre connue.'
     ],
     sources: [
       { name: 'MadeInLens', url: 'https://www.madeinlens.com/tableau-mercato/ete-2026.html' },
@@ -406,6 +411,7 @@ window.ARTICLES = [
     date: '2026-07-04',
     time: '17:15',
     category: 'mercato',
+    statut: 'officiel',
     title: 'Officiel : Thorgan Hazard signe au RC Lens, un retour aux sources',
     excerpt: 'Libre après son passage à Anderlecht, l’international belge s’engage deux saisons dans l’Artois — là même où il avait lancé sa carrière avant Chelsea.',
     image: 'images/articles/hazard.jpg',
@@ -429,6 +435,7 @@ window.ARTICLES = [
     date: '2026-07-04',
     time: '16:00',
     category: 'mercato',
+    statut: 'officiel',
     title: 'Départ : Fodé Sylla rejoint le FC Sion',
     excerpt: 'Le jeune milieu de 20 ans quitte l’Artois pour la Suisse, où il s’est engagé sur un long contrat avec le club valaisan.',
     featured: null,
@@ -470,6 +477,7 @@ window.ARTICLES = [
     date: '2026-07-04',
     time: '12:50',
     category: 'mercato',
+    statut: 'officiel',
     title: 'Mercato : le RC Lens insiste pour Pablo Pagis, mais Lorient bloque',
     excerpt: 'Le club artésien apprécie l’attaquant, mais les exigences financières de Lorient freinent pour l’instant le dossier.',
     featured: null,
@@ -490,6 +498,7 @@ window.ARTICLES = [
     date: '2026-07-04',
     time: '11:20',
     category: 'mercato',
+    statut: 'officiel',
     title: 'Angelo Fulgini de retour à Lens à l’issue de son prêt',
     excerpt: 'Le milieu offensif réintègre le groupe sang et or après son prêt à Al-Taawoun, en Arabie saoudite.',
     image: 'images/players/fulgini.jpg',
@@ -511,6 +520,7 @@ window.ARTICLES = [
     date: '2026-07-04',
     time: '09:45',
     category: 'mercato',
+    statut: 'officiel',
     title: 'Facundo Medina proche de l’Olympique de Marseille',
     excerpt: 'Prêté à l’OM avec une option d’achat estimée autour de 22 M€, le défenseur argentin pourrait s’inscrire dans la durée sur la Canebière.',
     image: 'images/articles/medina.jpg',
@@ -576,6 +586,7 @@ window.ARTICLES = [
     date: '2026-07-02',
     time: '16:00',
     category: 'mercato',
+    statut: 'officiel',
     title: 'Michaël Cuisance signe jusqu’en 2030 : le milieu débarque du Hertha Berlin',
     excerpt: 'Le milieu de 26 ans s’engage pour quatre saisons, pour un montant estimé autour de 5 M€ bonus compris.',
     image: 'images/players/cuisance.jpg',
@@ -597,7 +608,8 @@ window.ARTICLES = [
     date: '2026-07-03',
     time: '15:40',
     category: 'mercato',
-    title: 'Gift Links : Lens pousse pour le défenseur, mais le dossier avec l’AGF Aarhus se complique',
+    statut: 'rumeur',
+    title: 'Gift Links : Lens pousse pour l’ailier sud-africain, mais le dossier avec l’AGF Aarhus se complique',
     excerpt: 'Les Sang et Or auraient transmis une offre avoisinant les 5 M€ bonus compris. L’étalement du paiement proposé freine encore les négociations.',
     image: 'images/articles/giftlinks.jpg',
     featured: null,
@@ -681,6 +693,7 @@ window.ARTICLES = [
     date: '2026-07-01',
     time: '10:15',
     category: 'mag',
+    statut: 'rumeur',
     title: 'Loïs Openda de retour à Lens ? La piste d’un come-back agite le mercato',
     excerpt: 'L’attaquant belge, révélé sous les couleurs lensoises, alimente les rumeurs d’un retour aux sources.',
     image: 'images/articles/openda.jpg',
@@ -691,6 +704,7 @@ window.ARTICLES = [
       'Depuis, son parcours a connu des hauts et des bas, et une période plus délicate relancerait aujourd’hui l’hypothèse d’un retour aux sources.',
       'Émotionnellement, l’idée séduit une partie du public, qui garde le souvenir d’un buteur électrique et généreux dans l’effort.',
       'Sur le plan sportif et financier, le dossier reste néanmoins très hypothétique à ce stade. À prendre, donc, avec les précautions d’usage propres au marché des transferts.'
+      ,'Épilogue (mise à jour du 19/08) : le rêve s\u2019est envolé. Loïs Openda a finalement été prêté par la Juventus\u2026 à l\u2019Olympique Lyonnais, le 28 juillet (prêt payant de 3,5 M\u20ac). Le dossier est définitivement clos pour cet été.'
     ],
     sources: [
       { name: 'Mercato Live', url: 'https://www.mercatolive.fr/france/rc-lens.php' }
@@ -701,6 +715,7 @@ window.ARTICLES = [
     date: '2026-06-30',
     time: '17:30',
     category: 'mercato',
+    statut: 'rumeur',
     title: 'Attaque : le RC Lens se positionne sur le buteur marocain Tawfik Bentayeb',
     excerpt: 'Le FC Porto et l’Olympiakos suivent aussi de près l’avant-centre, ce qui pourrait faire grimper la note.',
     image: 'images/defaut/stade2.jpg',
@@ -721,6 +736,7 @@ window.ARTICLES = [
     date: '2026-06-30',
     time: '11:00',
     category: 'mercato',
+    statut: 'officiel',
     title: 'Anthony Bermont prêté à Angers pour emmagasiner du temps de jeu',
     excerpt: 'Accord trouvé entre les deux clubs pour le prêt de l’ailier de 21 ans, qui va tenter de franchir un cap.',
     image: 'images/articles/bermont.jpg',

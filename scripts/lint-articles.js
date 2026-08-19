@@ -30,7 +30,7 @@ A.forEach(a => {
     if (!inSummer && !inWinter && !exempt)
       console.log('::warning::[' + a.id + '] transfert officiel/confirm\u00e9 dat\u00e9 HORS fen\u00eatre de mercato (' + a.date + ') sans mention joker/libre/prolongation \u2014 v\u00e9rifier la plausibilit\u00e9 et la fen\u00eatre du championnat de destination');
   }
-  if (a.category === 'mercato' && new Date(a.date) > new Date('2026-08-18') && !a.statut)
+  if (a.category === 'mercato' && !a.statut)
     w('article mercato sans statut (officiel/confirme/rumeur obligatoire)');
 });
 if (errs.length) { errs.forEach(e => console.log('::error::' + e)); process.exit(1); }
