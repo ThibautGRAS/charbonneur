@@ -21,6 +21,15 @@ A.forEach(a => {
     if (!hasSolid) w('sourcé UNIQUEMENT par agrégateur non daté (' + FORBIDDEN_SOLE.join(', ') + ')');
   }
   if (a.statut && !VALID_ST.includes(a.statut)) w('statut invalide: ' + a.statut);
+  // Plausibilité : transfert "officiel/confirmé" hors fenêtre (France été: 10/06→01/09, hiver: 01/01→05/02)
+  if (a.category === 'mercato' && a.date && ['officiel','confirme'].includes(a.statut)) {
+    const md = a.date.slice(5); // MM-JJ
+    const inSummer = md >= '06-10' && md <= '09-01';
+    const inWinter = md >= '01-01' && md <= '02-05';
+    const exempt = /joker|libre|sans club|prolong|staff|entra\u00eeneur|stagiaire/i.test(a.title + ' ' + a.excerpt + ' ' + (a.body || []).join(' '));
+    if (!inSummer && !inWinter && !exempt)
+      console.log('::warning::[' + a.id + '] transfert officiel/confirm\u00e9 dat\u00e9 HORS fen\u00eatre de mercato (' + a.date + ') sans mention joker/libre/prolongation \u2014 v\u00e9rifier la plausibilit\u00e9 et la fen\u00eatre du championnat de destination');
+  }
   if (a.category === 'mercato' && new Date(a.date) > new Date('2026-08-18') && !a.statut)
     w('article mercato sans statut (officiel/confirme/rumeur obligatoire)');
 });

@@ -78,3 +78,8 @@ La crédibilité du site prime sur la fraîcheur. Règles absolues :
   Badge affiché sur le site et dans la newsletter.
 - **`node scripts/lint-articles.js`** doit passer AVANT tout commit d'articles
   (aussi exécuté en CI à chaque push : workflow lint-articles.yml).
+6. **Plausibilité calendrier mercato** : hors fenêtre de transferts (cf. DOSSIERS.md),
+   un transfert/prêt est IMPOSSIBLE — seuls joker médical, joueur libre, prolongation
+   ou staff. Vérifier la fenêtre du championnat de destination (certaines ferment plus
+   tard : Turquie, Belgique, Golfe...). Toute « info transfert » hors fenêtre = rumeur
+   pour la fenêtre suivante ou fausse news.

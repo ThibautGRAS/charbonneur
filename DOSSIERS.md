@@ -38,3 +38,12 @@
 - Trophée des Champions REMPORTÉ 1-0 vs PSG (16/08, Bollaert, but Thauvin 32e) — 1er de l'histoire.
 - J1 : Lens–Auxerre samedi 22/08 17h15 (Ligue 1+, arbitre Vernice, Will Still sur le banc AJA).
 - LdC : 1er match à Bollaert le 10/09.
+
+## 📅 FENÊTRES DE TRANSFERTS — test de plausibilité obligatoire
+Hors fenêtre, AUCUN transfert ni prêt n'est possible. Seules exceptions :
+**joker médical**, **joueur libre** (sans club), **prolongations** de contrat,
+et mouvements de **staff**. Toute « info transfert » datée hors fenêtre est donc
+soit une rumeur pour la fenêtre suivante (à écrire comme telle, au conditionnel),
+soit une fausse/vieille news → ne pas publier.
+- **France 2026-27** : été = 10 juin → 1er septembre 2026 20h00 · hiver = début janvier → début février 2027 (vérifier les dates exactes LFP à l'ouverture).
+- Grands championnats européens : clôtures été autour du 1er septembre, MAIS chaque pays a ses dates propres (et certaines ligues — Turquie, Belgique, Golfe — ferment PLUS TARD : un départ lensois vers ces destinations reste possible après le 1/09). Vérifier la fenêtre du championnat de DESTINATION avant d'écrire.
