@@ -11,6 +11,10 @@ on:
         description: "Fenêtre d'articles en jours"
         required: false
         default: "7"
+      mode:
+        description: "campaign (défaut) ou direct (transactionnel individuel, contournement)"
+        required: false
+        default: "campaign"
       min_age_h:
         description: "Sas de maturation en heures pour l'envoi réel (0 = dérogation explicite)"
         required: false
@@ -37,4 +41,5 @@ jobs:
           TEST_EMAIL: ${{ github.event.inputs.test_email }}
           DAYS: ${{ github.event.inputs.days || '7' }}
           MIN_AGE_H: ${{ github.event.inputs.min_age_h || '24' }}
+          MODE: ${{ github.event.inputs.mode || 'campaign' }}
         run: node scripts/newsletter.js

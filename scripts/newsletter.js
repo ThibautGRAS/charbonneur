@@ -138,6 +138,36 @@ async function api(path, opts = {}) {
     return;
   }
 
+  // Mode direct : contournement du moteur de campagnes (transactionnel individuel)
+  if ((process.env.MODE || '').toLowerCase() === 'direct') {
+    let listId = parseInt(process.env.LIST_ID || '0', 10);
+    if (!listId) {
+      const lists = (await api('/contacts/lists?limit=10')).lists || [];
+      listId = lists.length ? lists[0].id : 0;
+    }
+    const emails = [];
+    for (let off = 0; ; off += 500) {
+      const page = (await api('/contacts/lists/' + listId + '/contacts?limit=500&offset=' + off)).contacts || [];
+      page.forEach(c => { if (!c.emailBlacklisted) emails.push(c.email); });
+      if (page.length < 500) break;
+    }
+    if (!emails.length) throw new Error('Liste ' + listId + ' vide — envoi direct annulé');
+    const unsubFoot = '<a href="mailto:' + sender.email + '?subject=D%C3%A9sinscription%20newsletter" style="color:#8d8578">Se d\u00e9sinscrire</a>';
+    let ok = 0, ko = 0;
+    for (const to of emails) {
+      try {
+        await api('/smtp/email', { method: 'POST', body: JSON.stringify({
+          sender, to: [{ email: to }], subject,
+          htmlContent: html.replace('{{ unsubscribe }}', unsubFoot)
+        }) });
+        ok++;
+      } catch (e) { ko++; console.log('::warning::échec vers un destinataire : ' + String(e.message).slice(0, 120)); }
+      await new Promise(r => setTimeout(r, 400));
+    }
+    console.log('::notice::Envoi DIRECT terminé : ' + ok + ' délivré(s) au transactionnel, ' + ko + ' échec(s), ' + arts.length + ' articles.');
+    return;
+  }
+
   // Envoi réel : campagne à la liste
   let listId = parseInt(process.env.LIST_ID || '0', 10);
   if (!listId) {
