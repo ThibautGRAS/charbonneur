@@ -24,7 +24,7 @@ eval(fs.readFileSync('data/articles.js', 'utf8'));
 const cutoff = Date.now() - DAYS * 864e5;
 const isTest = !!process.env.TEST_EMAIL;
 // Sas de maturation : en envoi réel, un article doit avoir vécu >= 24h sur le site
-const MIN_AGE_MS = isTest ? 0 : 24 * 3600e3;
+const MIN_AGE_MS = isTest ? 0 : parseFloat(process.env.MIN_AGE_H !== undefined && process.env.MIN_AGE_H !== '' ? process.env.MIN_AGE_H : '24') * 3600e3;
 // Péremption : une rumeur > 72h non passée en confirmé/officiel n'est plus envoyée
 const RUMOR_TTL_MS = 72 * 3600e3;
 const arts = window.ARTICLES
