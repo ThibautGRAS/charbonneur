@@ -9,6 +9,53 @@
 
 window.ARTICLES = [
   {
+    id: 'j1-auxerre-will-still',
+    date: '2026-08-19',
+    time: '10:30',
+    category: 'saison',
+    title: 'J1 : Auxerre et Will Still à Bollaert samedi pour lancer la saison des champions d\u2019été',
+    excerpt: 'La Ligue 1 reprend samedi à 17h15 à Bollaert face à une AJA remaniée mais lancée, désormais dirigée par un certain Will Still. Hazard purge son dernier match de suspension, et un mauvais souvenir d\u2019avril 2025 sert de piqûre de rappel.',
+    image: 'images/defaut/stade2.jpg',
+    featured: null,
+    pinned: false,
+    hot: true,
+    body: [
+      'Trois jours après le sacre au Trophée des Champions, place aux choses sérieuses : le Racing lance sa saison de Ligue 1 samedi à 17h15, à Bollaert, face à l\u2019AJ Auxerre. Une affiche de reprise qui a du sel, puisqu\u2019elle marque le retour dans l\u2019Artois de Will Still, désormais patron du banc bourguignon.',
+      'L\u2019AJA nouvelle version arrive lancée : après quatre saisons sous Christophe Pélissier, le club a confié les clés à l\u2019ancien entraîneur lensois, et a conclu sa préparation par une victoire convaincante sur la pelouse du Werder Brême (1-0). Un signal à ne pas prendre à la légère.',
+      'Côté lensois, Dino Toppmöller devra encore composer sans Thorgan Hazard, qui purge samedi son dernier match de suspension, mais avec un groupe en pleine confiance et un Bollaert déjà bouillant. Le technicien allemand a d\u2019ailleurs vu ses paris du Trophée validés : Titraoui dans l\u2019entrejeu et Ivanović sur le côté gauche ont pesé face au PSG.',
+      'L\u2019histoire récente invite tout de même à la prudence : la dernière visite d\u2019Auxerre à Bollaert, en avril 2025, s\u2019était soldée par une gifle mémorable (0-4) en pleine course au titre. Les Sang et Or ont une revanche à prendre devant leur public.',
+      'La rencontre, dirigée par Mathieu Vernice, sera diffusée sur Ligue 1+. Elle ouvrira un enchaînement copieux : déplacement à Strasbourg le 29 août, réception de Lorient le 5 septembre, puis le grand retour de la Ligue des champions à Bollaert le 10 septembre.'
+    ],
+    sources: [
+      { name: 'But! Football Club', url: 'https://www.butfootballclub.fr/1691525-rc-lens-auxerre-ete-grands-changements/' },
+      { name: 'Lensois.com (arbitrage)', url: 'https://www.lensois.com/' },
+      { name: 'Lens-Actu (calendrier & diffusion)', url: 'https://www.lens-actu.fr/' }
+    ]
+  },
+  {
+    id: 'mercato-defense-obert-bondo',
+    date: '2026-08-19',
+    time: '09:45',
+    category: 'mercato',
+    title: 'Dernier renfort défensif : après les échecs Obispo et Obert, le Racing ratisse large',
+    excerpt: 'Le feuilleton du défenseur gaucher se complique : Obispo est finalement retourné au PSV cet été malgré un accord quasi bouclé, et Cagliari vient de repousser environ 10 M\u20ac pour Adam Obert. Bondo, Links, Rees-Dottin\u2026 et même le rêve Openda animent la fin de mercato.',
+    image: 'images/defaut/lens3.jpg',
+    featured: null,
+    pinned: false,
+    body: [
+      'Précision importante sur un dossier que nous évoquions ces derniers jours : le transfert d\u2019Armando Obispo ne se fera pas. Alors qu\u2019un accord autour de 5,5 M\u20ac avait été trouvé avec le PSV et que le défenseur néerlandais avait fait le déplacement dans l\u2019Artois, les négociations ont capoté sur les derniers détails, et le joueur est retourné à Eindhoven, sans cacher sa déception.',
+      'La piste suivante vient elle aussi de se refermer, au moins provisoirement : selon la presse, Cagliari a repoussé une offre lensoise d\u2019environ 8 M\u20ac plus 2 M\u20ac de bonus pour le défenseur central slovaque Adam Obert. Un refus catégorique qui oblige Jean-Louis Leca à élargir son champ de recherche à moins de deux semaines de la fin du marché.',
+      'Plusieurs noms circulent désormais : un intérêt s\u2019est manifesté pour Warren Bondo, le milieu de l\u2019AC Milan, sous forme de prêt avec option d\u2019achat, tandis que le dossier de l\u2019ailier sud-africain Gift Links aurait été réactivé. La pépite de Bournemouth Rees-Dottin reste suivie, mais la concurrence, dont l\u2019ASSE, s\u2019emballe.',
+      'Et puis il y a le rêve un peu fou qui agite les réseaux sang et or : un retour de Loïs Openda. Un prêt avec option d\u2019achat depuis la Juventus est évoqué, avec un accord de principe qui resterait à confirmer — et un effort salarial conséquent à consentir. À ce stade, rien de concret, mais le simple nom de l\u2019attaquant belge suffit à faire rêver Bollaert.',
+      'Bonne nouvelle enfin dans le sens des départs : le PSG s\u2019est retiré du dossier Robin Risser. Le gardien alsacien, impérial face à Paris dimanche, devrait bien garder la cage lensoise cette saison, même si la Juventus et Aston Villa resteraient à l\u2019affût.'
+    ],
+    sources: [
+      { name: 'But! Football Club (Obert, Obispo)', url: 'https://www.butfootballclub.fr/actualites/ligue-1/rc-lens/' },
+      { name: 'RCLensois (Bondo, Links)', url: 'https://www.rclensois.fr/' },
+      { name: 'Jeunes Footeux (Openda, Rees-Dottin, Risser)', url: 'https://www.jeunesfooteux.com/RC-Lens_r134.html' }
+    ]
+  },
+  {
     id: 'nawrocki-officiel-said-qatar',
     date: '2026-08-17',
     time: '12:00',
