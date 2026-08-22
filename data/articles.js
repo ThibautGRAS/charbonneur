@@ -9,6 +9,30 @@
 
 window.ARTICLES = [
   {
+    id: 'mercato-doctrine-leca-jeunes',
+    date: '2026-08-22',
+    time: '15:00',
+    category: 'mercato',
+    statut: 'confirme',
+    title: 'Dernière ligne droite du mercato : la doctrine Leca, un central en priorité et les jeunes en mouvement',
+    excerpt: 'À dix jours de la fermeture (1er septembre, 19h59), le cap est clair : aucune recrue au-dessus de 8 M\u20ac, un défenseur central pour remplacer Sarr en priorité, et une gestion active des jeunes — Labeau-Lascary prêté à\u2026 Auxerre avec obligation d\u2019achat, Capuano à QRM, Fofana courtisé par les Rangers.',
+    image: 'images/defaut/lens2.jpg',
+    featured: null,
+    pinned: false,
+    body: [
+      'Jean-Louis Leca a levé le voile sur la stratégie du club dans un entretien à Corse Matin, et les chiffres de l\u2019été la confirment : aucune recrue n\u2019a coûté plus de 8 M\u20ac, Titraoui étant l\u2019achat le plus onéreux. Un modèle économique durable assumé, fidèle à la ligne de Joseph Oughourlian — et validé sur le terrain par le Trophée des Champions.',
+      'La priorité de la fin de mercato est identifiée de longue date : selon La Voix du Nord, le club cherche avant tout un défenseur central pour compenser le départ de Malang Sarr, avec une enveloppe évoquée autour de 6 M\u20ac pour un profil gaucher. Après les dossiers Obispo et Obert refermés, la cellule de recrutement joue contre la montre : le marché ferme le mardi 1er septembre à 19h59.',
+      'En attendant, le club gère activement sa génération dorée de La Gaillette. Le clin d\u2019\u0153il du calendrier est savoureux : Rémy Labeau-Lascary a été prêté\u2026 à l\u2019AJ Auxerre, l\u2019adversaire du soir, dans le cadre d\u2019un prêt payant de 1,5 M\u20ac assorti d\u2019une obligation d\u2019achat en cas de maintien — une opération qui pourrait rapporter 5 M\u20ac supplémentaires au Racing en 2027.',
+      'Autres mouvements chez les jeunes : Gabin Capuano a été officiellement prêté à Quevilly-Rouen le 15 août pour engranger du temps de jeu en Ligue 2, après le prêt de Jeremy Agbonifo à Angers fin juillet. Et un dossier chaud s\u2019invite dans le sens des départs : selon Sun Sport, les Glasgow Rangers se seraient positionnés sur l\u2019attaquant Rayan Fofana.',
+      'Dix jours de marché, une Ligue des champions qui arrive le 10 septembre, et une doctrine qui ne pliera pas : les dernières heures du mercato lensois s\u2019annoncent stratégiques plus que spectaculaires. À moins qu\u2019une opportunité de fin de fenêtre ne vienne tester la fermeté de la ligne Leca.'
+    ],
+    sources: [
+      { name: 'Allez Lens (doctrine Leca / Corse Matin, Fofana-Rangers)', url: 'https://allezlens.fr/' },
+      { name: 'SiteRCL (Labeau-Lascary, fermeture du marché)', url: 'https://www.sitercl.com/JOUEURS0/JOUEURS1/JO11tran.htm' },
+      { name: 'MercatoLive (Capuano officiel, priorité défense LVDN)', url: 'https://mercatolive.fr/france/rc-lens/' }
+    ]
+  },
+  {
     id: 'doctrine-leca-8-millions',
     date: '2026-08-22',
     time: '12:00',

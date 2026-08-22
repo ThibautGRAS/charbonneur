@@ -61,3 +61,12 @@ soit une fausse/vieille news → ne pas publier.
   concurrence Porto/Olympiakos), **Gift Links** (ailier, AGF Aarhus, offre ~5 M€ freinée).
 - Gardiens : RÉSOLU — **Koffi prêté à l'Union Saint-Gilloise le 01/08** (tableau Foot Mercato).
   Risser n°1 confirmé. **Capuano prêté à Quevilly-Rouen le 15/08** (officiel).
+
+## Mise à jour du 22/08 (avant J1)
+- **Doctrine mercato confirmée** (Leca, Corse Matin) : aucune recrue > 8 M€.
+- **Priorité** : défenseur CENTRAL post-Sarr (LVDN), ~6 M€ pour un gaucher. Fermeture : mardi 01/09 à **19h59** (et non 20h).
+- **Jeunes** : Labeau-Lascary → prêt payant 1,5 M€ à l'AJ AUXERRE avec OBLIGATION d'achat si maintien (5 M€ en 2027) ; Capuano → QRM (officiel 15/08) ; Agbonifo → Angers (prêt, fin juillet).
+- **Rumeur départ** : Rayan Fofana courtisé par les Glasgow Rangers (Sun Sport, 21/08).
+- **Trophée des Champions** : 2 expulsions lensoises contre le PSG (dont Antonio) — sa suspension explique son absence vs Auxerre.
+- ⚠️ **Piège infobox** : Wikipédia et TopMercato affichent encore « Pierre Sage » entraîneur (fiches périmées, Sage = saison 25-26). Entraîneur actuel : **Toppmöller** (sources datées 20-21/08). Ne JAMAIS se fier à une infobox non datée.
+- J1 Lens-Auxerre EN COURS à l'heure de cette maj (22/08 18h15) → compte-rendu à faire APRÈS le coup de sifflet final uniquement.
