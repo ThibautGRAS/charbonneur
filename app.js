@@ -1167,6 +1167,8 @@
     })();
     // Score EN DIRECT : lit data/live.json (poussé par GitHub Actions) toutes les 60 s
     (function () {
+      // URL du proxy Cloudflare (vrai live). Vide = repli sur live.json (quasi-direct 3-6 min).
+      var LIVE_WORKER = '';
       var RAW = 'https://raw.githubusercontent.com/ThibautGRAS/charbonneur/main/data/live.json';
       var box = document.getElementById('lastMatch');
       if (!box) return;
@@ -1192,10 +1194,13 @@
             : '');
       }
       function tick() {
-        fetch(RAW + '?t=' + Date.now()).then(function (r) { return r.json(); }).then(render).catch(function () {});
+        var src = LIVE_WORKER || (RAW + '?t=' + Date.now());
+        fetch(src).then(function (r) { return r.json(); }).then(render).catch(function () {
+          if (LIVE_WORKER) fetch(RAW + '?t=' + Date.now()).then(function (r) { return r.json(); }).then(render).catch(function () {});
+        });
       }
       tick();
-      setInterval(tick, 60000);
+      setInterval(tick, LIVE_WORKER ? 30000 : 60000);
     })();
     document.getElementById('loadmore').addEventListener('click', renderMore);
     function setMenu(open) {
