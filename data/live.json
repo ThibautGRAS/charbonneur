@@ -1,0 +1,17 @@
+{
+ "status": "IN_PLAY",
+ "minute": null,
+ "utcDate": "2026-08-22T15:15:00Z",
+ "competition": "Ligue 1",
+ "home": {
+  "name": "RC Lens",
+  "tla": "RCL",
+  "score": 3
+ },
+ "away": {
+  "name": "Auxerre",
+  "tla": "AJA",
+  "score": 1
+ },
+ "updated": "2026-08-22T16:35:57.366Z"
+}
