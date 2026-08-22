@@ -1,12 +1,12 @@
 {
- "status": "IN_PLAY",
+ "status": "FINISHED",
  "minute": null,
  "utcDate": "2026-08-22T15:15:00Z",
  "competition": "Ligue 1",
  "home": {
   "name": "RC Lens",
   "tla": "RCL",
-  "score": 4
+  "score": 5
  },
  "away": {
   "name": "Auxerre",
@@ -14,5 +14,5 @@
   "score": 2
  },
  "goals": [],
- "updated": "2026-08-22T16:51:46.539Z"
+ "updated": "2026-08-22T17:27:37.962Z"
 }
