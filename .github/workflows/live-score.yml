@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - name: Interroger le score
-        env: { FOOTBALL_DATA_KEY: "${{ secrets.FOOTBALL_DATA_KEY }}" }
+        env: { FOOTBALL_DATA_KEY: "${{ secrets.FOOT }}" }
         run: node scripts/live-update.js
       - name: Pousser si changement
         run: |
