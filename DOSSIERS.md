@@ -23,16 +23,20 @@
 ## 🚫 CLOS — ne plus JAMAIS citer comme pistes
 - **Loïs Openda** → prêté par la Juventus à l'OL le 28/07 (prêt payant 3,5 M€). Retour à Lens ENTERRÉ. (Erreur publiée le 19/08, corrigée le jour même.)
 - **Armando Obispo** → resté au PSV : transfert capoté fin juillet sur les derniers détails malgré accord ~5,5 M€. (Erreur « en approche » publiée le 17/08, corrigée le 19/08.)
-- **Erawan Garnier** : ne jouera pas à Lens cette saison (fin juillet).
+- **Erawan Garnier** : ne jouera pas à Lens cette saison — transféré à Bastia le 29/07.
+- **Tawfik Bentayeb** : ne viendra pas (AllezLens, 22/08). Piste offensive refermée.
 
 ## 🔄 EN COURS (à revérifier à CHAQUE session)
-- **Défenseur central gaucher** : priorité n°1 de fin de mercato (fenêtre ferme le 01/09 20h).
+- **Défenseur central gaucher** : priorité n°1 de fin de mercato (fenêtre ferme le 01/09 19h59).
   - **Adam Obert** (Cagliari) : refus d'une offre ~8+2 M€ le 18/08. Dossier bloqué.
   - **Rees-Dottin** (Bournemouth) : suivi, forte concurrence dont ASSE (17/08). Rumeur.
 - **Ilan Kebbal** (Paris FC) : piste offensive évoquée 04-05/08, concurrence OM. Rumeur, pas de nouvelle depuis → revérifier avant de reciter.
 - **Ganiou** : prolongé (officiel 08/08) ; courtisé en Premier League, prix évoqué 50 M€+ (17/08).
 - **Risser** : conservé, le PSG s'est retiré (17/08) ; Juventus/Aston Villa cités à l'affût. 
 - **Hazard** : suspendu, dernier match purgé le 22/08 vs Auxerre.
+- **Rayan Fofana** : courtisé par les Glasgow Rangers (Sun Sport, 21/08). Rumeur départ.
+- **Lens ↔ Sunderland** : un dossier au point mort malgré l'amitié Leca-Ghisolfi (22/08, joueur non identifié publiquement).
+- **Doctrine mercato** : aucun achat > 8 M€ (Leca, Corse Matin, ~21/08) — cadre pour toute rumeur d'achat.
 
 ## 🏟️ CLUB
 - Trophée des Champions REMPORTÉ 1-0 vs PSG (16/08, Bollaert, but Thauvin 32e) — 1er de l'histoire.
@@ -45,7 +49,7 @@ Hors fenêtre, AUCUN transfert ni prêt n'est possible. Seules exceptions :
 et mouvements de **staff**. Toute « info transfert » datée hors fenêtre est donc
 soit une rumeur pour la fenêtre suivante (à écrire comme telle, au conditionnel),
 soit une fausse/vieille news → ne pas publier.
-- **France 2026-27** : été = 10 juin → 1er septembre 2026 20h00 · hiver = début janvier → début février 2027 (vérifier les dates exactes LFP à l'ouverture).
+- **France 2026-27** : été = 10 juin → 1er septembre 2026 19h59 · hiver = début janvier → début février 2027 (vérifier les dates exactes LFP à l'ouverture).
 - Grands championnats européens : clôtures été autour du 1er septembre, MAIS chaque pays a ses dates propres (et certaines ligues — Turquie, Belgique, Golfe — ferment PLUS TARD : un départ lensois vers ces destinations reste possible après le 1/09). Vérifier la fenêtre du championnat de DESTINATION avant d'écrire.
 
 ## 🗃️ Audit rétroactif du 19/08 (articles historiques)
@@ -55,5 +59,5 @@ soit une fausse/vieille news → ne pas publier.
 - Pistes dormantes (rumeurs, aucune suite publique connue au 19/08, à revérifier avant
   toute nouvelle citation) : **Noël Atom** (libre, ex-Brighton), **Bentayeb** (buteur,
   concurrence Porto/Olympiakos), **Gift Links** (ailier, AGF Aarhus, offre ~5 M€ freinée).
-- Gardiens : hiérarchie mouvante début juillet (retour Koffi, poussée Risser) ;
-  Koffi cité en instance de départ fin juillet — STATUT À VÉRIFIER avant d'en parler.
+- Gardiens : RÉSOLU — **Koffi prêté à l'Union Saint-Gilloise le 01/08** (tableau Foot Mercato).
+  Risser n°1 confirmé. **Capuano prêté à Quevilly-Rouen le 15/08** (officiel).

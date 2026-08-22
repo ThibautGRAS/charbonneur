@@ -9,6 +9,53 @@
 
 window.ARTICLES = [
   {
+    id: 'doctrine-leca-8-millions',
+    date: '2026-08-22',
+    time: '12:00',
+    category: 'mercato',
+    statut: 'confirme',
+    title: 'La doctrine Leca : pas un seul achat à plus de 8 M\u20ac, le choix radical qui a déjà payé',
+    excerpt: 'Dans un entretien à Corse Matin, Jean-Louis Leca assume la ligne fixée avec Joseph Oughourlian : un modèle économique durable, vendre fort, acheter sobre. Résultat : 48 M\u20ac encaissés pour Sangaré, aucun achat au-dessus de 8 M\u20ac\u2026 et déjà un trophée.',
+    image: 'images/defaut/lens2.jpg',
+    featured: null,
+    pinned: false,
+    body: [
+      'À quelques jours du retour du Racing en Ligue des champions, Jean-Louis Leca a levé le voile sur la stratégie sportive du club dans un entretien accordé à Corse Matin. Le discours est limpide, et fidèle à la ligne défendue par Joseph Oughourlian : privilégier un modèle économique durable plutôt qu\u2019une inflation des dépenses.',
+      'Les chiffres de l\u2019été parlent d\u2019eux-mêmes : pas un seul recrutement n\u2019a dépassé les 8 M\u20ac. Yacine Titraoui, arrivé de Charleroi précisément pour cette somme, est l\u2019achat le plus cher, devant Michał Skóraś (environ 6 M\u20ac). Dans l\u2019autre sens, la vente record de Mamadou Sangaré à Brentford (48 M\u20ac) illustre l\u2019autre pilier du modèle : former, valoriser, vendre fort.',
+      'L\u2019époque où la qualification en Ligue des champions donnait des ailes à la direction sportive est révolue, assument les dirigeants : les erreurs du passé, quand les ambitions européennes avaient déséquilibré les finances, ne seront pas répétées, même après une saison conclue à la deuxième place.',
+      'Le pari peut sembler austère, mais il a déjà rapporté un trophée : c\u2019est avec cet effectif reconstruit à l\u2019économie que les Sang et Or ont fait tomber le PSG au Trophée des Champions. Les prêts malins (Ivanović, via Benfica) et les paris ciblés (Nawrocki, Titraoui) remplacent les gros chèques.',
+      'Reste la dernière ligne droite du marché, qui ferme le mardi 1er septembre à 19h59 : un défenseur central gaucher et un renfort d\u2019aile gauche sont toujours recherchés — dans le respect, évidemment, de la doctrine des 8 millions.'
+    ],
+    sources: [
+      { name: 'AllezLens (« le choix radical », 22/08)', url: 'https://allezlens.fr/category/mercato-rc-lens/' },
+      { name: 'Foot01 (21/08)', url: 'https://www.foot01.com/lens/lens-tape-le-psg-et-annonce-la-couleur-au-mercato' },
+      { name: 'Livefoot / Corse Matin (Leca prend la parole)', url: 'https://www.livefoot.fr/france/ligue1/rc-lens.php' }
+    ]
+  },
+  {
+    id: 'fin-mercato-bentayeb-fofana',
+    date: '2026-08-22',
+    time: '13:30',
+    category: 'mercato',
+    statut: 'confirme',
+    title: 'Dernière ligne droite : Bentayeb ne viendra pas, les Rangers rôdent autour de Rayan Fofana',
+    excerpt: 'À dix jours de la fermeture du marché, deux dossiers évoluent : l\u2019attaquant marocain Tawfik Bentayeb ne rejoindra finalement pas l\u2019Artois, tandis que les Glasgow Rangers auraient inscrit Rayan Fofana sur leurs tablettes. L\u2019aile gauche, elle, reste un chantier ouvert.',
+    image: 'images/defaut/lens3.jpg',
+    featured: null,
+    pinned: false,
+    body: [
+      'Le marché ferme le mardi 1er septembre à 19h59, et les dossiers se décantent. Premier verdict, rapporté ce samedi par AllezLens : Tawfik Bentayeb ne rejoindra pas le Racing. L\u2019attaquant marocain, annoncé dans le viseur lensois depuis le printemps face à la concurrence du FC Porto et de l\u2019Olympiakos, poursuivra sa carrière ailleurs. Une piste de plus qui se referme dans le secteur offensif.',
+      'Dans le sens des départs, une rumeur venue d\u2019Écosse agite le week-end : selon le Sun Sport, les Glasgow Rangers auraient inscrit Rayan Fofana sur leur liste. Rien d\u2019officiel à ce stade, et le club n\u2019a pas communiqué — mais tant que le marché reste ouvert, tout peut basculer, dans les deux sens.',
+      'Le grand chantier de la fin d\u2019été reste inchangé : l\u2019aile gauche. Plusieurs pistes ont circulé ces dernières semaines sans qu\u2019aucune n\u2019aboutisse à ce jour, et la quête du défenseur central gaucher, relancée après les dossiers Obispo et Obert, n\u2019a pas encore trouvé son épilogue non plus.',
+      'À noter enfin, côté coulisses : un dossier entre Lens et Sunderland serait au point mort malgré l\u2019amitié connue entre Jean-Louis Leca et Florent Ghisolfi — preuve que même entre amis, les affaires de fin de mercato se négocient âprement.',
+      'Dix jours de marché, deux postes à pourvoir, une doctrine à 8 millions : la cellule de recrutement lensoise va vivre une dernière ligne droite sous tension.'
+    ],
+    sources: [
+      { name: 'AllezLens (Bentayeb, Sunderland, aile gauche — 22/08)', url: 'https://allezlens.fr/category/mercato-rc-lens/' },
+      { name: 'Livefoot / Sun Sport (Fofana-Rangers, 21/08)', url: 'https://www.livefoot.fr/france/ligue1/rc-lens.php' }
+    ]
+  },
+  {
     id: 'j1-auxerre-will-still',
     date: '2026-08-19',
     time: '10:30',
@@ -726,6 +773,7 @@ window.ARTICLES = [
       'Le profil séduit, mais le club artésien n’est pas seul sur le coup : plusieurs formations européennes, dont le FC Porto et l’Olympiakos, suivraient également le joueur.',
       'Cette concurrence pourrait logiquement faire grimper le prix et compliquer l’opération, dans un marché où les bons buteurs se disputent à prix fort.',
       'Le dossier illustre la volonté lensoise de renforcer l’animation offensive, un secteur toujours scruté par les supporters en quête de garanties de buts.'
+      ,'Épilogue (mise à jour du 22/08) : la piste est officiellement refermée. Tawfik Bentayeb ne rejoindra pas l\u2019Artois, comme rapporté par AllezLens à dix jours de la fermeture du marché.'
     ],
     sources: [
       { name: 'MediaSportif', url: 'https://www.mediasportif.fr/' }
