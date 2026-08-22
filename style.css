@@ -493,10 +493,15 @@ body.lamp-disabled #mine .cage{box-shadow:none!important}
 
 /* ============ MOBILE ============ */
 @media(max-width:820px){
-  .menu{position:fixed;top:0;right:0;bottom:0;width:min(78vw,320px);flex-direction:column;justify-content:center;gap:1.5rem;padding:2rem;background:#0a0807;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-left:1px solid var(--brd);transform:translateX(100%);visibility:hidden;transition:transform .4s var(--e),visibility 0s linear .4s;z-index:70}
-  .menu.open{transform:translateX(0);visibility:visible;transition:transform .4s var(--e)}
-  /* voile sous le panneau : un tap dessus ferme le menu, et le fond ne défile plus */
-  body.menu-open::after{content:'';position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:69}
+  /* Menu plein écran — technique display:none/flex, incassable sur iOS */
+  .menu{display:none;position:fixed;inset:0;z-index:80;background:#0a0807;flex-direction:column;justify-content:center;align-items:flex-start;gap:1.6rem;padding:4.5rem 2.2rem;margin:0;list-style:none}
+  .menu.open{display:flex}
+  .menu li{width:100%}
+  .menu a{display:block;font-size:1.55rem;font-weight:800;color:var(--ink);padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+  .menu a:active{color:var(--or)}
+  .menu-close-row{position:absolute;top:calc(.9rem + env(safe-area-inset-top,0px));right:1.1rem;width:auto!important}
+  #menuClose{font-size:1.5rem;line-height:1;color:var(--ink);background:rgba(255,255,255,.07);border:1px solid var(--brd);border-radius:50%;width:46px;height:46px}
+  #menuDirect.is-live::before{content:'';display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--sang);margin-right:.5rem;vertical-align:middle;animation:livePulse 1.2s infinite}
   body.menu-open{overflow:hidden}
   #filWidget{margin-bottom:1.4rem}
   .menu a{font-size:1.2rem}

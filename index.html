@@ -92,9 +92,11 @@
     </a>
     <nav>
       <ul class="menu" id="menu">
+        <li class="menu-close-row"><button id="menuClose" aria-label="Fermer le menu">✕</button></li>
         <li><a href="#top">Accueil</a></li>
         <li><a href="#actu">Actu</a></li>
         <li><a href="#tv">Vidéos</a></li>
+        <li><a href="#direct" id="menuDirect">Direct</a></li>
         <li><a href="#histoire">Histoire</a></li>
         <li><a href="#palmares">Palmarès</a></li>
         <li><a href="#effectif">Effectif</a></li>
@@ -149,7 +151,7 @@
             </div>
           </section>
 
-          <section class="widget reveal">
+          <section class="widget reveal" id="direct">
             <div class="widget-title">Dernier match</div>
             <div class="widget-body match" id="lastMatch"></div>
           </section>

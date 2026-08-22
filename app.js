@@ -170,7 +170,6 @@
       '<section class="hero">' +
         bg +
         '<div class="hero-veil"></div>' +
-        '<span class="live">● Bollaert · en direct de l’actu</span>' +
         '<div class="hero-inner">' +
           '<span class="hero-kicker">' + cat(a.category).label + ' · à la une</span>' +
           '<h2 class="hero-title">' + esc(a.title) + '</h2>' +
@@ -1174,6 +1173,8 @@
       var saved = null;
       function render(d) {
         var live = d.status === 'IN_PLAY' || d.status === 'PAUSED';
+        var md = document.getElementById('menuDirect');
+        if (md) md.classList.toggle('is-live', live);
         if (!live) { if (saved !== null) { box.innerHTML = saved; saved = null; } return; }
         if (saved === null) saved = box.innerHTML;
         var min = d.status === 'PAUSED' ? 'MT' : (d.minute ? d.minute + '\u2032' : 'En cours');
@@ -1197,6 +1198,8 @@
       document.body.classList.toggle('menu-open', open);
     }
     document.getElementById('burger').addEventListener('click', function (e) { e.stopPropagation(); setMenu(); });
+    var mc = document.getElementById('menuClose');
+    if (mc) mc.addEventListener('click', function (e) { e.stopPropagation(); setMenu(false); });
     var fab = document.getElementById('burgerFab');
     if (fab) fab.addEventListener('click', function (e) { e.stopPropagation(); setMenu(true); });
     // fermeture menu mobile au clic sur un lien
