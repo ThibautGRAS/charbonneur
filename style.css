@@ -504,8 +504,7 @@ body.lamp-disabled #mine .cage{box-shadow:none!important}
   #menuDirect.is-live::before{content:'';display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--sang);margin-right:.5rem;vertical-align:middle;animation:livePulse 1.2s infinite}
   body.menu-open{overflow:hidden}
   #filWidget{margin-bottom:1.4rem}
-  .menu a{font-size:1.2rem}
-  .burger{display:block;z-index:80;position:relative;font-size:1.35rem}
+  .burger{display:block;z-index:70;position:relative;font-size:1.35rem}
   /* barre du haut plus fine sur mobile */
   .nav-wrap{padding-top:.65rem;padding-bottom:.65rem}
   .logo{font-size:1rem;gap:.45rem}

@@ -100,3 +100,9 @@ Quand l'actu ne fournit pas 2 articles conformes, publier 1 article de fond (cat
 Interdits du plan B : rumeur non recoupée déguisée en analyse,« classements qui ont
 fuité » et contenus putaclic. Maximum 2 articles plan B par semaine pour garder le
 fil crédible.
+
+## 🔄 CACHE (obligatoire)
+Après TOUTE modification de style.css ou app.js, mettre à jour le paramètre `?v=`
+sur les deux balises dans index.html (format YYYYMMDDHHMM). Sans ce bump, GitHub
+Pages/Safari servent l'ancienne version pendant ~10 minutes et les tests mobiles
+sont trompeurs.
