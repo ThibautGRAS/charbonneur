@@ -1166,6 +1166,29 @@
           });
       });
     })();
+    // Score EN DIRECT : lit data/live.json (poussé par GitHub Actions) toutes les 60 s
+    (function () {
+      var RAW = 'https://raw.githubusercontent.com/ThibautGRAS/charbonneur/main/data/live.json';
+      var box = document.getElementById('lastMatch');
+      if (!box) return;
+      var saved = null;
+      function render(d) {
+        var live = d.status === 'IN_PLAY' || d.status === 'PAUSED';
+        if (!live) { if (saved !== null) { box.innerHTML = saved; saved = null; } return; }
+        if (saved === null) saved = box.innerHTML;
+        var min = d.status === 'PAUSED' ? 'MT' : (d.minute ? d.minute + '\u2032' : 'En cours');
+        box.innerHTML =
+          '<div class="live-line"><span class="live-dot"></span> EN DIRECT \u00b7 ' + esc(d.competition) + '</div>' +
+          '<div class="live-score">' + esc(d.home.tla) + ' <strong>' + (d.home.score == null ? '\u2013' : d.home.score) +
+          ' - ' + (d.away.score == null ? '\u2013' : d.away.score) + '</strong> ' + esc(d.away.tla) +
+          ' <span class="live-min">' + min + '</span></div>';
+      }
+      function tick() {
+        fetch(RAW + '?t=' + Date.now()).then(function (r) { return r.json(); }).then(render).catch(function () {});
+      }
+      tick();
+      setInterval(tick, 60000);
+    })();
     document.getElementById('loadmore').addEventListener('click', renderMore);
     function setMenu(open) {
       var mn = document.getElementById('menu');

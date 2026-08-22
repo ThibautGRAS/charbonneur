@@ -83,3 +83,20 @@ La crédibilité du site prime sur la fraîcheur. Règles absolues :
    ou staff. Vérifier la fenêtre du championnat de destination (certaines ferment plus
    tard : Turquie, Belgique, Golfe...). Toute « info transfert » hors fenêtre = rumeur
    pour la fenêtre suivante ou fausse news.
+
+## 📰 PLAN B ÉDITORIAL — jours creux (< 2 news fraîches publiables)
+Quand l'actu ne fournit pas 2 articles conformes, publier 1 article de fond (catégorie
+`saison` ou `mag`, sources datées OBLIGATOIRES quand même) parmi ces gabarits :
+1. **Éphéméride** : « il y a X ans jour pour jour » — un match/événement marquant du club
+   à la date du jour (ex. le 7-0 contre Auxerre du 20/08/2005). Croiser avec la frise
+   de la section Histoire du site pour la cohérence.
+2. **Stat de la semaine** : une statistique vérifiable de la saison en cours mise en
+   perspective (série en cours, buteurs, xG si source fiable, affluences Bollaert).
+3. **Projection** : calendrier à venir analysé (bloc de matchs, rotation probable,
+   suspensions/retours connus du DOSSIERS.md). Toujours au conditionnel, jamais de
+   pronostic présenté comme certain.
+4. **Portrait/anniversaire** : joueur ou légende (anniversaire, jalon de carrière),
+   en s'appuyant sur les fiches effectif et l'histoire du club.
+Interdits du plan B : rumeur non recoupée déguisée en analyse,« classements qui ont
+fuité » et contenus putaclic. Maximum 2 articles plan B par semaine pour garder le
+fil crédible.

@@ -540,3 +540,11 @@ body.lamp-disabled #mine .cage{box-shadow:none!important}
 .st-officiel{background:#2e9e5b;color:#fff}
 .st-confirme{background:transparent;color:var(--or);border:1px solid var(--or)}
 .st-rumeur{background:transparent;color:#ff9c9c;border:1px solid var(--sang)}
+
+/* ---- Score en direct ---- */
+.live-line{font-size:.68rem;font-weight:800;letter-spacing:.12em;color:var(--sang);text-transform:uppercase;display:flex;align-items:center;gap:.4rem}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--sang);animation:livePulse 1.2s infinite}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.25}}
+.live-score{font-size:1.25rem;color:var(--ink);margin-top:.45rem}
+.live-score strong{color:var(--or)}
+.live-min{font-size:.75rem;color:var(--ink-dim);margin-left:.4rem}

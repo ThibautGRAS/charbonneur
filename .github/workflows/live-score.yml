@@ -1,0 +1,27 @@
+name: Score en direct
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+permissions:
+  contents: write
+concurrency: live-score
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Interroger le score
+        env: { FOOTBALL_DATA_KEY: "${{ secrets.FOOTBALL_DATA_KEY }}" }
+        run: node scripts/live-update.js
+      - name: Pousser si changement
+        run: |
+          if [ -f .live-changed ]; then
+            rm .live-changed
+            git config user.name "charbonneurs-live" && git config user.email "actions@github.com"
+            git add data/live.json
+            git commit -m "live : mise à jour du score [skip ci]"
+            git pull --rebase origin main && git push origin main
+          fi
