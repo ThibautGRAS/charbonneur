@@ -16,7 +16,22 @@ if (!KEY) { console.log('::warning::FOOTBALL_DATA_KEY absent — direct désacti
   const matches = (await r.json()).matches || [];
   if (!matches.length) { console.log('Pas de match Lens sur la fenêtre — rien à faire.'); process.exit(0); }
 
-  const m = matches.find(x => ['IN_PLAY', 'PAUSED'].includes(x.status)) || matches[0];
+  let m = matches.find(x => ['IN_PLAY', 'PAUSED'].includes(x.status)) || matches[0];
+  // Détail du match (inclut les buteurs si disponibles sur l'offre gratuite)
+  let goals = [];
+  try {
+    const det = await (await fetch('https://api.football-data.org/v4/matches/' + m.id, { headers: { 'X-Auth-Token': KEY } })).json();
+    if (det && det.match) det.goals = det.match.goals, det.status = det.match.status;
+    if (Array.isArray(det.goals)) {
+      goals = det.goals.map(g => ({
+        minute: g.minute,
+        scorer: (g.scorer || {}).name || '',
+        side: g.team && g.team.id === m.homeTeam.id ? 'home' : 'away',
+        type: g.type || ''
+      }));
+    }
+    if (det.minute !== undefined && det.minute !== null) m.minute = det.minute;
+  } catch (_) {}
   const home = m.homeTeam, away = m.awayTeam, sc = m.score;
   const cur = (sc.fullTime.home !== null ? sc.fullTime : sc.halfTime);
   const out = {
@@ -26,6 +41,7 @@ if (!KEY) { console.log('::warning::FOOTBALL_DATA_KEY absent — direct désacti
     competition: (m.competition || {}).name || '',
     home: { name: home.shortName || home.name, tla: home.tla, score: cur.home },
     away: { name: away.shortName || away.name, tla: away.tla, score: cur.away },
+    goals: goals,
     updated: now.toISOString()
   };
   const path = 'data/live.json';

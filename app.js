@@ -1182,7 +1182,14 @@
           '<div class="live-line"><span class="live-dot"></span> EN DIRECT \u00b7 ' + esc(d.competition) + '</div>' +
           '<div class="live-score">' + esc(d.home.tla) + ' <strong>' + (d.home.score == null ? '\u2013' : d.home.score) +
           ' - ' + (d.away.score == null ? '\u2013' : d.away.score) + '</strong> ' + esc(d.away.tla) +
-          ' <span class="live-min">' + min + '</span></div>';
+          ' <span class="live-min">' + min + '</span></div>' +
+          (Array.isArray(d.goals) && d.goals.length
+            ? '<ul class="live-goals">' + d.goals.map(function (g) {
+                return '<li class="' + (g.side === 'home' ? 'lg-home' : 'lg-away') + '">\u26bd ' +
+                  (g.minute ? g.minute + '\u2032 ' : '') + esc(g.scorer || '') +
+                  (g.type === 'PENALTY' ? ' (pen.)' : g.type === 'OWN' ? ' (csc)' : '') + '</li>';
+              }).join('') + '</ul>'
+            : '');
       }
       function tick() {
         fetch(RAW + '?t=' + Date.now()).then(function (r) { return r.json(); }).then(render).catch(function () {});
